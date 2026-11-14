@@ -252,6 +252,23 @@ details.qa .qb p{margin:0}
   .langsw button{padding:6px 9px}
   .hero h1{font-size:32px}
 }
+
+/* ---- large screens: scale the whole page with the window, keep the reading column centred ---- */
+:root{--z:1}
+@media (min-width:1600px){:root{--z:1.1}}
+@media (min-width:1920px){:root{--z:1.25}}
+@media (min-width:2240px){:root{--z:1.4}}
+@media (min-width:2560px){:root{--z:1.55}}
+@media (min-width:2880px){:root{--z:1.7}}
+@media (min-width:3200px){:root{--z:1.85}}
+@media (min-width:3600px){:root{--z:2}}
+.shell{zoom:var(--z);min-height:calc(100vh / var(--z))}
+.rail{height:calc(100vh / var(--z))}
+.main{max-width:1080px;margin-inline:auto}
+@media (min-width:901px){.main{padding-top:52px}}
+/* a heading that only gets focus from the script should not show a box */
+h2[tabindex="-1"]:focus,h2[tabindex="-1"]:focus-visible{outline:none}
+@media (max-width:900px){.rail{height:auto}}
 /* ---- diagram v2: a signal moving through the system ---- */
 :root{--glow:rgba(11,107,111,.22);--trail:rgba(11,107,111,.55)}
 :root[data-theme="dark"]{--glow:rgba(82,196,200,.28);--trail:rgba(82,196,200,.6)}
