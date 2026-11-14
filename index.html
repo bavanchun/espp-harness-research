@@ -168,7 +168,7 @@ body{background:var(--bg)}
 .progress{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:auto}
 .progress .bar-fill{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
 .langsw{align-self:flex-start}
-.main{padding:44px clamp(20px,4vw,56px) 64px;max-width:1000px;width:100%;outline:none}
+main.main{padding:44px clamp(20px,4vw,56px) 64px;max-width:1000px;width:100%;outline:none}
 .chapter{padding:0}
 .chapter[hidden]{display:none}
 .ch-head{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--line)}
@@ -231,7 +231,7 @@ details.qa .qb p{margin:0}
   .rail-list a{grid-template-columns:auto auto;padding:6px 10px;white-space:nowrap;border:1px solid var(--line)}
   .rail-list .dot{display:none}
   .progress{order:4;width:100%;margin:0}
-  .main{padding-top:28px}
+  main.main{padding-top:28px}
   .ch-no{font-size:34px}
 }
 @media (prefers-reduced-motion: reduce){.progress .bar-fill,.rail-list .dot{transition:none}}
@@ -264,8 +264,8 @@ details.qa .qb p{margin:0}
 @media (min-width:3600px){:root{--z:2}}
 .shell{zoom:var(--z);min-height:calc(100vh / var(--z))}
 .rail{height:calc(100vh / var(--z))}
-.main{max-width:1080px;margin-inline:auto}
-@media (min-width:901px){.main{padding-top:52px}}
+main.main{max-width:1080px;margin-inline:auto}
+@media (min-width:901px){main.main{padding-top:52px}}
 /* a heading that only gets focus from the script should not show a box */
 h2[tabindex="-1"]:focus,h2[tabindex="-1"]:focus-visible{outline:none}
 @media (max-width:900px){.rail{height:auto}}
@@ -344,6 +344,164 @@ svg.flow .gl{font-family:var(--mono);font-size:11px;fill:var(--muted)}
 .legend{padding:0 20px 16px}
 .fig .ib svg{display:block;width:18px;height:18px;min-width:0}
 .fig .ib.main svg{width:20px;height:20px}
+/* ---- sequence figure ---- */
+svg.seq{min-width:820px}
+svg.seq .life{stroke:var(--line);stroke-width:1.2;stroke-dasharray:2 5}
+svg.seq .lh{fill:var(--surface);stroke:var(--line);stroke-width:1}
+svg.seq .lane .stripe{fill:var(--line-strong)}
+svg.seq .lane.k-have .lh{fill:var(--have-tint)} svg.seq .lane.k-have .stripe{fill:var(--have)}
+svg.seq .lane.on .lh{stroke:var(--accent);stroke-width:2;fill:var(--accent-tint)}
+svg.seq .lane.on .life{stroke:var(--trail);stroke-dasharray:none;stroke-width:1.6}
+svg.seq .lt{font-size:13px;font-weight:600;fill:var(--ink)}
+svg.seq .ls{font-size:10.5px;fill:var(--muted)}
+svg.seq .band{fill:transparent;transition:fill .35s}
+svg.seq .band.now{fill:var(--accent-tint);opacity:.55}
+svg.seq .snum circle{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.2}
+svg.seq .snum text{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+svg.seq .snum.done circle{stroke:var(--trail)} svg.seq .snum.done text{fill:var(--accent)}
+svg.seq .snum.now circle{fill:var(--accent);stroke:var(--accent)} svg.seq .snum.now text{fill:var(--surface);font-weight:600}
+svg.seq .dur{font-family:var(--mono);font-size:10.5px;fill:var(--muted)}
+svg.seq .msg .mb{fill:none;stroke:var(--line-strong);stroke-width:1.3;marker-end:url(#mk-idle)}
+svg.seq .msg.ret .mb{stroke-dasharray:5 4}
+svg.seq .msg .mlv{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-dasharray:1 1;stroke-dashoffset:1;opacity:0;marker-end:url(#mk-live)}
+svg.seq .msg.ret .mlv{stroke-dasharray:1 1}
+svg.seq .msg.lit .mlv{opacity:1}
+svg.seq .ml{font-size:11.5px;fill:var(--ink)}
+svg.seq .ml.self{fill:var(--muted);font-style:italic}
+svg.seq .sstep{transition:opacity .4s}
+svg.seq .sstep.next{opacity:.32}
+svg.seq .sstep.done{opacity:.78}
+svg.seq .sstep.done .mlv{opacity:.45;stroke-dashoffset:0}
+svg.seq .sstep.now .ml{font-weight:600}
+svg.seq .spk{fill:var(--accent);opacity:0}
+svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
+.seq-cap{border-bottom:1px solid var(--line);min-height:84px}
+/* ---- simulator ---- */
+.simx{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:18px 0 22px;padding:16px 18px 14px}
+.sx-ctl{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end}
+.sx-grp{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sx-lab{font-size:12.5px;font-weight:600;color:var(--muted)}
+.sx-seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line-strong);border-radius:9px;overflow:hidden}
+.sx-seg button{font:inherit;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--surface);border:0;border-right:1px solid var(--line);padding:7px 12px;min-height:38px;cursor:pointer}
+.sx-seg button:last-child{border-right:0}
+.sx-seg button:hover{background:var(--accent-tint)}
+.sx-seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.sx-n button{min-width:46px;font-variant-numeric:tabular-nums}
+.sx-chk{display:flex;align-items:center;gap:6px;font-size:13.5px;min-height:38px;cursor:pointer}
+.sx-chk input{width:18px;height:18px;accent-color:var(--accent)}
+.sx-play{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:14px 0 4px}
+.sx-btn{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);border-radius:9px;padding:8px 16px;min-height:40px;cursor:pointer}
+.sx-btn.main{background:var(--accent);border-color:var(--accent);color:var(--surface);min-width:92px}
+.sx-btn:hover{border-color:var(--accent)}
+.sx-speed button{min-width:42px}
+.sx-clock{margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sx-stage{overflow-x:auto;margin:6px -4px 0}
+.sx-svg{display:block;width:100%;min-width:760px;height:auto}
+.sx-pan{fill:var(--bg);stroke:var(--line);stroke-width:1}
+.sx-pan.sx-h{fill:var(--have-tint);stroke:var(--have);stroke-opacity:.45}
+.sx-pt{font-size:13.5px;font-weight:700;fill:var(--ink)}
+.sx-pn{font-family:var(--mono);font-size:13px;fill:var(--accent)}
+.sx-ps{font-size:11px;fill:var(--muted)}
+.sx-hc{fill:var(--surface);stroke:var(--line);stroke-width:1}
+.sx-hl{font-size:10.5px;fill:var(--muted)}
+.sx-hv{font-size:22px;font-weight:700;fill:var(--ink);font-variant-numeric:tabular-nums}
+.sx-link{fill:none;stroke:var(--line-strong);stroke-width:1.2;stroke-dasharray:3 4}
+.sx-sc{fill:var(--surface);stroke:var(--line);stroke-width:1;transition:stroke .3s,fill .3s}
+.sx-st.busy .sx-sc{stroke:var(--accent)}
+.sx-st.hot .sx-sc{stroke:var(--wire);stroke-width:2;fill:var(--wire-tint)}
+.sx-stt{font-size:13px;font-weight:600;fill:var(--ink)}
+.sx-sts{font-size:10.5px;fill:var(--muted)}
+.sx-wl{font-size:10.5px;fill:var(--muted);font-family:var(--mono)}
+.sx-bad{font-size:11px;font-weight:600;fill:#c2410c}
+:root[data-theme="dark"] .sx-bad{fill:#fb923c}
+.sx-more{font-family:var(--mono);font-size:11px;fill:var(--wire)}
+.sx-w{fill:var(--surface);stroke:var(--line-strong);stroke-width:1}
+.sx-w.on{fill:var(--accent);stroke:var(--accent)}
+.sx-w.on.k-judge{fill:var(--build);stroke:var(--build)}
+.sx-w.on.k-bg{fill:var(--wire);stroke:var(--wire)}
+.sx-q{fill:transparent;stroke:var(--line);stroke-width:1}
+.sx-q.on{fill:var(--wire);stroke:var(--wire)}
+.sx-dot .core{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.5;transition:fill .12s,stroke .12s}
+.sx-dot .ring{fill:none;stroke:transparent;stroke-width:2}
+.sx-dot.s-speak .core{fill:#3b82f6;stroke:#3b82f6}
+.sx-dot.s-wait .core{fill:var(--wire);stroke:var(--wire)}
+.sx-dot.s-work .core{fill:var(--accent);stroke:var(--accent)}
+.sx-dot.s-hear .core{fill:var(--have);stroke:var(--have)}
+.sx-dot.s-think .core{fill:var(--surface);stroke:var(--line-strong)}
+.sx-dot.s-error .core{fill:#dc2626;stroke:#dc2626}
+.sx-dot.s-speak .ring{stroke:#3b82f6;opacity:.5}
+.sx-dot.s-wait .ring{stroke:var(--wire);opacity:.6}
+@media (prefers-reduced-motion: no-preference){.sx-dot.s-speak .ring,.sx-dot.s-wait .ring{animation:sxPulse 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}}
+@keyframes sxPulse{0%,100%{opacity:.15;transform:scale(.92)}50%{opacity:.7;transform:scale(1.12)}}
+.sx-dn{font-size:12px;font-weight:700;fill:#fff;pointer-events:none}
+.sx-dot.s-think .sx-dn{fill:var(--muted)}
+.sx-dl{font-size:10.5px;fill:var(--muted)}
+.sx-pk{r:4;stroke:none}
+.sx-pk.k-asr,.sx-pk.k-llm,.sx-pk.k-tts{fill:var(--accent)} .sx-pk.k-bg{fill:var(--wire)} .sx-pk.k-audio{fill:var(--have)} .sx-pk.k-err{fill:#dc2626}
+.sx-nar{margin:10px 0 12px;padding:10px 14px;border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 8px 8px 0;font-size:15px;min-height:48px;max-width:none}
+.sx-met{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.sx-m{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.sx-m b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.sx-m span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:2px}
+.sx-m small{display:block;font-size:11.5px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.sx-m.bad{border-color:var(--wire);background:var(--wire-tint)}
+.sx-busy{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:6px 16px;align-items:center;margin:12px 0 6px}
+.sx-br{display:grid;grid-template-columns:34px 1fr 42px;gap:8px;align-items:center;font-size:12.5px}
+.sx-br span{font-family:var(--mono);color:var(--muted)}
+.sx-br i{display:block;height:8px;border-radius:6px;background:var(--line);overflow:hidden}
+.sx-br em{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.sx-br i.hot em{background:var(--wire)}
+.sx-br b{font-family:var(--mono);font-size:12px;font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.sx-leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);margin:6px 0 4px}
+.sx-leg i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px;border:1.5px solid var(--line-strong)}
+.sx-leg b{color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
+.sx-leg .d-speak{background:#3b82f6;border-color:#3b82f6}.sx-leg .d-wait{background:var(--wire);border-color:var(--wire)}.sx-leg .d-work{background:var(--accent);border-color:var(--accent)}
+.sx-leg .d-hear{background:var(--have);border-color:var(--have)}.sx-leg .d-error{background:#dc2626;border-color:#dc2626}
+.sx-model{margin:8px 0 0}
+@media (max-width:700px){.sx-busy{grid-template-columns:1fr}.sx-clock{margin-left:0;width:100%}}
+/* compare table bars */
+.cmp td.bar{min-width:140px}
+.cmp .bb{display:block;height:8px;border-radius:6px;background:var(--accent);min-width:2px}
+.cmp .bb.over{background:var(--wire)}
+.cmp td.n,.cmp th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cmp .warn{color:#c2410c;font-weight:600}
+:root[data-theme="dark"] .cmp .warn{color:#fb923c}
+.coord{list-style:none;padding:0;margin:14px 0;display:grid;gap:10px;max-width:none}
+.coord li{border:1px solid var(--line);border-radius:10px;padding:12px 16px;background:var(--surface);display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.coord li .cn{grid-row:span 2;font-family:var(--serif);font-size:24px;color:var(--accent);line-height:1}
+.coord li b{font-size:15.5px}
+.coord li p{margin:0;max-width:none;font-size:14.5px;color:var(--ink)}
+.coord li.nb{border-style:dashed;border-color:var(--build);background:var(--build-tint)}
+.coord li.nb .cn{color:var(--build)}
+.sx-ass{margin:4px 0 8px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.sx-ass summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:14.5px;min-height:44px;display:flex;align-items:center}
+.sx-ass[open] summary{border-bottom:1px solid var(--line)}
+.sx-ass .tw{margin:0;padding:6px 10px 10px}
+.sx-play .sx-btn{flex:0 0 auto;width:auto}
+.sx-dot{cursor:pointer}
+.sx-dot:focus{outline:none}.sx-dot:focus-visible .core{stroke:var(--ink);stroke-width:3}
+.sx-dot.fol .core{stroke:var(--ink);stroke-width:3}
+.sx-fol{margin:10px 0 0;border:1px solid var(--line);border-radius:10px;padding:10px 12px 6px;background:var(--bg)}
+.sx-folh{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;font-size:14px}
+.sx-folh span{color:var(--ink)} .sx-folh em{font-style:normal;color:var(--muted);font-size:12.5px;margin-left:auto}
+.sx-gw{overflow-x:auto}
+.sx-gantt{display:block;width:100%;min-width:720px;height:auto;margin-top:4px}
+.sx-gantt .gr{fill:var(--surface);stroke:var(--line);stroke-width:1}
+.sx-gantt .gl2{font-size:11.5px;fill:var(--muted)}
+.sx-gantt .gtk{stroke:var(--line);stroke-width:1;stroke-dasharray:2 4}
+.sx-gantt .gtt{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.sx-gantt .gwait{fill:var(--wire-tint);stroke:var(--wire);stroke-width:1;stroke-dasharray:3 3}
+.sx-gantt .gwt{font-size:10.5px;fill:var(--wire);font-weight:600}
+.sx-gantt .gjob{fill:var(--accent)} .sx-gantt .gjob.k-tts{fill:var(--have)} .sx-gantt .gjob.k-rag{fill:var(--line-strong)} .sx-gantt .gjob.k-judge{fill:var(--build)}
+.sx-gantt .gjob.fail{fill:#dc2626}
+.sx-gantt .gjt{font-size:10.5px;font-weight:600;fill:#fff} .sx-gantt .gjt.f{fill:#dc2626}
+.sx-gantt .guse{stroke:var(--have);stroke-width:2}
+.sx-gantt .gut{font-size:11px;font-weight:600;fill:var(--have)}
+.sx-gantt .gnow{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
+.sx-fmsg{margin:6px 0 4px;font-size:13.5px;color:var(--muted);max-width:none}
+.sx-fmsg:empty{display:none}
+.sx-m small{font-family:var(--body)}
+@media (max-width:700px){.sx-seg{display:flex;width:100%}.sx-seg button{flex:1 1 auto;border-bottom:1px solid var(--line)}.sx-grp{width:100%}}
 </style>
 </head>
 <body>
@@ -511,9 +669,9 @@ svg.flow .gl{font-family:var(--mono);font-size:11px;fill:var(--muted)}
 <li>Sự kiện vòng đời được đẩy về client trong lúc lượt đang chạy.</li>
 </ul></div>
 </div>
-<p class="note">Hai trang tài liệu OpenClaw rất dài. Bản ghi chú này chỉ đọc phần đầu của mỗi trang: phần tổng quan, các thành phần, và bước 1 đến 5 của trình tự chạy.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#definitions"><span>Chương trước</span><b>Định nghĩa</b></a><a class="cf next" href="#today"><span>Chương sau · 03</span><b>ESPP hiện tại</b><em>Harness của ESPP đang làm gì trong một buổi nói?</em></a></nav></div></section><section class="chapter" id="today" data-i="3" aria-labelledby="h-today" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">03</span>ESPP today</p><p class="ch-q"><span>This chapter answers</span>What does our harness do during a speaking session?</p><h2 id="h-today" class="ch-title">What the harness does in the speaking flow</h2></header><div class="ch-body"><div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-today-en-0" aria-controls="p-today-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>One speaking turn</button><button type="button" role="tab" id="t-today-en-1" aria-controls="p-today-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Grading after the session</button><button type="button" role="tab" id="t-today-en-2" aria-controls="p-today-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>What the harness stores</button></div><div class="tabpanel" role="tabpanel" id="p-today-en-0" aria-labelledby="t-today-en-0"><p><code>Service-Harness-Ts</code> is a NestJS 11 service on Fastify with a hexagonal layout. Three classes do most of the work: <code>SpeakingSessionService</code> (session life cycle, about 4,400 lines), <code>ExecuteWorkflowService</code> (each turn and the grading, about 7,000 lines) and <code>TutoringLoopService</code> (what the tutor says, about 1,160 lines). The figure shows one speaking turn as the code runs it today.</p>
-<div class="fig" data-fig="espp-turn" data-lang="en"></div>
-<p>The order never changes. Code picks the tutor's move (ask, rephrase, hint, give a choice, model the answer); the LLM writes the words for that move. This is why the system is a workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-en-1" aria-labelledby="t-today-en-1" hidden><div class="fig" data-fig="espp-grade" data-lang="en"></div></div><div class="tabpanel" role="tabpanel" id="p-today-en-2" aria-labelledby="t-today-en-2" hidden><p>The committee asked this directly. The harness owns the schema <code>harness</code> in Postgres (16 tables), a few Redis keys, and nothing else. Turns and scores are stored by Service-Session; recordings go to Cloudflare R2.</p>
+<p class="note">Hai trang tài liệu OpenClaw rất dài. Bản ghi chú này chỉ đọc phần đầu của mỗi trang: phần tổng quan, các thành phần, và bước 1 đến 5 của trình tự chạy.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#definitions"><span>Chương trước</span><b>Định nghĩa</b></a><a class="cf next" href="#today"><span>Chương sau · 03</span><b>ESPP hiện tại</b><em>Harness của ESPP đang làm gì trong một buổi nói?</em></a></nav></div></section><section class="chapter" id="today" data-i="3" aria-labelledby="h-today" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">03</span>ESPP today</p><p class="ch-q"><span>This chapter answers</span>What does our harness do during a speaking session?</p><h2 id="h-today" class="ch-title">What the harness does in the speaking flow</h2></header><div class="ch-body"><div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-today-en-0" aria-controls="p-today-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>One speaking turn</button><button type="button" role="tab" id="t-today-en-1" aria-controls="p-today-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Grading after the session</button><button type="button" role="tab" id="t-today-en-2" aria-controls="p-today-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>What the harness stores</button></div><div class="tabpanel" role="tabpanel" id="p-today-en-0" aria-labelledby="t-today-en-0"><p><code>Service-Harness-Ts</code> is a NestJS 11 service on Fastify with a hexagonal layout. Three classes do most of the work: <code>SpeakingSessionService</code> (session life cycle, about 4,400 lines), <code>ExecuteWorkflowService</code> (each turn and the grading, about 7,000 lines) and <code>TutoringLoopService</code> (what the tutor says, about 1,160 lines). The figure shows one speaking turn as the code runs it today, with the switches set as in the team <code>.env</code>. Press Play, or step through it.</p>
+<div class="fig" data-seq="turn" data-lang="en"></div>
+<p>The order never changes. In tutoring-loop classes, code picks the tutor's move (ask, rephrase, hint, give a choice, model the answer) and the LLM writes the words for that move; in other classes the tutor model answers from the prompt the harness built. Either way the harness, not the model, decides what runs next. This is why the system is a workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-en-1" aria-labelledby="t-today-en-1" hidden><div class="fig" data-fig="espp-grade" data-lang="en"></div></div><div class="tabpanel" role="tabpanel" id="p-today-en-2" aria-labelledby="t-today-en-2" hidden><p>The committee asked this directly. The harness owns the schema <code>harness</code> in Postgres (16 tables), a few Redis keys, and nothing else. Turns and scores are stored by Service-Session; recordings go to Cloudflare R2.</p>
 <div class="tw"><table>
 <thead><tr><th>Stored by the harness</th><th>Tables or keys</th><th>Written by code today?</th></tr></thead>
 <tbody>
@@ -524,9 +682,9 @@ svg.flow .gl{font-family:var(--mono);font-size:11px;fill:var(--muted)}
 <tr><td>Workflow graph</td><td><code>workflow_nodes</code>, <code>workflow_edges</code></td><td><span class="pill p-part">Unused</span> no write found; the turn does not read them</td></tr>
 <tr><td>Tool calls, checkpoints, escalations</td><td><code>tool_calls</code>, <code>checkpoints</code>, <code>escalation_cases</code></td><td><span class="pill p-part">Unused</span> table exists, no write found</td></tr>
 <tr><td>Live session state</td><td>Redis: seat per student, pause state, audio buffer, grounding cache</td><td><span class="pill p-have">Yes</span></td></tr>
-</tbody></table></div></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#references"><span>Previous</span><b>Reference designs</b></a><a class="cf next" href="#orchestration"><span>Next · 04</span><b>Orchestration</b><em>How does the harness coordinate the models and AI services?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">03</span>ESPP hiện tại</p><p class="ch-q"><span>Chương này trả lời</span>Harness của ESPP đang làm gì trong một buổi nói?</p><h2 id="h-today-vi" class="ch-title">Harness làm gì trong luồng speaking</h2></header><div class="ch-body"><div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-today-vi-0" aria-controls="p-today-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Một lượt nói</button><button type="button" role="tab" id="t-today-vi-1" aria-controls="p-today-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Chấm điểm sau buổi học</button><button type="button" role="tab" id="t-today-vi-2" aria-controls="p-today-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Harness lưu những gì</button></div><div class="tabpanel" role="tabpanel" id="p-today-vi-0" aria-labelledby="t-today-vi-0"><p><code>Service-Harness-Ts</code> là một service NestJS 11 chạy trên Fastify, tổ chức theo kiểu hexagonal. Ba class làm phần lớn công việc: <code>SpeakingSessionService</code> (vòng đời buổi nói, khoảng 4.400 dòng), <code>ExecuteWorkflowService</code> (từng lượt nói và việc chấm điểm, khoảng 7.000 dòng) và <code>TutoringLoopService</code> (tutor nói gì, khoảng 1.160 dòng). Hình dưới là một lượt nói đúng như code đang chạy.</p>
-<div class="fig" data-fig="espp-turn" data-lang="vi"></div>
-<p>Thứ tự này không bao giờ đổi. Code chọn nước đi của tutor (hỏi, diễn đạt lại, gợi ý, cho lựa chọn, làm mẫu); LLM viết lời cho nước đi đó. Vì vậy hệ thống là workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-vi-1" aria-labelledby="t-today-vi-1" hidden><div class="fig" data-fig="espp-grade" data-lang="vi"></div></div><div class="tabpanel" role="tabpanel" id="p-today-vi-2" aria-labelledby="t-today-vi-2" hidden><p>Hội đồng đã hỏi thẳng câu này. Harness sở hữu schema <code>harness</code> trong Postgres (16 bảng), vài key trong Redis, và không gì khác. Lượt nói và điểm do Service-Session lưu; file ghi âm nằm ở Cloudflare R2.</p>
+</tbody></table></div></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#references"><span>Previous</span><b>Reference designs</b></a><a class="cf next" href="#orchestration"><span>Next · 04</span><b>Orchestration</b><em>How does the harness coordinate the models and AI services?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">03</span>ESPP hiện tại</p><p class="ch-q"><span>Chương này trả lời</span>Harness của ESPP đang làm gì trong một buổi nói?</p><h2 id="h-today-vi" class="ch-title">Harness làm gì trong luồng speaking</h2></header><div class="ch-body"><div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-today-vi-0" aria-controls="p-today-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Một lượt nói</button><button type="button" role="tab" id="t-today-vi-1" aria-controls="p-today-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Chấm điểm sau buổi học</button><button type="button" role="tab" id="t-today-vi-2" aria-controls="p-today-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Harness lưu những gì</button></div><div class="tabpanel" role="tabpanel" id="p-today-vi-0" aria-labelledby="t-today-vi-0"><p><code>Service-Harness-Ts</code> là một service NestJS 11 chạy trên Fastify, tổ chức theo kiểu hexagonal. Ba class làm phần lớn công việc: <code>SpeakingSessionService</code> (vòng đời buổi nói, khoảng 4.400 dòng), <code>ExecuteWorkflowService</code> (từng lượt nói và việc chấm điểm, khoảng 7.000 dòng) và <code>TutoringLoopService</code> (tutor nói gì, khoảng 1.160 dòng). Hình dưới là một lượt nói đúng như code đang chạy, với các công tắc đặt như trong <code>.env</code> của nhóm. Bấm Chạy, hoặc xem từng bước.</p>
+<div class="fig" data-seq="turn" data-lang="vi"></div>
+<p>Thứ tự này không bao giờ đổi. Ở lớp bật tutoring loop, code chọn nước đi của tutor (hỏi, diễn đạt lại, gợi ý, cho lựa chọn, làm mẫu) và LLM viết lời cho nước đi đó; ở các lớp khác, model tutor trả lời dựa trên prompt mà harness đã ghép. Dù theo cách nào, harness chứ không phải model quyết định bước tiếp theo. Vì vậy hệ thống là workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-vi-1" aria-labelledby="t-today-vi-1" hidden><div class="fig" data-fig="espp-grade" data-lang="vi"></div></div><div class="tabpanel" role="tabpanel" id="p-today-vi-2" aria-labelledby="t-today-vi-2" hidden><p>Hội đồng đã hỏi thẳng câu này. Harness sở hữu schema <code>harness</code> trong Postgres (16 bảng), vài key trong Redis, và không gì khác. Lượt nói và điểm do Service-Session lưu; file ghi âm nằm ở Cloudflare R2.</p>
 <div class="tw"><table>
 <thead><tr><th>Harness lưu</th><th>Bảng hoặc key</th><th>Code hiện có ghi không?</th></tr></thead>
 <tbody>
@@ -543,56 +701,108 @@ svg.flow .gl{font-family:var(--mono);font-size:11px;fill:var(--muted)}
 <div class="tw"><table>
 <thead><tr><th>AI role</th><th>Technology</th><th>When the harness calls it</th><th>Budget and fallback in code</th></tr></thead>
 <tbody>
-<tr><td>Speech to text</td><td>Service-AI-Voice, Parakeet-MLX (<code>parakeet-tdt-0.6b-v2</code>), Silero VAD, smart-turn</td><td>After <code>audio.end</code></td><td>Empty transcript is retried; the turn is handed back to listening if there is no audio</td></tr>
-<tr><td>Answer judge</td><td>LLM through LangChain <code>ChatOpenAI</code>; default <code>qwen2.5:1.5b</code></td><td>Before the tutoring policy decides</td><td>1,200 ms timeout</td></tr>
+<tr><td>Speech to text</td><td>Service-AI-Voice, Parakeet-MLX (<code>parakeet-tdt-0.6b-v2</code>), Silero VAD; smart-turn is in the code but off in the team <code>.env</code></td><td>After <code>audio.end</code></td><td>No HTTP retry, 45,000 ms client timeout; 503 when 16 requests already wait. An empty transcript asks the learner to say it again</td></tr>
+<tr><td>Answer judge</td><td>LLM through LangChain <code>ChatOpenAI</code>; default <code>qwen2.5:1.5b</code></td><td>Before the tutoring policy decides, in tutoring-loop classes only</td><td>1,200 ms timeout; 3 failures in a row pause it for 30 s</td></tr>
 <tr><td>Tutor reply</td><td>LLM chosen by the agent version in Service-Agent; OpenAI-compatible local server</td><td>Once per turn, streamed</td><td>Candidate list with priority; failover to the next endpoint; first-sentence budget 1,200 ms in companion mode</td></tr>
 <tr><td>Grounding and packs</td><td>Service-RAG (LightRAG, pgvector)</td><td>Session start and before each prompt</td><td>Own timeouts per request, for example 3,000 ms for the exemplar pack</td></tr>
-<tr><td>Text to speech</td><td>Service-AI-Voice profiles: LuxTTS, Kokoro ONNX, Gemini TTS, OpenRouter TTS</td><td>Per sentence, as the reply streams</td><td>One request per sentence; time is recorded per stage</td></tr>
+<tr><td>Text to speech</td><td>Service-AI-Voice profiles: LuxTTS, Kokoro ONNX, Gemini TTS, OpenRouter TTS</td><td>One short lead-in phrase before the LLM, then per sentence as the reply streams</td><td>One request per sentence, one sentence at a time per turn; a failed sentence plays no audio</td></tr>
 <tr><td>Evaluator</td><td>LLM, default <code>qwen2.5:1.5b</code>, temperature 0.1; LanguageTool detector</td><td>After the session, from the queue</td><td>45,000 ms per call; two attempts; failure is recorded, no score is invented</td></tr>
 <tr><td>Memory extractor, context compactor</td><td>LLM, background</td><td>Off the live path</td><td>Background admission: 1 running, queue of 8; extractor budget 25,000 ms</td></tr>
-<tr><td>Laya decision model</td><td>Local classifier served by <code>laya-serve</code></td><td>After the tutor has spoken (shadow)</td><td>300 ms deadline, 2 at a time, confidence floor 0.8; never changes the reply</td></tr>
+<tr><td>Laya decision model</td><td>Local classifier served by <code>laya-serve</code></td><td>After the tutor has spoken (shadow); <code>LAYA_SHADOW_ENABLED</code> is not set in the team <code>.env</code>, so it is off</td><td>300 ms deadline, 2 at a time, confidence floor 0.8; never changes the reply</td></tr>
 </tbody></table></div>
-<p class="note">Model names are the defaults in <code>src/config/llm.config.ts</code>. The deployed stack overrides them by environment; the team's October notes show the router serving <code>qwen2.5:3b-instruct-q4_K_M</code>. The <code>.env</code> files were not read for this note.</p>
+<p class="note">Model names are the defaults in <code>src/config/llm.config.ts</code>. The deployed stack overrides them by environment; the team's October notes show the router serving <code>qwen2.5:3b-instruct-q4_K_M</code>. In the team's <code>Service-Harness-Ts/.env</code>, the tutor and the evaluator both point at the same local router (port 11436) and <code>EVALUATOR_MODEL</code> is <code>qwen2.5:3b-instruct-q4_K_M</code>.</p>
 </div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Previous</span><b>ESPP today</b></a><a class="cf next" href="#learners"><span>Next · 05</span><b>Many learners</b><em>What happens when several learners speak at once?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">04</span>Điều phối</p><p class="ch-q"><span>Chương này trả lời</span>Harness điều phối các model và dịch vụ AI thế nào?</p><h2 id="h-orchestration-vi" class="ch-title">Harness điều phối model và dịch vụ thế nào</h2></header><div class="ch-body">
 <p>Harness gọi từng AI role ở một điểm cố định, mỗi role có model, ngân sách thời gian và cách dự phòng riêng. Không role nào gọi role khác; harness luôn đứng giữa.</p>
 <div class="tw"><table>
 <thead><tr><th>AI role</th><th>Công nghệ</th><th>Harness gọi khi nào</th><th>Ngân sách và dự phòng trong code</th></tr></thead>
 <tbody>
-<tr><td>Chuyển giọng nói thành chữ</td><td>Service-AI-Voice, Parakeet-MLX (<code>parakeet-tdt-0.6b-v2</code>), Silero VAD, smart-turn</td><td>Sau <code>audio.end</code></td><td>Bản chép rỗng được thử lại; nếu không có audio thì trả lượt về trạng thái nghe</td></tr>
-<tr><td>Answer judge</td><td>LLM qua LangChain <code>ChatOpenAI</code>; mặc định <code>qwen2.5:1.5b</code></td><td>Trước khi policy dạy quyết định</td><td>Timeout 1.200 ms</td></tr>
+<tr><td>Chuyển giọng nói thành chữ</td><td>Service-AI-Voice, Parakeet-MLX (<code>parakeet-tdt-0.6b-v2</code>), Silero VAD; smart-turn có trong code nhưng đang tắt trong <code>.env</code> của nhóm</td><td>Sau <code>audio.end</code></td><td>Không retry HTTP, timeout phía client 45.000 ms; trả 503 khi đã có 16 request chờ. Bản chép rỗng thì học viên được nhắc nói lại</td></tr>
+<tr><td>Answer judge</td><td>LLM qua LangChain <code>ChatOpenAI</code>; mặc định <code>qwen2.5:1.5b</code></td><td>Trước khi policy dạy quyết định, chỉ ở lớp bật tutoring loop</td><td>Timeout 1.200 ms; lỗi 3 lần liên tiếp thì nghỉ 30 s</td></tr>
 <tr><td>Tutor trả lời</td><td>LLM do agent version trong Service-Agent chọn; server local tương thích OpenAI</td><td>Mỗi lượt một lần, dạng stream</td><td>Danh sách ứng viên có thứ tự ưu tiên; failover sang endpoint kế tiếp; ngân sách câu đầu 1.200 ms ở chế độ companion</td></tr>
 <tr><td>Grounding và các pack</td><td>Service-RAG (LightRAG, pgvector)</td><td>Đầu buổi và trước mỗi prompt</td><td>Mỗi request có timeout riêng, ví dụ 3.000 ms cho exemplar pack</td></tr>
-<tr><td>Chuyển chữ thành giọng nói</td><td>Các profile của Service-AI-Voice: LuxTTS, Kokoro ONNX, Gemini TTS, OpenRouter TTS</td><td>Từng câu, ngay khi câu trả lời đang stream</td><td>Mỗi câu một request; thời gian được ghi theo từng stage</td></tr>
+<tr><td>Chuyển chữ thành giọng nói</td><td>Các profile của Service-AI-Voice: LuxTTS, Kokoro ONNX, Gemini TTS, OpenRouter TTS</td><td>Một câu đệm ngắn trước khi gọi LLM, rồi từng câu khi câu trả lời đang stream</td><td>Mỗi câu một request, các câu của một lượt đi lần lượt; câu nào lỗi thì không có audio</td></tr>
 <tr><td>Evaluator</td><td>LLM, mặc định <code>qwen2.5:1.5b</code>, temperature 0,1; LanguageTool detector</td><td>Sau buổi học, lấy từ hàng đợi</td><td>45.000 ms mỗi lệnh gọi; hai lần thử; lỗi thì ghi nhận lỗi, không bịa điểm</td></tr>
 <tr><td>Memory extractor, context compactor</td><td>LLM, chạy nền</td><td>Ngoài luồng trực tiếp</td><td>Admission cho việc nền: 1 đang chạy, hàng đợi 8; extractor có ngân sách 25.000 ms</td></tr>
-<tr><td>Decision model Laya</td><td>Bộ phân loại local do <code>laya-serve</code> phục vụ</td><td>Sau khi tutor đã nói (shadow)</td><td>Hạn 300 ms, 2 lệnh cùng lúc, ngưỡng confidence 0,8; không bao giờ thay đổi câu trả lời</td></tr>
+<tr><td>Decision model Laya</td><td>Bộ phân loại local do <code>laya-serve</code> phục vụ</td><td>Sau khi tutor đã nói (shadow); <code>.env</code> của nhóm không đặt <code>LAYA_SHADOW_ENABLED</code> nên đang tắt</td><td>Hạn 300 ms, 2 lệnh cùng lúc, ngưỡng confidence 0,8; không bao giờ thay đổi câu trả lời</td></tr>
 </tbody></table></div>
-<p class="note">Tên model là giá trị mặc định trong <code>src/config/llm.config.ts</code>. Máy chạy thật ghi đè bằng biến môi trường; ghi chú tháng 10 của nhóm cho thấy router đang phục vụ <code>qwen2.5:3b-instruct-q4_K_M</code>. Bản ghi chú này không đọc các file <code>.env</code>.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Chương trước</span><b>ESPP hiện tại</b></a><a class="cf next" href="#learners"><span>Chương sau · 05</span><b>Nhiều học viên</b><em>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</em></a></nav></div></section><section class="chapter" id="learners" data-i="5" aria-labelledby="h-learners" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Many learners</p><p class="ch-q"><span>This chapter answers</span>What happens when several learners speak at once?</p><h2 id="h-learners" class="ch-title">One, two and three learners at the same time</h2></header><div class="ch-body">
+<p class="note">Tên model là giá trị mặc định trong <code>src/config/llm.config.ts</code>. Máy chạy thật ghi đè bằng biến môi trường; ghi chú tháng 10 của nhóm cho thấy router đang phục vụ <code>qwen2.5:3b-instruct-q4_K_M</code>. Trong <code>Service-Harness-Ts/.env</code> của nhóm, tutor và evaluator cùng trỏ tới một router local (cổng 11436) và <code>EVALUATOR_MODEL</code> là <code>qwen2.5:3b-instruct-q4_K_M</code>.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Chương trước</span><b>ESPP hiện tại</b></a><a class="cf next" href="#learners"><span>Chương sau · 05</span><b>Nhiều học viên</b><em>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</em></a></nav></div></section><section class="chapter" id="learners" data-i="5" aria-labelledby="h-learners" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Many learners</p><p class="ch-q"><span>This chapter answers</span>What happens when several learners speak at once?</p><h2 id="h-learners" class="ch-title">What happens with 3, 5, 10, 35 or 100 learners at once</h2></header><div class="ch-body">
 
-<p>Inside the harness, sessions do not share state, so learners do not block each other there. They meet at the AI box, where model capacity is limited. Step through the figure to see where the waiting starts.</p>
-<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-learners-en-0" aria-controls="p-learners-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>One, two, three learners</button><button type="button" role="tab" id="t-learners-en-1" aria-controls="p-learners-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>What has been measured</button></div><div class="tabpanel" role="tabpanel" id="p-learners-en-0" aria-labelledby="t-learners-en-0"><div class="fig" data-fig="concurrency" data-lang="en"></div></div><div class="tabpanel" role="tabpanel" id="p-learners-en-1" aria-labelledby="t-learners-en-1" hidden><div class="tw"><table>
+<p>Inside the harness every learner has their own session, so learners never wait for each other there. They meet at the shared AI services on one Mac: speech to text and text to speech have one worker each, and the LLM router has 7 slots. Choose a class size, press Play, and watch where the lines form.</p>
+<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-learners-en-0" aria-controls="p-learners-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Simulator</button><button type="button" role="tab" id="t-learners-en-1" aria-controls="p-learners-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>All sizes side by side</button><button type="button" role="tab" id="t-learners-en-2" aria-controls="p-learners-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>How the harness coordinates them</button><button type="button" role="tab" id="t-learners-en-3" aria-controls="p-learners-en-3" aria-selected="false" tabindex="-1"><span class="tn">4</span>What has been measured</button></div><div class="tabpanel" role="tabpanel" id="p-learners-en-0" aria-labelledby="t-learners-en-0"><div class="simx" data-lang="en"></div>
+<details class="sx-ass"><summary>Values the simulator uses, and where each one comes from</summary><div class="tw"><table><thead><tr><th>Value</th><th>The model uses</th><th>Kind</th><th>Where it comes from</th></tr></thead><tbody><tr><td>Speech to text time</td><td class="n">1.22 s</td><td><span class="pill p-have">Measured</span></td><td>stt.total p50, harness telemetry 2–25 Oct 2026, n = 2,805 (plan 261025-1920, report phase-05-c1-gpu-spike.md)</td></tr><tr><td>Speech to text line</td><td class="n">1 worker, 16 in line</td><td><span class="pill p-have">Code / config</span></td><td>asr_parakeet_adapter.py max_workers=1; VOICE_INFERENCE_QUEUE_CAPACITY default 16, then 503 (Service-AI-Voice README, rest_api.py)</td></tr><tr><td>Text to speech time</td><td class="n">0.85 s per sentence</td><td><span class="pill p-have">Measured</span></td><td>tts.synth p50, harness telemetry 2–25 Oct 2026, n = 2,282 (same report)</td></tr><tr><td>Text to speech line</td><td class="n">1 worker, 16 waiting, 28 s</td><td><span class="pill p-have">Code / config</span></td><td>InferenceWorker per capability; _TTS_REQUEST_TIMEOUT_S = 28 (rest_api.py); 6 parallel requests ran in series (tts-bench-261015-0415.md)</td></tr><tr><td>Lead-in phrase</td><td class="n">0.4 s</td><td><span class="pill p-part">Assumption</span></td><td>Lead-in TTS for a 2–4 word phrase; not measured on its own</td></tr><tr><td>Grounding</td><td class="n">0.28 s</td><td><span class="pill p-have">Measured</span></td><td>prellm.grounding p50, single-learner run 8 Oct 2026 (latency-model-matrix.md)</td></tr><tr><td>Answer judge</td><td class="n">0.11 s, budget 1.2 s, breaker 3 × → 30 s</td><td><span class="pill p-have">Code / config</span></td><td>tutoring.judge p50 (latency-model-matrix.md); TUTOR_ANSWER_JUDGE_TIMEOUT_MS; BREAKER_FAILURES, BREAKER_PAUSE_MS</td></tr><tr><td>LLM slots</td><td class="n">7 slots</td><td><span class="pill p-have">Code / config</span></td><td>models.conf: qwen2.5-3b, ctx 28672, parallel 7</td></tr><tr><td>Time to first token</td><td class="n">0.13 s warm · 1.62 s cold</td><td><span class="pill p-have">Measured</span></td><td>15 Oct 6 + 1 bench: warm TTFT p50 133.6 ms; cold prompt_ms p50 1,621 ms (mac-capacity-config.md). The model uses cold when sessions outnumber slots</td></tr><tr><td>LLM speed</td><td class="n">28 tok/s alone · 107 tok/s shared</td><td><span class="pill p-have">Measured</span></td><td>Same bench: 28.2 tok/s for the last request alone; 105.7–107 tok/s total with 7 at once</td></tr><tr><td>Tutor reply</td><td class="n">2 sentences, 60 tokens</td><td><span class="pill p-part">Assumption</span></td><td>Cap is 100 tokens in tutoring-response-generator.ts; the split into 2 sentences is an assumption</td></tr><tr><td>LLM idle timeout</td><td class="n">30 s</td><td><span class="pill p-have">Code / config</span></td><td>TUTOR_STREAM_IDLE_TIMEOUT_MS=30000 (.env)</td></tr><tr><td>Rolling grading</td><td class="n">every 6 turns · 300 tokens · 1 + 8</td><td><span class="pill p-have">Code / config</span></td><td>CHUNK_MIN_TURNS=6, CHUNK_EVAL_TIMEOUT_MS=25000 (.env); BackgroundLlmAdmission(8, 1); output size is an assumption</td></tr><tr><td>Learner</td><td class="n">speak 4–8 s, think 1.5 s, audio 4 s per sentence, retry after 2 s</td><td><span class="pill p-part">Assumption</span></td><td>Learner behaviour; assumptions</td></tr><tr><td>What-if setups</td><td class="n">2 or 4 voice workers; 11 slots</td><td><span class="pill p-build">What-if, not built</span></td><td>Not in the code. Voice worker concurrency is a proposal in mac-capacity-config.md §5.3; 11 slots is the not-applied 10-user preset in §7</td></tr></tbody></table></div></details></div><div class="tabpanel" role="tabpanel" id="p-learners-en-1" aria-labelledby="t-learners-en-1" hidden><p>The same model, run for 3 simulated minutes per class size, with learners starting at different times. "Wait after speaking" runs from the moment the harness gets <code>audio.end</code> to the moment the first reply sentence has audio. The target in plan <code>261029-1434</code> is p90 ≤ 3 s.</p>
+<div class="tw"><table class="cmp"><thead><tr><th class="n">Learners</th><th class="n">Wait · median</th><th class="n">Wait · p90</th><th class="n">Answers / learner / min</th><th class="n">Turns refused (503) / min</th><th class="n">Sentences without audio / min</th><th class="">Busiest part</th></tr></thead><tbody><tr><td class="n">1</td><td class="n">4.1 s</td><td class="n warn">4.2 s</td><td class="n">3.3</td><td class="n">0.0</td><td class="n">0.0</td><td>none (all below 85%)</td></tr><tr><td class="n">3</td><td class="n">4.2 s</td><td class="n warn">4.8 s</td><td class="n">3.1</td><td class="n">0.0</td><td class="n">0.0</td><td>none (all below 85%)</td></tr><tr><td class="n">5</td><td class="n">4.5 s</td><td class="n warn">6.0 s</td><td class="n">3.0</td><td class="n">0.0</td><td class="n">0.0</td><td>none (all below 85%)</td></tr><tr><td class="n">10</td><td class="n">7.2 s</td><td class="n warn">9.8 s</td><td class="n">2.6</td><td class="n">0.0</td><td class="n">0.0</td><td>TTS 92%</td></tr><tr><td class="n">35</td><td class="n">32.8 s</td><td class="n warn">40.3 s</td><td class="n">1.2</td><td class="n warn">7.7</td><td class="n warn">43.0</td><td>STT 100% · TTS 98%</td></tr><tr><td class="n">100</td><td class="n">43.0 s</td><td class="n warn">45.5 s</td><td class="n">0.4</td><td class="n warn">437.0</td><td class="n warn">43.0</td><td>STT 100% · TTS 98%</td></tr></tbody></table></div>
+<p>How to read it: with one learner the model waits about 4.1 s. That is slower than the best measured single-learner run (2.1 s p50 on 8 Oct, with the 1.5b model and a different start point in the browser), because the model uses the all-time median STT and TTS times. From 3 to 5 learners the wait grows a little (p90 4.8 → 6.0 s). At 10 learners TTS is about 92% busy: every turn needs three TTS requests (the lead-in and two reply sentences) and TTS has one worker. At 35 learners both STT and TTS are 100% busy: the lines fill up, learners get 503 errors, and many sentences play without audio. With 100 learners the number of answers per minute does not grow; only the errors do. The LLM router is never the bottleneck in this model, because the voice services stop the traffic first.</p>
+<p><b>When everyone stops speaking at the same moment.</b> First answer of each learner, 60 simulated seconds.</p>
+<div class="tw"><table class="cmp"><thead><tr><th class="n">Learners</th><th class="n">First answer · median (those answered)</th><th class="n">Slowest answered</th><th class="n">No answer after 60 s</th><th class="n">Turns refused (503) in 60 s</th></tr></thead><tbody><tr><td class="n">1</td><td class="n">4.1 s</td><td class="n">4.1 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">3</td><td class="n">6.3 s</td><td class="n">7.1 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">5</td><td class="n">8.0 s</td><td class="n">11.4 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">10</td><td class="n">14.1 s</td><td class="n">22.3 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">35</td><td class="n">32.5 s</td><td class="n">41.5 s</td><td class="n warn">5</td><td class="n warn">37</td></tr><tr><td class="n">100</td><td class="n">33.3 s</td><td class="n">42.9 s</td><td class="n warn">69</td><td class="n warn">530</td></tr></tbody></table></div>
+<p><b>What would help.</b> p90 wait in the 3-minute class. These setups are not in the code; they test proposals from the team's capacity report.</p>
+<div class="tw"><table class="cmp"><thead><tr><th class="n">Learners</th><th class="n">Today</th><th class="n">2 voice workers</th><th class="n">4 voice workers + 11 LLM slots</th></tr></thead><tbody><tr><td class="n">1</td><td class="n warn">4.2 s</td><td class="n warn">4.2 s</td><td class="n warn">4.2 s</td></tr><tr><td class="n">3</td><td class="n warn">4.8 s</td><td class="n warn">4.2 s</td><td class="n warn">4.2 s</td></tr><tr><td class="n">5</td><td class="n warn">6.0 s</td><td class="n warn">4.4 s</td><td class="n warn">4.2 s</td></tr><tr><td class="n">10</td><td class="n warn">9.8 s</td><td class="n warn">7.1 s</td><td class="n warn">4.3 s</td></tr><tr><td class="n">35</td><td class="n warn">40.3 s</td><td class="n warn">18.0 s</td><td class="n warn">8.0 s</td></tr><tr><td class="n">100</td><td class="n warn">45.5 s</td><td class="n warn">26.2 s</td><td class="n warn">33.4 s</td></tr></tbody></table></div>
+<p>In the model, more voice workers help more than more LLM slots. With 11 slots alone, 10 learners get a p90 of 8.3 s and 35 learners stay at 40.3 s. With 2 workers the 10-learner p90 drops from 9.8 s to 7.1 s. With 4 workers and 11 slots, 10 learners reach 4.3 s and 35 learners 8.0 s; at 100 learners the LLM router becomes the busiest part (98%).</p></div><div class="tabpanel" role="tabpanel" id="p-learners-en-2" aria-labelledby="t-learners-en-2" hidden><p>What the code does today, from the moment a learner connects until the session is graded.</p>
+<ol class="coord">
+<li><span class="cn">1</span><b>One seat per student</b><p>Opening the WebSocket takes the student's seat in Redis with a 120 s lease that keeps being renewed. A second tab for the same student cannot take it. (<code>redis-session-seat.service.ts</code>)</p></li>
+<li><span class="cn">2</span><b>Each session keeps its own state</b><p>Context window, audio buffer and timers live in the harness process, keyed by session id. Nothing is shared between learners, so 100 sessions do not slow each other inside the harness. The README notes that more than one harness replica needs sticky connections.</p></li>
+<li><span class="cn">3</span><b>One turn at a time per session</b><p>A turn lock guards each session. If a turn is still running, one new <code>audio.end</code> may wait for it; any more get <code>session.busy</code>.</p></li>
+<li><span class="cn">4</span><b>Calls to AI-Voice</b><p>STT and TTS are HTTP calls with no retry (client timeouts 45 s and 30 s). AI-Voice runs one request of each kind at a time and keeps up to 16 waiting; the next one gets 503 with <code>Retry-After: 1</code>.</p></li>
+<li><span class="cn">5</span><b>Calls to the LLM</b><p>All model calls go to one llama-server with 7 slots; extra requests wait inside it. The harness bounds each call: the answer judge has 1.2 s (3 failures in a row pause it for 30 s), the tutor stream fails after 30 s with no token, and the normal path can fail over to the next model candidate in the agent config.</p></li>
+<li><span class="cn">6</span><b>When a step fails</b><p>Lead-in TTS fails: the turn goes on. A sentence fails in TTS: that sentence has no audio. STT or the tutor model fails: the learner gets "Turn processing failed, please try again" (or <code>LLM_SERVICE_TEMPORARILY_UNAVAILABLE</code>) and the session goes back to listening.</p></li>
+<li><span class="cn">7</span><b>Background work waits in its own line</b><p>Rolling grading every 6 turns, summaries, context compaction and memory extraction share one line (<code>BACKGROUND_LLM_ISOLATION_ENABLED=true</code>): 1 running, 8 waiting, the rest rejected. They still use the same LLM router as the tutor.</p></li>
+<li><span class="cn">8</span><b>Grading after the session</b><p>The final grading job goes to RabbitMQ (<code>session.evaluation.queue</code>). The consumer takes 2 messages at a time and its model calls also use the background line. If RabbitMQ is down, the harness grades in process.</p></li>
+<li class="nb"><span class="cn">!</span><b>Not built: admission and a waiting position</b><p>Nothing stops the 36th or the 100th learner from joining. Plan <code>261029-1434</code> asks for a visible waiting position past capacity; it is pending.</p></li>
+<li class="nb"><span class="cn">!</span><b>Not built: slot pinning</b><p>The capacity report (§5.4) asks to pin each session to one LLM slot and all helper calls to slot 6. The code sends no <code>id_slot</code>.</p></li>
+<li class="nb"><span class="cn">!</span><b>Off: the response deadline</b><p>The code can play "Sorry, could you say that again?" after 3,500 ms with no audio, but <code>TUTOR_DEADLINE_ENABLED=false</code> in the team <code>.env</code>.</p></li>
+<li class="nb"><span class="cn">!</span><b>Not built: more voice workers</b><p>Running more TTS requests at once is a proposal in the capacity report (§5.3). The repository default stays at one worker.</p></li>
+</ol></div><div class="tabpanel" role="tabpanel" id="p-learners-en-3" aria-labelledby="t-learners-en-3" hidden><div class="tw"><table>
 <thead><tr><th>Fact</th><th>Value</th><th>Where it comes from</th></tr></thead>
 <tbody>
-<tr><td>LLM router preset</td><td class="n">7 slots × 4,096 tokens</td><td><code>BE/scripts/llama-local/models.conf</code>; <code>.run/mac-capacity/result-finish.md</code></td></tr>
-<tr><td>LLM, 6 learners + 1 auxiliary, warm</td><td class="n">TTFT p50 133.6 ms · 105.7 tok/s total</td><td><code>.run/mac-capacity/result-finish.md</code> (15 Oct 2026)</td></tr>
-<tr><td>TTS, one request at a time, warm</td><td class="n">about 0.55× real time</td><td><code>.run/mac-capacity/tts-bench-261015-0415.md</code></td></tr>
+<tr><td>LLM router preset</td><td class="n">7 slots × 4,096 tokens, qwen2.5-3b</td><td><code>BE/scripts/llama-local/models.conf</code>; <code>mac-capacity-config.md</code></td></tr>
+<tr><td>LLM, 6 learners + 1 helper, warm</td><td class="n">TTFT p50 133.6 ms · 105.7 tok/s total</td><td><code>.run/mac-capacity/result-finish.md</code> (15 Oct 2026)</td></tr>
+<tr><td>LLM, same bench, cold</td><td class="n">TTFT p50 3.5 s; one request waited 14.9 s for its slot</td><td><code>mac-capacity-config.md</code> §5.2</td></tr>
+<tr><td>TTS, one request at a time, warm</td><td class="n">about 1.8× faster than real time</td><td><code>.run/mac-capacity/tts-bench-261015-0415.md</code> (gemini_tts profile)</td></tr>
 <tr><td>TTS, 6 requests at once</td><td class="n">all done in 7.0 s; they ran in series</td><td>same file</td></tr>
+<tr><td>STT, all recorded turns</td><td class="n">stt.total p50 1,220 ms · p95 10,239 ms</td><td>harness telemetry 2–25 Oct 2026, n = 2,805 (<code>phase-05-c1-gpu-spike.md</code>)</td></tr>
+<tr><td>TTS, all recorded sentences</td><td class="n">tts.synth p50 850 ms · p95 6,001 ms</td><td>same report, n = 2,282</td></tr>
+<tr><td>AI-Voice line per kind</td><td class="n">1 running, 16 waiting, then 503</td><td><code>Service-AI-Voice/voice_runtime/rest_api.py</code>; README</td></tr>
 <tr><td>Seat lease per student</td><td class="n">120 s, renewed</td><td><code>redis-session-seat.service.ts</code></td></tr>
-<tr><td>Background LLM admission</td><td class="n">1 running, 8 queued</td><td><code>background-llm-admission.ts</code></td></tr>
+<tr><td>Background LLM line</td><td class="n">1 running, 8 waiting</td><td><code>background-llm-admission.ts</code></td></tr>
 </tbody></table></div>
-<p>What is not proven yet: the plan <code>261029-1434-multi-learner-concurrency</code> sets the target (p90 first audio within 3,000 ms of the learner's last voiced frame, a visible waiting position past capacity) and is still pending. The live test with four browsers in plan <code>261025-1920</code> is also pending. Do not state a learner capacity to the committee until one of these has run.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#orchestration"><span>Previous</span><b>Orchestration</b></a><a class="cf next" href="#evidence"><span>Next · 06</span><b>Evidence</b><em>How closely does ESPP match the references, and where?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Nhiều học viên</p><p class="ch-q"><span>Chương này trả lời</span>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</p><h2 id="h-learners-vi" class="ch-title">Một, hai và ba học viên cùng lúc</h2></header><div class="ch-body">
-<p>Trong harness, các session không dùng chung trạng thái, nên học viên không chặn nhau ở đó. Họ gặp nhau ở máy AI, nơi sức chứa của model có hạn. Xem từng bước trong hình để thấy việc chờ bắt đầu từ đâu.</p>
-<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-learners-vi-0" aria-controls="p-learners-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Một, hai, ba học viên</button><button type="button" role="tab" id="t-learners-vi-1" aria-controls="p-learners-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Những gì đã đo</button></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-0" aria-labelledby="t-learners-vi-0"><div class="fig" data-fig="concurrency" data-lang="vi"></div></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-1" aria-labelledby="t-learners-vi-1" hidden><div class="tw"><table>
+<p>What is not proven yet: plan <code>261029-1434-multi-learner-concurrency</code> sets the target (p90 first audio within 3,000 ms of the learner's last voiced frame, a visible waiting position past capacity) and is still pending. The live test with four browsers in plan <code>261025-1920</code> is also pending. The simulator above is a model; do not state a learner capacity to the committee until one of these tests has run.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#orchestration"><span>Previous</span><b>Orchestration</b></a><a class="cf next" href="#evidence"><span>Next · 06</span><b>Evidence</b><em>How closely does ESPP match the references, and where?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Nhiều học viên</p><p class="ch-q"><span>Chương này trả lời</span>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</p><h2 id="h-learners-vi" class="ch-title">Chuyện gì xảy ra khi 3, 5, 10, 35 hay 100 học viên cùng nói</h2></header><div class="ch-body">
+<p>Trong harness, mỗi học viên có session riêng, nên học viên không phải chờ nhau ở đó. Họ gặp nhau ở các dịch vụ AI dùng chung trên một máy Mac: STT và TTS mỗi loại chỉ có một worker, còn LLM router có 7 slot. Hãy chọn sĩ số, bấm Chạy và xem hàng chờ hình thành ở đâu.</p>
+<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-learners-vi-0" aria-controls="p-learners-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Mô phỏng</button><button type="button" role="tab" id="t-learners-vi-1" aria-controls="p-learners-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>So sánh các sĩ số</button><button type="button" role="tab" id="t-learners-vi-2" aria-controls="p-learners-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Harness điều phối họ thế nào</button><button type="button" role="tab" id="t-learners-vi-3" aria-controls="p-learners-vi-3" aria-selected="false" tabindex="-1"><span class="tn">4</span>Những gì đã đo</button></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-0" aria-labelledby="t-learners-vi-0"><div class="simx" data-lang="vi"></div>
+<details class="sx-ass"><summary>Các giá trị bộ mô phỏng dùng, và mỗi giá trị lấy từ đâu</summary><div class="tw"><table><thead><tr><th>Giá trị</th><th>Mô hình dùng</th><th>Loại</th><th>Lấy từ đâu</th></tr></thead><tbody><tr><td>Thời gian STT</td><td class="n">1,22 s</td><td><span class="pill p-have">Đo được</span></td><td>stt.total p50, telemetry của harness 2–25/10/2026, n = 2.805 (plan 261025-1920, báo cáo phase-05-c1-gpu-spike.md)</td></tr><tr><td>Hàng STT</td><td class="n">1 worker, 16 trong hàng</td><td><span class="pill p-have">Code / cấu hình</span></td><td>asr_parakeet_adapter.py max_workers=1; VOICE_INFERENCE_QUEUE_CAPACITY mặc định 16, quá thì 503 (README Service-AI-Voice, rest_api.py)</td></tr><tr><td>Thời gian TTS</td><td class="n">0,85 s mỗi câu</td><td><span class="pill p-have">Đo được</span></td><td>tts.synth p50, telemetry của harness 2–25/10/2026, n = 2.282 (cùng báo cáo)</td></tr><tr><td>Hàng TTS</td><td class="n">1 worker, 16 chờ, 28 s</td><td><span class="pill p-have">Code / cấu hình</span></td><td>InferenceWorker cho từng loại; _TTS_REQUEST_TIMEOUT_S = 28 (rest_api.py); 6 request song song chạy nối tiếp (tts-bench-261015-0415.md)</td></tr><tr><td>Câu đệm</td><td class="n">0,4 s</td><td><span class="pill p-part">Giả định</span></td><td>TTS câu đệm 2–4 từ; chưa đo riêng</td></tr><tr><td>Grounding</td><td class="n">0,28 s</td><td><span class="pill p-have">Đo được</span></td><td>prellm.grounding p50, lần chạy một học viên 8/10/2026 (latency-model-matrix.md)</td></tr><tr><td>Answer judge</td><td class="n">0,11 s, ngân sách 1,2 s, breaker 3 lần → 30 s</td><td><span class="pill p-have">Code / cấu hình</span></td><td>tutoring.judge p50 (latency-model-matrix.md); TUTOR_ANSWER_JUDGE_TIMEOUT_MS; BREAKER_FAILURES, BREAKER_PAUSE_MS</td></tr><tr><td>Slot LLM</td><td class="n">7 slot</td><td><span class="pill p-have">Code / cấu hình</span></td><td>models.conf: qwen2.5-3b, ctx 28672, parallel 7</td></tr><tr><td>Thời gian tới token đầu</td><td class="n">0,13 s khi warm · 1,62 s khi cold</td><td><span class="pill p-have">Đo được</span></td><td>Bench 6 + 1 ngày 15/10: TTFT warm p50 133,6 ms; prompt_ms cold p50 1.621 ms (mac-capacity-config.md). Mô hình dùng cold khi số session nhiều hơn số slot</td></tr><tr><td>Tốc độ LLM</td><td class="n">28 tok/s khi chạy một mình · 107 tok/s chia chung</td><td><span class="pill p-have">Đo được</span></td><td>Cùng bench: 28,2 tok/s cho request cuối chạy một mình; tổng 105,7–107 tok/s khi chạy 7 cùng lúc</td></tr><tr><td>Câu trả lời tutor</td><td class="n">2 câu, 60 token</td><td><span class="pill p-part">Giả định</span></td><td>Giới hạn 100 token trong tutoring-response-generator.ts; việc chia 2 câu là giả định</td></tr><tr><td>Timeout chờ LLM</td><td class="n">30 s</td><td><span class="pill p-have">Code / cấu hình</span></td><td>TUTOR_STREAM_IDLE_TIMEOUT_MS=30000 (.env)</td></tr><tr><td>Chấm cuốn chiếu</td><td class="n">mỗi 6 lượt · 300 token · 1 + 8</td><td><span class="pill p-have">Code / cấu hình</span></td><td>CHUNK_MIN_TURNS=6, CHUNK_EVAL_TIMEOUT_MS=25000 (.env); BackgroundLlmAdmission(8, 1); độ dài đầu ra là giả định</td></tr><tr><td>Học viên</td><td class="n">nói 4–8 s, nghĩ 1,5 s, audio 4 s mỗi câu, nói lại sau 2 s</td><td><span class="pill p-part">Giả định</span></td><td>Hành vi học viên; giả định</td></tr><tr><td>Cấu hình giả sử</td><td class="n">2 hoặc 4 worker giọng nói; 11 slot</td><td><span class="pill p-build">Giả sử, chưa xây</span></td><td>Chưa có trong code. Tăng worker giọng nói là đề xuất trong mac-capacity-config.md §5.3; 11 slot là preset 10 học viên chưa áp dụng ở §7</td></tr></tbody></table></div></details></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-1" aria-labelledby="t-learners-vi-1" hidden><p>Cùng một mô hình, chạy 3 phút mô phỏng cho mỗi sĩ số, học viên bắt đầu ở các thời điểm khác nhau. "Thời gian chờ sau khi nói" tính từ lúc harness nhận <code>audio.end</code> tới lúc câu trả lời đầu tiên có audio. Mục tiêu trong plan <code>261029-1434</code> là p90 ≤ 3 s.</p>
+<div class="tw"><table class="cmp"><thead><tr><th class="n">Học viên</th><th class="n">Chờ · trung vị</th><th class="n">Chờ · p90</th><th class="n">Câu trả lời / người / phút</th><th class="n">Lượt bị 503 / phút</th><th class="n">Câu không audio / phút</th><th class="">Phần bận nhất</th></tr></thead><tbody><tr><td class="n">1</td><td class="n">4,1 s</td><td class="n warn">4,2 s</td><td class="n">3,3</td><td class="n">0,0</td><td class="n">0,0</td><td>chưa có (mọi phần < 85%)</td></tr><tr><td class="n">3</td><td class="n">4,2 s</td><td class="n warn">4,8 s</td><td class="n">3,1</td><td class="n">0,0</td><td class="n">0,0</td><td>chưa có (mọi phần < 85%)</td></tr><tr><td class="n">5</td><td class="n">4,5 s</td><td class="n warn">6,0 s</td><td class="n">3,0</td><td class="n">0,0</td><td class="n">0,0</td><td>chưa có (mọi phần < 85%)</td></tr><tr><td class="n">10</td><td class="n">7,2 s</td><td class="n warn">9,8 s</td><td class="n">2,6</td><td class="n">0,0</td><td class="n">0,0</td><td>TTS 92%</td></tr><tr><td class="n">35</td><td class="n">32,8 s</td><td class="n warn">40,3 s</td><td class="n">1,2</td><td class="n warn">7,7</td><td class="n warn">43,0</td><td>STT 100% · TTS 98%</td></tr><tr><td class="n">100</td><td class="n">43,0 s</td><td class="n warn">45,5 s</td><td class="n">0,4</td><td class="n warn">437,0</td><td class="n warn">43,0</td><td>STT 100% · TTS 98%</td></tr></tbody></table></div>
+<p>Cách đọc bảng: với một học viên, mô hình cho thời gian chờ khoảng 4,1 s. Con số này chậm hơn lần đo tốt nhất với một học viên (p50 2,1 s ngày 8/10, dùng model 1.5b và mốc bắt đầu đo khác, ở trình duyệt) vì mô hình dùng trung vị STT và TTS của toàn bộ telemetry. Từ 3 tới 5 học viên, thời gian chờ chỉ tăng nhẹ (p90 4,8 → 6,0 s). Tới 10 học viên, TTS bận khoảng 92%: mỗi lượt nói cần ba request TTS (câu đệm và hai câu trả lời), mà TTS chỉ có một worker. Tới 35 học viên, cả STT lẫn TTS đều bận 100%: hàng chờ đầy, học viên nhận lỗi 503 và nhiều câu không có audio. Với 100 học viên, số câu trả lời mỗi phút không tăng thêm, chỉ số lỗi tăng. LLM router chưa bao giờ là chỗ nghẽn trong mô hình này, vì phần giọng nói chặn trước.</p>
+<p><b>Khi tất cả ngừng nói cùng một lúc.</b> Câu trả lời đầu tiên của mỗi học viên, trong 60 giây mô phỏng.</p>
+<div class="tw"><table class="cmp"><thead><tr><th class="n">Học viên</th><th class="n">Câu trả lời đầu · trung vị (người đã nhận)</th><th class="n">Người nhận chậm nhất</th><th class="n">Chưa có câu trả lời sau 60 s</th><th class="n">Lượt bị 503 trong 60 s</th></tr></thead><tbody><tr><td class="n">1</td><td class="n">4,1 s</td><td class="n">4,1 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">3</td><td class="n">6,3 s</td><td class="n">7,1 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">5</td><td class="n">8,0 s</td><td class="n">11,4 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">10</td><td class="n">14,1 s</td><td class="n">22,3 s</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="n">35</td><td class="n">32,5 s</td><td class="n">41,5 s</td><td class="n warn">5</td><td class="n warn">37</td></tr><tr><td class="n">100</td><td class="n">33,3 s</td><td class="n">42,9 s</td><td class="n warn">69</td><td class="n warn">530</td></tr></tbody></table></div>
+<p><b>Điều gì sẽ giúp.</b> p90 thời gian chờ trong lớp 3 phút. Các cấu hình này chưa có trong code; chúng thử các đề xuất trong báo cáo capacity của nhóm.</p>
+<div class="tw"><table class="cmp"><thead><tr><th class="n">Học viên</th><th class="n">Hiện tại</th><th class="n">2 worker giọng nói</th><th class="n">4 worker giọng nói + 11 slot LLM</th></tr></thead><tbody><tr><td class="n">1</td><td class="n warn">4,2 s</td><td class="n warn">4,2 s</td><td class="n warn">4,2 s</td></tr><tr><td class="n">3</td><td class="n warn">4,8 s</td><td class="n warn">4,2 s</td><td class="n warn">4,2 s</td></tr><tr><td class="n">5</td><td class="n warn">6,0 s</td><td class="n warn">4,4 s</td><td class="n warn">4,2 s</td></tr><tr><td class="n">10</td><td class="n warn">9,8 s</td><td class="n warn">7,1 s</td><td class="n warn">4,3 s</td></tr><tr><td class="n">35</td><td class="n warn">40,3 s</td><td class="n warn">18,0 s</td><td class="n warn">8,0 s</td></tr><tr><td class="n">100</td><td class="n warn">45,5 s</td><td class="n warn">26,2 s</td><td class="n warn">33,4 s</td></tr></tbody></table></div>
+<p>Trong mô hình, thêm worker giọng nói giúp nhiều hơn thêm slot LLM. Chỉ tăng lên 11 slot thì lớp 10 học viên có p90 8,3 s, còn lớp 35 học viên vẫn 40,3 s. Với 2 worker, p90 của lớp 10 học viên giảm từ 9,8 s xuống 7,1 s. Với 4 worker và 11 slot, lớp 10 học viên còn 4,3 s và lớp 35 học viên còn 8,0 s; tới 100 học viên thì LLM router trở thành phần bận nhất (98%).</p></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-2" aria-labelledby="t-learners-vi-2" hidden><p>Những gì code đang làm, từ lúc học viên kết nối tới lúc buổi học được chấm điểm.</p>
+<ol class="coord">
+<li><span class="cn">1</span><b>Mỗi học viên một chỗ</b><p>Mở WebSocket là giữ chỗ của học viên trong Redis, thời hạn 120 s và liên tục được gia hạn. Tab thứ hai của cùng học viên không lấy được chỗ này. (<code>redis-session-seat.service.ts</code>)</p></li>
+<li><span class="cn">2</span><b>Mỗi session giữ trạng thái riêng</b><p>Context window, audio buffer và timer nằm trong process của harness, theo session id. Học viên không dùng chung gì, nên 100 session không làm chậm nhau trong harness. README ghi rằng chạy nhiều replica harness thì cần sticky connection.</p></li>
+<li><span class="cn">3</span><b>Mỗi session chạy một lượt một lúc</b><p>Mỗi session có một khóa lượt. Nếu một lượt vẫn đang chạy, một <code>audio.end</code> mới được chờ; các <code>audio.end</code> sau đó nhận <code>session.busy</code>.</p></li>
+<li><span class="cn">4</span><b>Gọi AI-Voice</b><p>STT và TTS là lệnh gọi HTTP không retry (timeout phía client 45 s và 30 s). AI-Voice chạy từng request một cho mỗi loại và cho tối đa 16 request chờ; request kế tiếp nhận 503 kèm <code>Retry-After: 1</code>.</p></li>
+<li><span class="cn">5</span><b>Gọi LLM</b><p>Mọi lệnh gọi model đi tới một llama-server có 7 slot; request dư phải chờ bên trong nó. Harness giới hạn từng lệnh gọi: answer judge có 1,2 s (lỗi 3 lần liên tiếp thì nghỉ 30 s), stream của tutor lỗi nếu 30 s không có token, và luồng thường có thể chuyển sang model ứng viên kế tiếp trong cấu hình agent.</p></li>
+<li><span class="cn">6</span><b>Khi một bước lỗi</b><p>TTS câu đệm lỗi: lượt nói vẫn tiếp tục. Một câu lỗi ở TTS: câu đó không có audio. STT hoặc model tutor lỗi: học viên nhận "Turn processing failed, please try again" (hoặc <code>LLM_SERVICE_TEMPORARILY_UNAVAILABLE</code>) và session quay về trạng thái nghe.</p></li>
+<li><span class="cn">7</span><b>Việc nền xếp hàng riêng</b><p>Chấm cuốn chiếu mỗi 6 lượt, tóm tắt, nén context và trích xuất memory dùng chung một hàng (<code>BACKGROUND_LLM_ISOLATION_ENABLED=true</code>): 1 chạy, 8 chờ, còn lại bị từ chối. Chúng vẫn dùng chung LLM router với tutor.</p></li>
+<li><span class="cn">8</span><b>Chấm điểm sau buổi học</b><p>Job chấm điểm cuối buổi được đưa vào RabbitMQ (<code>session.evaluation.queue</code>). Consumer nhận 2 message một lúc, và lệnh gọi model của nó cũng đi qua hàng nền. Nếu RabbitMQ lỗi, harness chấm ngay tại chỗ.</p></li>
+<li class="nb"><span class="cn">!</span><b>Chưa xây: kiểm soát vào và vị trí chờ</b><p>Không có gì ngăn học viên thứ 36 hay thứ 100 vào lớp. Plan <code>261029-1434</code> yêu cầu hiện vị trí chờ khi quá sức chứa; phần này đang pending.</p></li>
+<li class="nb"><span class="cn">!</span><b>Chưa xây: ghim slot</b><p>Báo cáo capacity (§5.4) yêu cầu ghim mỗi session vào một slot LLM và mọi lệnh gọi phụ vào slot 6. Code chưa gửi <code>id_slot</code>.</p></li>
+<li class="nb"><span class="cn">!</span><b>Đang tắt: deadline phản hồi</b><p>Code có thể phát "Sorry, could you say that again?" sau 3.500 ms không có audio, nhưng <code>.env</code> của nhóm đặt <code>TUTOR_DEADLINE_ENABLED=false</code>.</p></li>
+<li class="nb"><span class="cn">!</span><b>Chưa xây: thêm worker giọng nói</b><p>Chạy nhiều request TTS cùng lúc là một đề xuất trong báo cáo capacity (§5.3). Mặc định trong repository vẫn là một worker.</p></li>
+</ol></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-3" aria-labelledby="t-learners-vi-3" hidden><div class="tw"><table>
 <thead><tr><th>Dữ kiện</th><th>Giá trị</th><th>Lấy từ đâu</th></tr></thead>
 <tbody>
-<tr><td>Cấu hình LLM router</td><td class="n">7 slot × 4.096 token</td><td><code>BE/scripts/llama-local/models.conf</code>; <code>.run/mac-capacity/result-finish.md</code></td></tr>
+<tr><td>Cấu hình LLM router</td><td class="n">7 slot × 4.096 token, qwen2.5-3b</td><td><code>BE/scripts/llama-local/models.conf</code>; <code>mac-capacity-config.md</code></td></tr>
 <tr><td>LLM, 6 học viên + 1 phụ, đã warm</td><td class="n">TTFT p50 133,6 ms · tổng 105,7 token/giây</td><td><code>.run/mac-capacity/result-finish.md</code> (15/10/2026)</td></tr>
-<tr><td>TTS, từng yêu cầu một, đã warm</td><td class="n">khoảng 0,55× thời gian thực</td><td><code>.run/mac-capacity/tts-bench-261015-0415.md</code></td></tr>
-<tr><td>TTS, 6 yêu cầu cùng lúc</td><td class="n">xong hết sau 7,0 giây; chạy nối tiếp</td><td>cùng file trên</td></tr>
+<tr><td>LLM, cùng bench, khi cold</td><td class="n">TTFT p50 3,5 s; một request chờ slot 14,9 s</td><td><code>mac-capacity-config.md</code> §5.2</td></tr>
+<tr><td>TTS, từng request một, đã warm</td><td class="n">nhanh hơn thời gian thực khoảng 1,8 lần</td><td><code>.run/mac-capacity/tts-bench-261015-0415.md</code> (profile gemini_tts)</td></tr>
+<tr><td>TTS, 6 request cùng lúc</td><td class="n">xong hết sau 7,0 giây; chạy nối tiếp</td><td>cùng file trên</td></tr>
+<tr><td>STT, mọi lượt đã ghi nhận</td><td class="n">stt.total p50 1.220 ms · p95 10.239 ms</td><td>telemetry của harness 2–25/10/2026, n = 2.805 (<code>phase-05-c1-gpu-spike.md</code>)</td></tr>
+<tr><td>TTS, mọi câu đã ghi nhận</td><td class="n">tts.synth p50 850 ms · p95 6.001 ms</td><td>cùng báo cáo, n = 2.282</td></tr>
+<tr><td>Hàng của AI-Voice cho mỗi loại</td><td class="n">1 chạy, 16 chờ, quá thì 503</td><td><code>Service-AI-Voice/voice_runtime/rest_api.py</code>; README</td></tr>
 <tr><td>Thời hạn giữ chỗ của mỗi học viên</td><td class="n">120 giây, được gia hạn</td><td><code>redis-session-seat.service.ts</code></td></tr>
-<tr><td>Admission cho LLM nền</td><td class="n">1 đang chạy, 8 chờ</td><td><code>background-llm-admission.ts</code></td></tr>
+<tr><td>Hàng LLM nền</td><td class="n">1 chạy, 8 chờ</td><td><code>background-llm-admission.ts</code></td></tr>
 </tbody></table></div>
-<p>Những gì chưa được chứng minh: kế hoạch <code>261029-1434-multi-learner-concurrency</code> đặt mục tiêu (p90 audio đầu tiên trong 3.000 ms kể từ frame có tiếng cuối cùng của học viên, và hiển thị vị trí chờ khi quá sức chứa) và vẫn đang ở trạng thái pending. Bài test trực tiếp với bốn trình duyệt trong kế hoạch <code>261025-1920</code> cũng đang pending. Không nên nêu con số sức chứa với hội đồng cho đến khi một trong hai bài này chạy xong.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#orchestration"><span>Chương trước</span><b>Điều phối</b></a><a class="cf next" href="#evidence"><span>Chương sau · 06</span><b>Bằng chứng</b><em>ESPP khớp với các tham chiếu tới đâu, ở những điểm nào?</em></a></nav></div></section><section class="chapter" id="evidence" data-i="6" aria-labelledby="h-evidence" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">06</span>Evidence</p><p class="ch-q"><span>This chapter answers</span>How closely does ESPP match the references, and where?</p><h2 id="h-evidence" class="ch-title">How close ESPP is, row by row</h2></header><div class="ch-body">
+<p>Những gì chưa được chứng minh: plan <code>261029-1434-multi-learner-concurrency</code> đặt mục tiêu (p90 audio đầu tiên trong 3.000 ms kể từ frame có tiếng cuối cùng của học viên, và hiện vị trí chờ khi quá sức chứa) và vẫn đang pending. Bài test trực tiếp với bốn trình duyệt trong plan <code>261025-1920</code> cũng đang pending. Bộ mô phỏng ở trên là một mô hình; không nên nêu con số sức chứa với hội đồng cho đến khi một trong hai bài test này chạy xong.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#orchestration"><span>Chương trước</span><b>Điều phối</b></a><a class="cf next" href="#evidence"><span>Chương sau · 06</span><b>Bằng chứng</b><em>ESPP khớp với các tham chiếu tới đâu, ở những điểm nào?</em></a></nav></div></section><section class="chapter" id="evidence" data-i="6" aria-labelledby="h-evidence" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">06</span>Evidence</p><p class="ch-q"><span>This chapter answers</span>How closely does ESPP match the references, and where?</p><h2 id="h-evidence" class="ch-title">How close ESPP is, row by row</h2></header><div class="ch-body">
 
 <p>Scoring rule for every table: 1 if the code runs it, 0.5 if it is partial or present but not wired in, 0 if absent. A half point is a judgement; each row names its evidence so anyone can check it.</p>
 
@@ -974,34 +1184,7 @@ Flow('fig-openclaw',{title:'OpenClaw: a Gateway in front of a serialized per-ses
 /* 4. ESPP speaking turn today */
 var stageX=240, stageW=380;
 function stages(labels,kinds){return labels.map(function(t,i){return {id:'s'+(i+1),x:stageX,y:50+i*56,w:stageW,h:44,t:t,k:kinds[i]};});}
-Flow('fig-espp-turn',{title:'ESPP today: one speaking turn through the harness',h:452,
- link:{href:'#sources',text:'Source: Service-Harness-Ts code'},
- nodes:[
-  {id:'lr',x:20,y:110,w:180,h:56,t:"Learner's browser",s:'mic in · audio out'},
-  {id:'ss',x:20,y:366,w:180,h:56,t:'Service-Session',s:'turns, scores, profile'},
-  {id:'hg',x:220,y:16,w:420,h:424,t:'Service-Harness-Ts',k:'group'}
- ].concat(stages(['1 · WebSocket gateway + turn lock','2 · Speech to text','3 · Grounding + 4-layer prompt','4 · Answer judge + tutoring policy','5 · Tutor reply, streamed','6 · Guard + sentence-level TTS','7 · Outbox, evidence, background jobs'],['have','have','have','have','have','have','have']),[
-  {id:'x2',x:660,y:106,w:200,h:44,t:'AI-Voice STT · Parakeet'},
-  {id:'x3',x:660,y:162,w:200,h:44,t:'Service-RAG · grounding'},
-  {id:'x4',x:660,y:218,w:200,h:44,t:'LLM · answer judge'},
-  {id:'x5',x:660,y:274,w:200,h:44,t:'LLM · tutor model'},
-  {id:'x6',x:660,y:330,w:200,h:44,t:'AI-Voice TTS'},
-  {id:'x7',x:660,y:386,w:200,h:44,t:'Laya · shadow only',k:'wire'}]),
- edges:[
-  {id:'in',d:'M200 128H222V72H237'},
-  {id:'c1',a:'s1',b:'s2'},{id:'c2',a:'s2',b:'s3'},{id:'c3',a:'s3',b:'s4'},{id:'c4',a:'s4',b:'s5'},{id:'c5',a:'s5',b:'s6'},{id:'c6',a:'s6',b:'s7'},
-  {id:'e2',a:'s2',b:'x2'},{id:'e3',a:'s3',b:'x3'},{id:'e4',a:'s4',b:'x4'},{id:'e5',a:'s5',b:'x5'},{id:'e6',a:'s6',b:'x6'},{id:'e7',a:'s7',b:'x7'},
-  {id:'out',d:'M240 352H212V150H203'},
-  {id:'sv',d:'M240 408H203'}],
- legend:[['have','Runs today'],['wire','Present, not wired into the reply'],['ext','Outside the harness']],
- steps:[
-  {on:['lr','s1'],e:['in'],en:'The browser streams PCM audio over the WebSocket. The harness buffers it (5 MB cap) and locks the turn: a second audio.end gets session.busy.',vi:'Trình duyệt gửi audio PCM qua WebSocket. Harness gom vào buffer (tối đa 5 MB) và khóa lượt: audio.end thứ hai sẽ nhận session.busy.'},
-  {on:['s2','x2'],e:['c1','e2'],en:'On audio.end the harness sends the audio to Service-AI-Voice. Parakeet returns the text; smart-turn confirms the learner has finished.',vi:'Khi có audio.end, harness gửi audio sang Service-AI-Voice. Parakeet trả về văn bản; smart-turn xác nhận học viên đã nói xong.'},
-  {on:['s3','x3'],e:['c2','e3'],en:'The harness refreshes scoped grounding from Service-RAG and assembles the system prompt from four layers: guardrails, session type, archetype, CEFR tier.',vi:'Harness làm mới grounding từ Service-RAG và ghép system prompt từ bốn lớp: guardrail, loại buổi, archetype, mức CEFR.'},
-  {on:['s4','x4'],e:['c3','e4'],en:'A small LLM judges the answer within 1,200 ms. The tutoring policy, written in code, then picks the move: ask, rephrase, hint, give a choice or model the answer.',vi:'Một LLM nhỏ đánh giá câu trả lời trong 1.200 ms. Sau đó policy viết bằng code chọn nước đi: hỏi, diễn đạt lại, gợi ý, cho lựa chọn, hoặc làm mẫu.'},
-  {on:['s5','x5'],e:['c4','e5'],en:'The tutor model writes the reply for that move as a stream. If the endpoint fails, the harness fails over to the next candidate.',vi:'Model tutor viết câu trả lời cho nước đi đó dạng stream. Nếu endpoint lỗi, harness chuyển sang ứng viên kế tiếp.'},
-  {on:['s6','x6','lr'],e:['c5','e6','out'],en:'The sanitizer and output policy check each sentence. TTS runs per sentence and the audio is sent back at once.',vi:'Sanitizer và output policy kiểm tra từng câu. TTS chạy theo từng câu và audio được gửi về ngay.'},
-  {on:['s7','ss','x7'],e:['c6','sv','e7'],en:'The outbox delivers the turn and adaptation evidence to Service-Session. Context is compacted in the background. Laya observes and only logs.',vi:'Outbox gửi lượt nói và adaptation evidence sang Service-Session. Context được nén ở nền. Laya chỉ quan sát và ghi log.'}]});
+
 
 /* 5. ESPP grading */
 Flow('fig-espp-grade',{title:'ESPP today: grading runs off the live path',h:214,
@@ -1017,38 +1200,13 @@ Flow('fig-espp-grade',{title:'ESPP today: grading runs off the live path',h:214,
  edges:[{id:'a',a:'g1',b:'g2'},{id:'b',a:'g2',b:'g3'},{id:'c',a:'g3',b:'g4'},{id:'d',a:'g4',b:'g5'},{id:'f',a:'g3',b:'dl'},{id:'i',a:'inp',b:'g4'}],
  steps:[
   {on:['g1'],e:[],en:'The learner ends the session. The harness checks the floor: minimum active time and accepted turns. Below the floor, the end is refused.',vi:'Học viên kết thúc buổi. Harness kiểm tra sàn: thời gian tối thiểu và số lượt được nhận. Dưới sàn thì từ chối kết thúc.'},
-  {on:['g2','g3'],e:['a','b'],en:'The harness publishes one message to session.evaluation.queue. If RabbitMQ is down it grades in process instead. A consumer picks the message up.',vi:'Harness đẩy một message vào session.evaluation.queue. Nếu RabbitMQ lỗi thì chấm ngay tại chỗ. Một consumer nhận message.'},
-  {on:['g4','inp'],e:['c','i'],en:'Grading reads the rubric from Curriculum, runs the LanguageTool detector and the evaluator model. Summary and narrative run in parallel.',vi:'Phần chấm đọc rubric từ Curriculum, chạy LanguageTool detector và model evaluator. Phần tóm tắt và nhận xét chạy song song.'},
-  {on:['g5'],e:['d'],en:'Scores per criterion and the completed status are written to Service-Session. If both attempts fail, the state is FAILED; no score is invented.',vi:'Điểm theo tiêu chí và trạng thái hoàn tất được ghi sang Service-Session. Nếu cả hai lần đều lỗi, trạng thái là FAILED; không bịa điểm.'},
-  {on:['g3','dl'],e:['f'],en:'A failed delivery goes to the dead-letter queue, then retry buckets with growing delays, then a parking queue after repeated permanent errors.',vi:'Message lỗi vào dead-letter queue, rồi các retry bucket với độ trễ tăng dần, rồi parking queue nếu lỗi vĩnh viễn lặp lại.'}]});
+  {on:['g2','g3'],e:['a','b'],en:'The harness publishes one message to session.evaluation.queue. If RabbitMQ is down it grades in process instead. A consumer picks it up; it takes 2 messages at a time.',vi:'Harness đẩy một message vào session.evaluation.queue. Nếu RabbitMQ lỗi thì chấm ngay tại chỗ. Một consumer nhận message; mỗi lần nó nhận 2 message.'},
+  {on:['g4','inp'],e:['c','i'],en:'Grading reads the rubric from Curriculum, runs the LanguageTool detector and the evaluator model. Summary and narrative run in parallel. Every evaluator call waits in the background LLM line (1 running, 8 waiting).',vi:'Phần chấm đọc rubric từ Curriculum, chạy LanguageTool detector và model evaluator. Phần tóm tắt và nhận xét chạy song song. Mỗi lệnh gọi evaluator phải qua hàng LLM nền (1 chạy, 8 chờ).'},
+  {on:['g5'],e:['d'],en:'Scores per criterion and the completed status are written to Service-Session. The evaluator call gets up to two tries; if both fail, the state is FAILED and no score is invented.',vi:'Điểm theo tiêu chí và trạng thái hoàn tất được ghi sang Service-Session. Lệnh gọi evaluator được thử tối đa hai lần; nếu cả hai đều lỗi, trạng thái là FAILED và không bịa điểm.'},
+  {on:['g3','dl'],e:['f'],en:'A failed job is redelivered up to 3 times, then goes to the dead-letter queue, then retry buckets with growing delays, then a parking queue after repeated permanent errors.',vi:'Job lỗi được giao lại tối đa 3 lần, rồi vào dead-letter queue, rồi các retry bucket với độ trễ tăng dần, rồi parking queue nếu lỗi vĩnh viễn lặp lại.'}]});
 
 /* 6. Concurrency */
-Flow('fig-concurrency',{title:'ESPP today: where concurrent learners meet',h:392,noDim:false,
- link:{href:'#sources',text:'Source: code and team capacity notes'},
- nodes:[
-  {id:'A',x:20,y:56,w:130,h:44,t:'Learner A'},{id:'B',x:20,y:126,w:130,h:44,t:'Learner B'},{id:'C',x:20,y:196,w:130,h:44,t:'Learner C'},
-  {id:'hg',x:180,y:16,w:300,h:268,t:'Service-Harness-Ts (one process)',k:'group'},
-  {id:'la',x:196,y:56,w:268,h:44,t:'Session A · own state + turn lock',k:'have'},
-  {id:'lb',x:196,y:126,w:268,h:44,t:'Session B · own state + turn lock',k:'have'},
-  {id:'lc',x:196,y:196,w:268,h:44,t:'Session C · own state + turn lock',k:'have'},
-  {id:'ab',x:510,y:16,w:350,h:268,t:'AI box, shared by all sessions',k:'group'},
-  {id:'llm',x:522,y:46,w:326,h:38,t:'LLM router · 7 slots (benchmarked as 6 + 1)',k:'have'},
-  {id:'asr',x:522,y:92,w:326,h:38,t:'ASR · single worker',k:'have'},
-  {id:'tts',x:522,y:138,w:326,h:38,t:'TTS · requests run one after another',k:'have'},
-  {id:'ly',x:522,y:184,w:326,h:38,t:'Laya · 2 at a time (shadow)',k:'wire'},
-  {id:'bg',x:522,y:230,w:326,h:38,t:'Background LLM · 1 running, queue of 8',k:'have'},
-  {id:'rd',x:20,y:312,w:270,h:56,t:'Redis seat',s:'one per student, lease 120 s',k:'have'},
-  {id:'mq',x:305,y:312,w:270,h:56,t:'RabbitMQ',s:'grading queue, off the live path',k:'have'},
-  {id:'cap',x:590,y:312,w:270,h:56,t:'Not built',s:'capacity admission, waiting position',k:'build'}],
- edges:[{id:'ea',a:'A',b:'la'},{id:'eb',a:'B',b:'lb'},{id:'ec',a:'C',b:'lc'},
-  {id:'xa',d:'M464 78H507'},{id:'xb',d:'M464 148H507'},{id:'xc',d:'M464 218H507'}],
- legend:[['have','Runs today'],['wire','Present, shadow only'],['build','Planned, not built']],
- steps:[
-  {on:['A','la','rd','llm','asr','tts'],e:['ea','xa'],en:'One learner. Opening the WebSocket takes that student\'s seat in Redis. The session keeps its own state, and its turn lock allows one turn at a time.',vi:'Một học viên. Mở WebSocket là giữ chỗ của học viên đó trong Redis. Session có trạng thái riêng, và khóa lượt chỉ cho một lượt chạy tại một thời điểm.'},
-  {on:['A','B','la','lb','llm'],e:['ea','eb','xa','xb'],en:'Two learners. Each has its own session and lock, so they do not block each other inside the harness. Each tutor call takes its own LLM slot.',vi:'Hai học viên. Mỗi người có session và khóa riêng nên không chặn nhau trong harness. Mỗi lệnh gọi tutor dùng một slot LLM riêng.'},
-  {on:['A','B','C','la','lb','lc','asr','tts'],e:['ea','eb','ec','xa','xb','xc'],en:'Three learners. Speech is the tight spot: ASR has one worker and TTS requests run in series, so replies wait briefly when three people finish speaking together.',vi:'Ba học viên. Phần giọng nói là chỗ nghẽn: ASR có một worker và TTS chạy nối tiếp, nên câu trả lời phải chờ một chút khi ba người nói xong cùng lúc.'},
-  {on:['bg','mq','ly'],e:[],en:'Work that is not on the live path waits in line: background LLM jobs (1 running, 8 queued), Laya (2 at a time) and grading (RabbitMQ).',vi:'Việc không nằm trên luồng trực tiếp thì xếp hàng: job LLM nền (1 đang chạy, 8 chờ), Laya (2 cùng lúc) và chấm điểm (RabbitMQ).'},
-  {on:['cap'],e:[],en:'Past the capacity of the AI box there is no admission control yet. The plan is a visible waiting position for the next learner; it is not built.',vi:'Khi vượt sức chứa của máy AI, hiện chưa có cơ chế kiểm soát. Kế hoạch là cho học viên kế tiếp thấy vị trí chờ; phần này chưa xây.'}]});
+
 
 /* 7. Target */
 Flow('fig-target',{title:'Recommended: the same turn with a bounded tutor agent loop',h:500,
@@ -1138,6 +1296,440 @@ document.querySelectorAll('[data-tabs]').forEach(function(box){
 })();
 if('scrollRestoration' in history){history.scrollRestoration='manual';}
 window.addEventListener('load',function(){setTimeout(function(){window.scrollTo(0,0);},0);});
+
+(function(){
+var NS='http://www.w3.org/2000/svg';function S(n,a,p){var e=document.createElementNS(NS,n);for(var k in a){e.setAttribute(k,a[k]);}if(p){p.appendChild(e);}return e;}function H(n,a,p,t){var e=document.createElement(n);for(var k in a){e.setAttribute(k,a[k]);}if(t!=null){e.textContent=t;}if(p){p.appendChild(e);}return e;}var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ESPP many-learner model. Time-stepped. Each value names its source in the page's assumption table. */
+var SIM_P={
+  speakS:[4,8], thinkS:1.5, retryS:2,
+  sttS:1.22, asrK:1, asrCap:16,
+  leadTtsS:0.4, ttsS:0.85, ttsK:1, ttsQueue:16, ttsTimeoutS:28,
+  groundS:0.28, judge:true, judgeS:0.11, judgeBudgetS:1.2, breakerFails:3, breakerPauseS:30,
+  slots:7, warmTtftS:0.13, coldPrefillS:1.62, slotTokS:28, totalTokS:107,
+  replyTok:60, sentences:2, sentenceAudioS:4, leadAudioS:0.6, llmIdleS:30,
+  chunkEvery:6, bgTok:300, bgTimeoutS:25, bgQueue:8
+};
+function simRng(seed){var s=seed>>>0||1;return function(){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296;};}
+function simMerge(o){var p={},k;for(k in SIM_P)p[k]=SIM_P[k];if(o)for(k in o)p[k]=o[k];return p;}
+function Sim(n,mode,seed,P){
+  P=P||SIM_P; var r=simRng(seed||7), t=0, self=this;
+  function speakLen(){return P.speakS[0]+r()*(P.speakS[1]-P.speakS[0]);}
+  this.P=P; this.n=n; this.t=0; this.ev=[];
+  var L=[]; for(var i=0;i<n;i++){L.push({id:i,tr:[],st:'speak',until:mode==='burst'?0.05:0.3+r()*8,turns:0,lat:[],play:0,where:'',pending:[]});}
+  this.L=L;
+  var asr={k:P.asrK,q:[],run:[],busy:0,peak:0}, tts={k:P.ttsK,q:[],run:[],busy:0,peak:0}, llm={q:[],act:[],busy:0,peak:0,rate:0}, bg={q:[],run:null};
+  this.R={asr:asr,tts:tts,llm:llm,bg:bg};
+  var C={asr503:0,tts503:0,ttsTimeout:0,judgeTimeout:0,judgeSkipped:0,llmFail:0,bgDrop:0,bgDone:0,bgFail:0,answered:0,turns:0,breaker:0};
+  this.C=C; var breakerUntil=-1, judgeFails=0; this.breakerOpen=function(){return t<breakerUntil;};
+  function emit(k,id,x){self.ev.push({t:t,k:k,id:id,x:x});}
+  function setSt(l,s,until,where){l.st=s;l.until=until==null?Infinity:until;l.where=where||'';}
+  function fail(l,why){setSt(l,'error',t+P.retryS,why);emit('fail',l.id,why);}
+  function rec(l,o){o.enq=t;l.tr.push(o);return o;}
+  function endSpeech(l){ l.end=t; l.useful=null; l.dead=false; l.pending=[]; l.ttsBusy=false; if(l.tr&&l.tr.length)l.lastTr={t0:l.trT0,jobs:l.tr,useful:l.trUseful,fail:l.trFail}; l.tr=[]; l.trT0=t; l.trUseful=null; l.trFail=null;
+    if(asr.q.length+asr.run.length>=P.asrCap){C.asr503++;l.trFail='asr503';rec(l,{kind:'stt',fail:true}).start=t;fail(l,'asr503');return;}
+    asr.q.push({l:l,enq:t,tr:rec(l,{kind:'stt'})}); setSt(l,'wait',null,'asr'); emit('asr',l.id); }
+  function afterStt(l){ setSt(l,'wait',null,'tts'); ttsPush(l,P.leadTtsS,'lead',function(ok){ if(ok){hear(l,P.leadAudioS);} if(!l.dead){setSt(l,'work',t+P.groundS,'rag'); var g=rec(l,{kind:'rag'});g.start=t;g.end=t+P.groundS; l.next=judge;} }); }
+  function judge(l){
+    if(!P.judge){tutor(l);return;}
+    if(t<breakerUntil){C.judgeSkipped++;tutor(l);return;}
+    setSt(l,'wait',null,'llm');
+    llm.q.push({kind:'judge',l:l,enq:t,pre:P.judgeS,tok:0,got:0,tr:rec(l,{kind:'judge'}),done:function(ok){
+      if(ok){judgeFails=0;} else {C.judgeTimeout++;judgeFails++;emit('jto',l.id);if(judgeFails>=P.breakerFails){breakerUntil=t+P.breakerPauseS;judgeFails=0;C.breaker++;emit('breaker',-1);}}
+      tutor(l);}});
+    emit('llm',l.id);
+  }
+  function tutor(l){
+    setSt(l,'wait',null,'llm'); var cold=(self.n+(bg.run?1:0))>P.slots, per=P.replyTok/P.sentences, sent=0;
+    llm.q.push({kind:'tutor',l:l,enq:t,pre:cold?P.coldPrefillS:P.warmTtftS,tok:P.replyTok,got:0,tr:rec(l,{kind:'tutor',cold:cold}),
+      onTok:function(g){while(sent<P.sentences&&g>=per*(sent+1)-1e-9){sent++;sentence(l,sent);}},
+      done:function(ok){if(!ok){C.llmFail++;l.dead=true;l.trFail='llm';fail(l,'llm');}}});
+    emit('llm',l.id);
+  }
+  function sentence(l,k){ if(l.dead)return; l.pending.push(k); if(!l.ttsBusy)pump(l); }
+  function pump(l){ if(!l.pending.length||l.dead)return; var k=l.pending.shift(); l.ttsBusy=true;
+    if(l.st!=='hear')setSt(l,'wait',null,'tts');
+    ttsPush(l,P.ttsS,'s'+k,function(ok){ l.ttsBusy=false;
+      if(ok){ if(l.useful==null){l.useful=t;l.trUseful=t;l.lat.push(t-l.end);C.answered++;} hear(l,P.sentenceAudioS);}
+      if(k===P.sentences)finishTurn(l); else if(l.pending.length)pump(l); else if(l.st!=='hear')setSt(l,'work',null,'llm'); }); }
+  function hear(l,dur){ l.play=Math.max(l.play,t)+dur; setSt(l,'hear',null,''); emit('audio',l.id); }
+  function finishTurn(l){ if(l.useful==null){l.lat.push(t-l.end);} l.turns++; C.turns++;
+    setSt(l,'think',Math.max(l.play,t)+P.thinkS,'');
+    if(l.turns%P.chunkEvery===0){ if(bg.run&&bg.q.length>=P.bgQueue){C.bgDrop++;emit('bgdrop',l.id);} else {bg.q.push({l:l});emit('bg',l.id);} } }
+  function ttsPush(l,s,lab,cb){ var tr=rec(l,{kind:'tts',lab:lab}); if(tts.q.length>=P.ttsQueue){C.tts503++;tr.start=t;tr.end=t;tr.fail=true;emit('tts503',l.id);cb(false);return;} tts.q.push({l:l,s:s,enq:t,cb:cb,tr:tr}); emit('tts',l.id); }
+  this.step=function(dt){
+    t+=dt; self.t=t; var i;
+    for(i=0;i<n;i++){var l=L[i];
+      if(l.st==='speak'&&t>=l.until)endSpeech(l);
+      else if((l.st==='error'||l.st==='think')&&t>=l.until)setSt(l,'speak',t+speakLen(),'');
+      else if(l.st==='work'&&l.where==='rag'&&t>=l.until){var f=l.next;l.next=null;f(l);}
+    }
+    asr.run=asr.run.filter(function(a){if(t>=a.until){afterStt(a.l);return false;}return true;});
+    while(asr.run.length<asr.k&&asr.q.length){var a=asr.q.shift();a.until=t+P.sttS;a.tr.start=t;a.tr.end=a.until;asr.run.push(a);setSt(a.l,'work',null,'asr');}
+    asr.busy+=dt*asr.run.length/asr.k; asr.peak=Math.max(asr.peak,asr.q.length);
+    tts.q=tts.q.filter(function(j){if(t-j.enq>P.ttsTimeoutS){j.tr.start=t;j.tr.end=t;j.tr.fail=true;C.ttsTimeout++;emit('ttsto',j.l.id);j.cb(false);return false;}return true;});
+    tts.run=tts.run.filter(function(b){if(t>=b.until){b.cb(true);return false;}return true;});
+    while(tts.run.length<tts.k&&tts.q.length){var b=tts.q.shift();b.until=t+b.s;b.tr.start=t;b.tr.end=b.until;tts.run.push(b);}
+    tts.busy+=dt*tts.run.length/tts.k; tts.peak=Math.max(tts.peak,tts.q.length);
+    if(!bg.run&&bg.q.length){var g=bg.q.shift();bg.run={l:g.l,start:t};
+      llm.q.push({kind:'bg',l:g.l,enq:t,pre:P.coldPrefillS,tok:P.bgTok,got:0,done:function(ok){if(ok)C.bgDone++;else C.bgFail++;bg.run=null;}});}
+    function fin(j,ok){if(j.tr){if(j.tr.start==null)j.tr.start=t;j.tr.end=t;if(!ok)j.tr.fail=true;}j.done(ok);}
+    llm.q=llm.q.filter(function(j){var w=t-j.enq;
+      if(j.kind==='judge'&&w>P.judgeBudgetS){fin(j,false);return false;}
+      if(j.kind==='tutor'&&w>P.llmIdleS){fin(j,false);return false;}
+      if(j.kind==='bg'&&w>P.bgTimeoutS){fin(j,false);return false;}
+      return true;});
+    while(llm.act.length<P.slots&&llm.q.length){var j=llm.q.shift();j.start=t;if(j.tr)j.tr.start=t;j.preEnd=t+j.pre;llm.act.push(j);if(j.kind!=='bg')setSt(j.l,'work',null,'llm');}
+    var dec=0; llm.act.forEach(function(j){if(t>=j.preEnd&&j.tok>0)dec++;});
+    var rate=dec?Math.min(P.slotTokS,P.totalTokS/dec):0; llm.rate=rate;
+    llm.act=llm.act.filter(function(j){
+      if(j.kind==='judge'&&t-j.enq>P.judgeBudgetS){fin(j,false);return false;}
+      if(j.kind==='bg'&&t-j.start>P.bgTimeoutS){fin(j,false);return false;}
+      if(t<j.preEnd)return true;
+      if(j.tok===0){fin(j,true);return false;}
+      if(j.tr&&j.tr.first==null&&j.tok>0)j.tr.first=t; j.got=Math.min(j.tok,j.got+rate*dt); if(j.onTok)j.onTok(j.got);
+      if(j.got>=j.tok-1e-9){fin(j,true);return false;} return true;});
+    llm.busy+=dt*llm.act.length/P.slots; llm.peak=Math.max(llm.peak,llm.q.length);
+  };
+}
+function simRun(n,mode,secs,opt,seed){
+  var s=new Sim(n,mode,seed||7,simMerge(opt)), dt=0.02, steps=Math.round(secs/dt);
+  for(var i=0;i<steps;i++)s.step(dt);
+  var lat=[]; s.L.forEach(function(l){lat=lat.concat(mode==='burst'?l.lat.slice(0,1):l.lat);});
+  lat.sort(function(a,b){return a-b;});
+  function q(p){if(!lat.length)return null;return lat[Math.min(lat.length-1,Math.ceil(p*lat.length)-1)];}
+  return {n:n,p50:q(0.5),p90:q(0.9),max:lat.length?lat[lat.length-1]:null,answered:lat.length,
+    perMin:s.C.turns/n/(secs/60),C:s.C,u:{asr:s.R.asr.busy/secs,tts:s.R.tts.busy/secs,llm:s.R.llm.busy/secs},
+    peak:{asr:s.R.asr.peak,tts:s.R.tts.peak,llm:s.R.llm.peak}};
+}
+
+
+/* ---- sequence figure: one speaking turn, lane by lane ---- */
+var SEQ_TURN={
+ title:{en:'ESPP today: one speaking turn, message by message',vi:'ESPP hiện tại: một lượt nói, từng message một'},
+ link:{en:'Source: Service-Harness-Ts code, commit a406242',vi:'Nguồn: code Service-Harness-Ts, commit a406242'},
+ lanes:[
+  {id:'lr',t:{en:"Learner's browser",vi:'Trình duyệt học viên'},s:{en:'mic · speaker',vi:'micro · loa'},k:'ext'},
+  {id:'hr',t:{en:'Service-Harness-Ts',vi:'Service-Harness-Ts'},s:{en:'the harness',vi:'harness'},k:'have'},
+  {id:'vo',t:{en:'Service-AI-Voice',vi:'Service-AI-Voice'},s:{en:'STT · TTS, 1 worker each',vi:'STT · TTS, mỗi loại 1 worker'},k:'ext'},
+  {id:'rg',t:{en:'Service-RAG',vi:'Service-RAG'},s:{en:'lesson grounding',vi:'grounding bài học'},k:'ext'},
+  {id:'lm',t:{en:'LLM router',vi:'LLM router'},s:{en:'llama-server · 7 slots',vi:'llama-server · 7 slot'},k:'ext'},
+  {id:'ss',t:{en:'Service-Session',vi:'Service-Session'},s:{en:'turns · scores',vi:'lượt nói · điểm'},k:'ext'}],
+ steps:[
+  {m:[['lr','hr','audio frames (PCM, 16 kHz)','khung audio (PCM, 16 kHz)'],['hr','hr','buffer, max 5 MB','buffer, tối đa 5 MB']],
+   en:'The learner speaks. The browser streams raw audio over the WebSocket and the harness keeps it in a buffer (5 MB cap, about 160 s).',
+   vi:'Học viên nói. Trình duyệt gửi audio thô qua WebSocket và harness giữ trong buffer (tối đa 5 MB, khoảng 160 giây).'},
+  {m:[['lr','hr','audio.end','audio.end'],['hr','hr','take the turn lock','giữ khóa lượt'],['hr','lr','state: processing','state: processing','r']],
+   en:'The browser sends audio.end. The harness takes this session\'s turn lock. If a turn is still running, one new audio.end may wait for it; any more get session.busy. Smart-turn exists in code but SMART_TURN_ENABLED=false in the team .env.',
+   vi:'Trình duyệt gửi audio.end. Harness giữ khóa lượt của session này. Nếu một lượt vẫn đang chạy, một audio.end mới được chờ; các audio.end sau đó nhận session.busy. Smart-turn có trong code nhưng .env của nhóm đặt SMART_TURN_ENABLED=false.'},
+  {m:[['hr','vo','POST /api/v1/stt','POST /api/v1/stt'],['hr','rg','authority check (in parallel)','kiểm tra quyền (song song)'],['vo','vo','Parakeet, one at a time','Parakeet, từng cái một'],['vo','hr','transcript','transcript','r'],['hr','lr','transcript.final','transcript.final','r']],
+   d:{en:'STT p50 1.22 s',vi:'STT p50 1,22 s'},
+   en:'The harness sends the audio to Service-AI-Voice. Parakeet runs one request at a time; up to 16 can wait, the next gets 503. A pinned-grounding authority check runs alongside. The transcript goes back to the browser.',
+   vi:'Harness gửi audio sang Service-AI-Voice. Parakeet chạy từng request một; tối đa 16 request được chờ, request kế tiếp nhận 503. Phép kiểm tra quyền của grounding đã ghim chạy song song. Transcript được gửi về trình duyệt.'},
+  {m:[['hr','vo','POST /api/v1/tts "Got it,"','POST /api/v1/tts "Got it,"'],['vo','hr','wav','wav','r'],['hr','lr','audio: short lead-in','audio: câu đệm ngắn','r']],
+   en:'Before calling the LLM, the harness speaks a short lead-in such as "Got it," and waits for its audio. This is a second TTS request in every turn. If it fails, the turn goes on without it.',
+   vi:'Trước khi gọi LLM, harness cho phát một câu đệm ngắn như "Got it," và chờ audio của nó. Đây là request TTS thứ hai trong mỗi lượt. Nếu lỗi, lượt nói vẫn tiếp tục mà không có câu đệm.'},
+  {m:[['hr','rg','refresh scoped grounding','làm mới grounding'],['rg','hr','lesson excerpts','đoạn trích bài học','r'],['hr','hr','prompt: 4 layers + memory','prompt: 4 lớp + memory']],
+   d:{en:'p50 0.28 s',vi:'p50 0,28 s'},
+   en:'The harness refreshes grounding for this lesson and builds the prompt from four layers (guardrails, session type, archetype, CEFR tier), plus learner memory and the grounding excerpts.',
+   vi:'Harness làm mới grounding của bài học và ghép prompt từ bốn lớp (guardrail, loại buổi, archetype, mức CEFR), thêm learner memory và các đoạn grounding.'},
+  {m:[['hr','lm','answer judge, 1.2 s budget','answer judge, ngân sách 1,2 s'],['lm','hr','relevance','mức liên quan','r'],['hr','hr','policy picks the move','policy chọn nước đi']],
+   d:{en:'tutoring-loop classes only',vi:'chỉ lớp bật tutoring loop'},
+   en:'Only in classes with the tutoring loop on (TUTORING_LOOP_CLASS_IDS): a small LLM call judges the answer within 1.2 s, then code picks the move. Three failures in a row pause the judge for 30 s; the turn continues without it.',
+   vi:'Chỉ ở lớp bật tutoring loop (TUTORING_LOOP_CLASS_IDS): một lệnh gọi LLM nhỏ đánh giá câu trả lời trong 1,2 s, rồi code chọn nước đi. Lỗi ba lần liên tiếp thì judge nghỉ 30 s; lượt nói vẫn tiếp tục mà không có judge.'},
+  {m:[['hr','lm','tutor reply, streamed','câu trả lời tutor, dạng stream'],['lm','hr','tokens …','token …','r']],
+   en:'The tutor model writes the reply as a stream (at most 100 tokens in the tutoring loop). The router has 7 slots; more requests wait inside llama-server. No token for 30 s fails the turn.',
+   vi:'Model tutor viết câu trả lời dạng stream (tối đa 100 token trong tutoring loop). Router có 7 slot; request dư phải chờ trong llama-server. Không có token nào trong 30 s thì lượt nói lỗi.'},
+  {m:[['hr','hr','sentence 1 → sanitizer','câu 1 → sanitizer'],['hr','vo','POST /api/v1/tts','POST /api/v1/tts'],['vo','hr','wav','wav','r'],['hr','lr','text + audio of sentence 1','chữ + audio câu 1','r'],['hr','vo','sentence 2: same path','câu 2: đi y như vậy']],
+   d:{en:'TTS p50 0.85 s / sentence',vi:'TTS p50 0,85 s / câu'},
+   en:'Each finished sentence is cleaned by sanitizeTutorSpeech, then sent to TTS. Sentences of one turn go to TTS one after another. If a sentence fails in TTS, that sentence plays no audio.',
+   vi:'Mỗi câu hoàn chỉnh được sanitizeTutorSpeech làm sạch rồi gửi sang TTS. Các câu của một lượt đi TTS lần lượt. Nếu một câu lỗi ở TTS, câu đó không có audio.'},
+  {m:[['hr','ss','turn + evidence (outbox)','lượt nói + evidence (outbox)'],['hr','lr','audio.done · turn.complete · listening','audio.done · turn.complete · listening','r'],['hr','hr','every 6 turns: rolling grading','mỗi 6 lượt: chấm cuốn chiếu']],
+   en:'The outbox delivers the turn and its evidence to Service-Session, then the learner can speak again. Every 6 turns a rolling grading job joins the background line (1 running, 8 waiting).',
+   vi:'Outbox gửi lượt nói và evidence sang Service-Session, rồi học viên được nói tiếp. Cứ 6 lượt, một job chấm cuốn chiếu vào hàng chờ nền (1 đang chạy, 8 chờ).'}
+ ]};
+function SeqFig(host,spec,lang){
+  var vi=lang==='vi', T=vi?{play:'Chạy',pause:'Dừng',back:'Bước trước',next:'Bước sau',step:'Bước',of:'/'}:{play:'Play',pause:'Pause',back:'Previous step',next:'Next step',step:'Step',of:'of'};
+  var W=960, X0=118, GAP=(W-X0-62)/(spec.lanes.length-1), RH=27, TOP=86, lx={};
+  spec.lanes.forEach(function(l,i){lx[l.id]=X0+i*GAP;});
+  var rows=0; spec.steps.forEach(function(s){rows+=s.m.length;}); var Hh=TOP+rows*RH+spec.steps.length*14+16;
+  var head=H('div',{'class':'fig-head'},host); H('h4',{},head,spec.title[lang]); H('a',{href:'#sources'},head,spec.link[lang]);
+  /* player + caption on top so the text stays in view */
+  var pl=H('div',{'class':'player'},host), bar=H('div',{'class':'pl-btns'},pl);
+  var ico={play:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.5v11l9-5.5z"/></svg>',pause:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 4.5h3v11h-3zM11.5 4.5h3v11h-3z"/></svg>',prev:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',next:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'};
+  var bPrev=H('button',{type:'button','class':'ib','aria-label':T.back},bar);bPrev.innerHTML=ico.prev;
+  var bPlay=H('button',{type:'button','class':'ib main','aria-label':T.play},bar);bPlay.innerHTML=ico.play;
+  var bNext=H('button',{type:'button','class':'ib','aria-label':T.next},bar);bNext.innerHTML=ico.next;
+  var cnt=H('span',{'class':'pl-count','aria-hidden':'true'},bar);
+  var track=H('div',{'class':'pl-track'},pl), segs=[];
+  var cap=H('div',{'class':'cap seq-cap','aria-live':'polite'},host), ck=H('p',{'class':'cap-k'},cap), pe=H('p',{'class':'cap-t'},cap);
+  var sc=H('div',{'class':'fig-scroll'},host);
+  var svg=S('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':spec.title[lang],'class':'seq'},sc);
+  var gb=S('g',{},svg), gl=S('g',{},svg), gm=S('g',{},svg), gp=S('g',{},svg);
+  var laneEls={};
+  spec.lanes.forEach(function(l){var x=lx[l.id], g=S('g',{'class':'lane k-'+l.k},gl);
+    S('line',{x1:x,y1:TOP-10,x2:x,y2:Hh-6,'class':'life'},g);
+    S('rect',{x:x-66,y:10,width:132,height:50,rx:10,'class':'lh'},g);
+    S('rect',{x:x-66,y:18,width:3,height:34,rx:1.5,'class':'stripe'},g);
+    var t=S('text',{x:x,y:32,'text-anchor':'middle','class':'lt'},g);t.textContent=l.t[lang];
+    var s=S('text',{x:x,y:48,'text-anchor':'middle','class':'ls'},g);s.textContent=l.s[lang];
+    laneEls[l.id]=g;});
+  var y=TOP, stepEls=[];
+  spec.steps.forEach(function(st,si){
+    var top=y; y+=20; var y0=y, g=S('g',{'class':'sstep'},gm), msgs=[];
+    st.m.forEach(function(m){
+      var a=lx[m[0]], b=lx[m[1]], label=vi?m[3]:m[2], ret=m[4]==='r', mg=S('g',{'class':'msg'+(ret?' ret':'')},g), d;
+      if(m[0]===m[1]){d='M'+(a+2)+' '+(y-6)+'h30v12h-30'; var tt=S('text',{x:a+38,y:y+4,'class':'ml self'},mg);tt.textContent=label;}
+      else{var dir=b>a?1:-1; d='M'+(a+dir*4)+' '+y+'H'+(b-dir*6);
+        var tx=S('text',{x:(a+b)/2,y:y-6,'text-anchor':'middle','class':'ml'},mg);tx.textContent=label;}
+      S('path',{d:d,'class':'mb'},mg); var live=S('path',{d:d,'class':'mlv',pathLength:'1'},mg);
+      msgs.push({g:mg,d:d,live:live,self:m[0]===m[1]}); y+=RH;});
+    var bottom=y-RH+14;
+    var band=S('rect',{x:6,y:top,width:W-12,height:bottom-top,rx:8,'class':'band'},gb);
+    var nb=S('g',{'class':'snum',transform:'translate(26 '+((top+bottom)/2)+')'},gb); S('circle',{r:12},nb); var nt=S('text',{y:4.5,'text-anchor':'middle'},nb); nt.textContent=String(si+1);
+    if(st.d){var dl=S('text',{x:W-14,y:top+16,'text-anchor':'end','class':'dur'},gb);dl.textContent=st.d[lang];}
+    stepEls.push({g:g,band:band,nb:nb,msgs:msgs,lanes:st.m.reduce(function(o,m){o[m[0]]=1;o[m[1]]=1;return o;},{})});
+    y=bottom+6;
+    var b=H('button',{type:'button','class':'seg','aria-label':T.step+' '+(si+1)},track);H('span',{},b);b.addEventListener('click',function(){stop();show(si);});segs.push(b);
+  });
+  svg.setAttribute('viewBox','0 0 '+W+' '+(y+8)); spec.lanes.forEach(function(l){laneEls[l.id].querySelector('.life').setAttribute('y2',y+2);});
+  var pk=S('circle',{r:5,'class':'spk'},gp), pkg=S('circle',{r:12,'class':'spkg'},gp);
+  var N=spec.steps.length, cur=0, playing=false, held=false, timer=null, raf=null;
+  function show(i){
+    cur=Math.max(0,Math.min(N-1,i)); var st=spec.steps[cur];
+    stepEls.forEach(function(e,j){e.g.setAttribute('class','sstep '+(j<cur?'done':j===cur?'now':'next'));e.band.setAttribute('class','band'+(j===cur?' now':''));e.nb.setAttribute('class','snum'+(j<cur?' done':j===cur?' now':''));});
+    Object.keys(laneEls).forEach(function(k){laneEls[k].classList.toggle('on',!!stepEls[cur].lanes[k]);});
+    segs.forEach(function(b,j){b.classList.toggle('done',j<cur);b.classList.toggle('now',j===cur);b.setAttribute('aria-current',j===cur?'step':'false');});
+    cnt.textContent=(cur+1)+' / '+N; ck.textContent=T.step+' '+(cur+1)+' '+T.of+' '+N; pe.textContent=vi?st.vi:st.en;
+    cap.classList.remove('in');void cap.offsetWidth;cap.classList.add('in');
+    animate(stepEls[cur]);
+  }
+  function animate(e){
+    cancelAnimationFrame(raf); e.msgs.forEach(function(m){m.live.style.strokeDashoffset=reduce?'0':'1';m.g.classList.remove('lit');});
+    if(reduce){e.msgs.forEach(function(m){m.g.classList.add('lit');});pk.style.opacity=0;pkg.style.opacity=0;return;}
+    var per=650, start=performance.now();
+    function frame(now){
+      var el=Math.max(0,now-start), k=Math.floor(el/per), f=(el%per)/per;
+      e.msgs.forEach(function(m,j){ if(j<k){m.live.style.strokeDashoffset='0';m.g.classList.add('lit');} });
+      if(k>=e.msgs.length){pk.style.opacity=0;pkg.style.opacity=0;return;}
+      var m=e.msgs[k], len=m.live.getTotalLength(), ease=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2, p=m.live.getPointAtLength(len*ease);
+      m.live.style.strokeDashoffset=String(1-ease); m.g.classList.add('lit');
+      pk.setAttribute('cx',p.x);pk.setAttribute('cy',p.y);pkg.setAttribute('cx',p.x);pkg.setAttribute('cy',p.y);pk.style.opacity=1;pkg.style.opacity=.35;
+      raf=requestAnimationFrame(frame);
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  function dur(){return Math.max(4200,stepEls[cur].msgs.length*650+2600);}
+  function arm(){clearTimeout(timer);if(!playing||held)return; segs.forEach(function(b){b.style.removeProperty('--dur');});var sg=segs[cur];sg.style.setProperty('--dur',dur()+'ms');sg.classList.remove('now');void sg.offsetWidth;sg.classList.add('now');
+    timer=setTimeout(function(){show(cur<N-1?cur+1:0);arm();},dur());}
+  function play(){playing=true;bPlay.innerHTML=ico.pause;bPlay.setAttribute('aria-label',T.pause);host.classList.add('running');arm();}
+  function stop(){playing=false;clearTimeout(timer);bPlay.innerHTML=ico.play;bPlay.setAttribute('aria-label',T.play);host.classList.remove('running');}
+  bPlay.addEventListener('click',function(){if(playing)stop();else{play();}});
+  bPrev.addEventListener('click',function(){stop();show(cur-1);});
+  bNext.addEventListener('click',function(){stop();show(cur+1);});
+  host.addEventListener('mouseenter',function(){if(playing){held=true;clearTimeout(timer);host.classList.remove('running');}});
+  host.addEventListener('mouseleave',function(){if(playing){held=false;host.classList.add('running');arm();}});
+  show(0);
+  if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!playing)play();else if(!x.isIntersecting&&playing)stop();});},{threshold:0.25}).observe(host);}
+}
+document.querySelectorAll('.fig[data-seq="turn"]').forEach(function(h){SeqFig(h,SEQ_TURN,h.getAttribute('data-lang'));});
+
+/* ---- many-learner simulator UI ---- */
+var SIMT={
+ en:{learners:'Learners',start:'How they start',burst:'All stop speaking at once',spread:'Spread out, like a real class',setup:'Setup',today:'Today\'s config',w2:'What if: 2 voice workers',w4:'What if: 4 voice workers + 11 LLM slots',judge:'Tutoring-loop class (answer judge on)',
+  play:'Play',pause:'Pause',restart:'Restart',speed:'Speed',clock:'Simulated time',
+  lp:'Learners',hp:'Service-Harness-Ts (one process)',ap:'Shared AI services on one Mac',
+  sessions:'Open WebSocket sessions',seats:'Redis seats (1 per student)',inflight:'Turns in progress',locks:'Turn lock: one per session',nolimit:'No session limit in code',
+  asr:'Speech to text',asrS:'AI-Voice · Parakeet · max 16 in line, then 503',tts:'Text to speech',ttsS:'AI-Voice · 16 may wait, then 503 · 28 s timeout',llm:'LLM router',llmS:'qwen2.5-3b · 7 slots · extra requests wait',bg:'Background LLM line',bgS:'grading, summaries · 1 running, 8 waiting, then dropped',
+  st:{speak:'Speaking',wait:'Waiting in a line',work:'Being processed',hear:'Hearing the tutor',think:'Thinking',error:'Turn failed, will retry'},
+  wh:{asr:'STT',tts:'TTS',llm:'LLM',rag:'RAG'},sh:{speak:'Speaking',hear:'Hearing',think:'Thinking',error:'Failed',inn:'In '},
+  pos:'#',
+  m:{med:'Wait after speaking · median',p90:'Slowest 1 in 10 (p90)',target:'plan target ≤ 3 s',ans:'Answers per learner per minute',ref:'Turns refused · speech line full (503)',mute:'Sentences with no audio · TTS full',judge:'Judge timeouts · skipped by breaker',bgd:'Background jobs dropped',busy:'How busy (last 10 s)'},
+  idle:'Nothing is waiting. Every request is served as soon as it arrives.',
+  lineWait:function(name,q,w){return name+': '+q+' waiting. The last one waits about '+w+' s before it even starts.';},
+  fail503:function(k){return k+' learner'+(k>1?'s were':' was')+' just told "Turn processing failed, please try again": the speech line was full (503).';},
+  mute503:function(k){return k+' sentence'+(k>1?'s':'')+' just played without audio: the TTS line was full.';},
+  brk:'The answer judge failed 3 times in a row, so the harness pauses it for 30 s and answers without it.',
+  model:'This is a model built from the measured values below, not a load test. It shows where waiting starts; real numbers will differ.',
+  fol:'Follow one learner',folHint:'Click any learner on the left to follow them.',turnOf:function(n){return 'Learner '+n+' · latest turn, from audio.end';},speaking:function(n){return 'Learner '+n+' is speaking. The trace starts when they stop (audio.end).';},
+  rows:['Voice (STT · TTS)','RAG','LLM'],wait:'waiting',first:'first answer audio',lab:{stt:'STT',lead:'lead-in',s1:'sentence 1',s2:'sentence 2',rag:'RAG',judge:'judge',tutor:'tutor reply',f503:'503'}},
+ vi:{learners:'Số học viên',start:'Cách bắt đầu',burst:'Tất cả ngừng nói cùng lúc',spread:'Rải đều, như một lớp thật',setup:'Cấu hình',today:'Cấu hình hiện tại',w2:'Giả sử: 2 worker giọng nói',w4:'Giả sử: 4 worker giọng nói + 11 slot LLM',judge:'Lớp bật tutoring loop (có answer judge)',
+  play:'Chạy',pause:'Dừng',restart:'Chạy lại',speed:'Tốc độ',clock:'Thời gian mô phỏng',
+  lp:'Học viên',hp:'Service-Harness-Ts (một process)',ap:'Dịch vụ AI dùng chung trên một máy Mac',
+  sessions:'Session WebSocket đang mở',seats:'Chỗ Redis (1 mỗi học viên)',inflight:'Lượt nói đang xử lý',locks:'Khóa lượt: mỗi session một',nolimit:'Code không giới hạn session',
+  asr:'Chuyển giọng nói thành chữ',asrS:'AI-Voice · Parakeet · tối đa 16 trong hàng, quá thì 503',tts:'Chuyển chữ thành giọng nói',ttsS:'AI-Voice · tối đa 16 chờ, quá thì 503 · timeout 28 s',llm:'LLM router',llmS:'qwen2.5-3b · 7 slot · request dư phải chờ',bg:'Hàng LLM nền',bgS:'chấm điểm, tóm tắt · 1 chạy, 8 chờ, quá thì bỏ',
+  st:{speak:'Đang nói',wait:'Đang xếp hàng',work:'Đang được xử lý',hear:'Đang nghe tutor',think:'Đang suy nghĩ',error:'Lượt lỗi, sẽ nói lại'},
+  wh:{asr:'STT',tts:'TTS',llm:'LLM',rag:'RAG'},sh:{speak:'Đang nói',hear:'Đang nghe',think:'Suy nghĩ',error:'Lỗi',inn:'Trong '},
+  pos:'#',
+  m:{med:'Thời gian chờ sau khi nói · trung vị',p90:'1/10 chậm nhất (p90)',target:'mục tiêu kế hoạch ≤ 3 s',ans:'Câu trả lời mỗi học viên mỗi phút',ref:'Lượt bị từ chối · hàng STT đầy (503)',mute:'Câu không có audio · hàng TTS đầy',judge:'Judge quá giờ · bị breaker bỏ qua',bgd:'Job nền bị bỏ',busy:'Mức bận (10 s gần nhất)'},
+  idle:'Không có gì phải chờ. Mọi request được phục vụ ngay khi tới.',
+  lineWait:function(name,q,w){return name+': '+q+' request đang chờ. Request cuối phải chờ khoảng '+w+' s mới được bắt đầu.';},
+  fail503:function(k){return k+' học viên vừa nhận "Turn processing failed, please try again": hàng STT đã đầy (503).';},
+  mute503:function(k){return k+' câu vừa phát mà không có audio: hàng TTS đã đầy.';},
+  brk:'Answer judge lỗi 3 lần liên tiếp, nên harness cho judge nghỉ 30 s và trả lời không cần judge.',
+  model:'Đây là mô hình dựng từ các giá trị đo được bên dưới, không phải bài load test. Nó cho thấy việc chờ bắt đầu ở đâu; số thật sẽ khác.',
+  fol:'Theo dõi một học viên',folHint:'Bấm vào một học viên bên trái để theo dõi.',turnOf:function(n){return 'Học viên '+n+' · lượt gần nhất, tính từ audio.end';},speaking:function(n){return 'Học viên '+n+' đang nói. Dòng thời gian bắt đầu khi họ ngừng nói (audio.end).';},
+  rows:['Giọng nói (STT · TTS)','RAG','LLM'],wait:'chờ',first:'audio câu trả lời đầu tiên',lab:{stt:'STT',lead:'câu đệm',s1:'câu 1',s2:'câu 2',rag:'RAG',judge:'judge',tutor:'tutor trả lời',f503:'503'}}};
+var SIM_SETUP={today:{},w2:{asrK:2,ttsK:2},w4:{asrK:4,ttsK:4,slots:11}};
+function SimUI(host,lang){
+  var T=SIMT[lang], NS_=[1,3,5,10,35,100], st={n:10,mode:'spread',setup:'today',judge:true,speed:2,playing:false}, sim=null, lastT=0, raf=null, evI=0, packets=[], hist=[];
+  host.innerHTML='';
+  var ctl=H('div',{'class':'sx-ctl'},host);
+  function group(label,items,key,cls){var g=H('div',{'class':'sx-grp '+(cls||'')},ctl);H('span',{'class':'sx-lab'},g,label);var r=H('div',{'class':'sx-seg',role:'group','aria-label':label},g);
+    items.forEach(function(it){var b=H('button',{type:'button','aria-pressed':String(st[key]===it[0])},r,it[1]);b.addEventListener('click',function(){st[key]=it[0];r.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');reset();});});return r;}
+  group(T.learners,NS_.map(function(n){return [n,String(n)];}),'n','sx-n');
+  group(T.start,[['burst',T.burst],['spread',T.spread]],'mode');
+  group(T.setup,[['today',T.today],['w2',T.w2],['w4',T.w4]],'setup','sx-setup');
+  var jl=H('label',{'class':'sx-chk'},ctl), jc=H('input',{type:'checkbox'},jl); jc.checked=true; jl.appendChild(document.createTextNode(' '+T.judge));
+  jc.addEventListener('change',function(){st.judge=jc.checked;reset();});
+  var pb=H('div',{'class':'sx-play'},host);
+  var bPlay=H('button',{type:'button','class':'sx-btn main'},pb,T.play), bRe=H('button',{type:'button','class':'sx-btn'},pb,T.restart);
+  H('span',{'class':'sx-lab'},pb,T.speed); var sp=H('div',{'class':'sx-seg sx-speed',role:'group','aria-label':T.speed},pb);
+  [1,2,4,8].forEach(function(v){var b=H('button',{type:'button','aria-pressed':String(st.speed===v)},sp,v+'×');b.addEventListener('click',function(){st.speed=v;sp.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');});});
+  var clock=H('span',{'class':'sx-clock'},pb);
+  var wrap=H('div',{'class':'sx-stage'},host);
+  var W=960,Hh=470, svg=S('svg',{viewBox:'0 0 '+W+' '+Hh,'class':'sx-svg',role:'img','aria-label':T.lp+' · '+T.hp+' · '+T.ap},wrap);
+  var gBack=S('g',{},svg), gL=S('g',{},svg), gP=S('g',{},svg), gF=S('g',{},svg);
+  function txt(p,x,y,s,c,a){var e=S('text',{x:x,y:y,'class':c||'','text-anchor':a||'start'},p);e.textContent=s;return e;}
+  // panels
+  S('rect',{x:8,y:8,width:300,height:Hh-16,rx:14,'class':'sx-pan'},gBack); txt(gBack,24,32,T.lp,'sx-pt'); var lpN=txt(gBack,292,32,'','sx-pn','end');
+  S('rect',{x:328,y:8,width:178,height:Hh-16,rx:14,'class':'sx-pan sx-h'},gBack); txt(gBack,342,32,'Service-Harness-Ts','sx-pt'); txt(gBack,342,48,lang==='vi'?'một process':'one process','sx-ps');
+  S('rect',{x:526,y:8,width:426,height:Hh-16,rx:14,'class':'sx-pan'},gBack); txt(gBack,542,32,T.ap,'sx-pt');
+  // harness counters
+  var HC=[]; [[T.sessions,'s'],[T.seats,'r'],[T.inflight,'f']].forEach(function(r,i){var y=96+i*78;S('rect',{x:342,y:y-26,width:150,height:62,rx:10,'class':'sx-hc'},gBack);txt(gBack,354,y-6,r[0],'sx-hl');HC.push(txt(gBack,354,y+24,'0','sx-hv'));});
+  txt(gBack,342,346,T.locks,'sx-ps'); txt(gBack,342,364,T.nolimit,'sx-ps');
+  var lockRow=S('g',{},gBack);
+  // stations
+  var STN=[{id:'asr',t:T.asr,s:T.asrS,y:62,cap:16},{id:'tts',t:T.tts,s:T.ttsS,y:162,cap:16},{id:'llm',t:T.llm,s:T.llmS,y:262,cap:16},{id:'bg',t:T.bg,s:T.bgS,y:362,cap:8}];
+  var SE={};
+  STN.forEach(function(sn){var g=S('g',{'class':'sx-st'},gBack); S('rect',{x:540,y:sn.y,width:398,height:88,rx:10,'class':'sx-sc'},g);
+    txt(g,554,sn.y+22,sn.t,'sx-stt'); txt(g,554,sn.y+38,sn.s,'sx-sts'); var badge=txt(g,926,sn.y+22,'','sx-bad','end');
+    var wk=S('g',{},g), q=S('g',{},g), more=txt(g,926,sn.y+76,'','sx-more','end'), wl=txt(g,554,sn.y+56,'','sx-wl'), ql=txt(g,690,sn.y+56,'','sx-wl');
+    SE[sn.id]={g:g,wk:wk,q:q,more:more,badge:badge,y:sn.y,cap:sn.cap,wl:wl,ql:ql,sc:g.querySelector('.sx-sc')};});
+  // links
+  STN.forEach(function(sn){S('path',{d:'M506 '+(Hh/2)+'C516 '+(Hh/2)+' 516 '+(sn.y+44)+' 540 '+(sn.y+44),'class':'sx-link'},gBack);});
+  S('path',{d:'M308 '+(Hh/2)+'H328','class':'sx-link'},gBack);
+  // follow one learner
+  var fp=H('div',{'class':'sx-fol'},host), fh=H('div',{'class':'sx-folh'},fp); H('b',{},fh,T.fol); var fsub=H('span',{},fh,''); H('em',{},fh,T.folHint);
+  var GW=960,GH=118, gsv=S('svg',{viewBox:'0 0 '+GW+' '+GH,'class':'sx-gantt',role:'img','aria-label':T.fol},H('div',{'class':'sx-gw'},fp));
+  var gMsg=H('p',{'class':'sx-fmsg'},fp,'');
+  var follow=0, gTick=0;
+  function letter(i){return st.n<=26?String.fromCharCode(65+i):String(i+1);}
+  function gantt(){
+    var l=sim.L[follow]; if(!l){return;} gsv.innerHTML='';
+    fsub.textContent=T.turnOf(letter(follow));
+    if(!l.tr||!l.tr.length){gMsg.textContent=T.speaking(letter(follow));gsv.style.display='none';return;}
+    gMsg.textContent='';gsv.style.display='';
+    var t0=l.trT0, now=sim.t, end=now; l.tr.forEach(function(j){if(j.end!=null&&j.end<1e8)end=Math.max(end,Math.min(j.end,now));});
+    var span=Math.max(6,Math.ceil((end-t0)+0.5)), X0=150, X1=GW-16, sc=(X1-X0)/span, rowY={stt:16,tts:16,rag:52,judge:84,tutor:84};
+    T.rows.forEach(function(r,i){var y=[16,52,84][i];S('rect',{x:X0,y:y,width:X1-X0,height:24,rx:4,'class':'gr'},gsv);var tx=S('text',{x:X0-10,y:y+16,'text-anchor':'end','class':'gl2'},gsv);tx.textContent=r;});
+    var stp=span<=8?1:span<=20?2:span<=50?5:10;
+    for(var k=0;k<=span;k+=stp){var x=X0+k*sc;S('line',{x1:x,x2:x,y1:12,y2:GH-6,'class':'gtk'},gsv);var tt=S('text',{x:x,y:GH-0,'text-anchor':'middle','class':'gtt'},gsv);tt.textContent=k+' s';}
+    l.tr.forEach(function(j){var y=rowY[j.kind], st0=j.start==null?now:j.start, en=j.end==null?now:Math.min(j.end,now);
+      if(st0>j.enq+0.02){var w=(Math.min(st0,now)-j.enq)*sc;S('rect',{x:X0+(j.enq-t0)*sc,y:y+3,width:Math.max(1,w),height:18,rx:3,'class':'gwait'},gsv);
+        if(w>60){var wt=S('text',{x:X0+(j.enq-t0)*sc+w/2,y:y+16,'text-anchor':'middle','class':'gwt'},gsv);wt.textContent=T.wait+' '+(st0-j.enq).toFixed(1)+' s';}}
+      if(j.start!=null&&j.start<=now){var w2=Math.max(j.fail?3:1.5,(en-st0)*sc), cls='gjob k-'+j.kind+(j.fail?' fail':'');
+        S('rect',{x:X0+(st0-t0)*sc,y:y+1,width:w2,height:22,rx:4,'class':cls},gsv);
+        var lb=j.fail?T.lab.f503:j.kind==='tts'?T.lab[j.lab]:T.lab[j.kind];
+        if(w2>34||j.fail){var t2=S('text',{x:X0+(st0-t0)*sc+(j.fail?6:w2/2),y:y+16,'text-anchor':j.fail?'start':'middle','class':'gjt'+(j.fail?' f':'')},gsv);t2.textContent=lb;}}});
+    if(l.trUseful!=null){var ux=X0+(l.trUseful-t0)*sc;S('line',{x1:ux,x2:ux,y1:8,y2:GH-10,'class':'guse'},gsv);var ut=S('text',{x:Math.min(ux+5,X1-150),y:10,'class':'gut'},gsv);ut.textContent=T.first+' · '+(l.trUseful-t0).toFixed(1)+' s';}
+    else{var nx=X0+(now-t0)*sc;S('line',{x1:nx,x2:nx,y1:8,y2:GH-10,'class':'gnow'},gsv);}
+  }
+  // narration + metrics
+  var nar=H('p',{'class':'sx-nar','aria-live':'polite'},host);
+  var mg=H('div',{'class':'sx-met'},host), M={};
+  [['med',T.m.med],['p90',T.m.p90],['ans',T.m.ans],['ref',T.m.ref],['mute',T.m.mute],['judge',T.m.judge],['bgd',T.m.bgd]].forEach(function(r){var c=H('div',{'class':'sx-m'},mg);M[r[0]]={v:H('b',{},c,'–'),l:H('span',{},c,r[1])};});
+  M.p90.sub=H('small',{},M.p90.v.parentNode,T.m.target);
+  var bz=H('div',{'class':'sx-busy'},host); H('span',{'class':'sx-lab'},bz,T.m.busy); var BZ={};
+  [['asr','STT'],['tts','TTS'],['llm','LLM']].forEach(function(r){var row=H('div',{'class':'sx-br'},bz);H('span',{},row,r[1]);var tr=H('i',{},row);BZ[r[0]]={f:H('em',{},tr),v:H('b',{},row,'0%')};});
+  var leg=H('div',{'class':'sx-leg'},host), LG={};
+  ['speak','wait','work','hear','think','error'].forEach(function(k){var s=H('span',{},leg);H('i',{'class':'d-'+k},s);LG[k]=H('b',{},s,'0');s.appendChild(document.createTextNode(' '+T.st[k]));});
+  H('p',{'class':'note sx-model'},host,T.model);
+  var dots=[];
+  function layout(n){gL.innerHTML='';dots=[];var cols=n===1?1:n<=5?n:n<=10?5:n<=35?7:10, rows=Math.ceil(n/cols), cw=268/cols, ch=Math.min((Hh-90)/rows,n<=10?110:60), r=Math.max(5,Math.min(n===1?34:22,Math.min(cw,ch)*0.32)), labels=n<=10;
+    var oy=58+((Hh-90)-rows*ch)/2;
+    for(var i=0;i<n;i++){var c=i%cols, rr=Math.floor(i/cols), x=24+cw*(c+0.5), y=oy+ch*(rr+0.5)-(labels?8:0), g=S('g',{'class':'sx-dot'},gL);
+      var ring=S('circle',{cx:x,cy:y,r:r+4,'class':'ring'},g), c0=S('circle',{cx:x,cy:y,r:r,'class':'core'},g), lb=null;
+      if(labels){lb=txt(g,x,y+r+16,'','sx-dl','middle');}
+      if(n<=10){var nm=txt(g,x,y+4,String.fromCharCode(65+i),'sx-dn','middle');}
+      (function(ii){g.addEventListener('click',function(){follow=ii;dots.forEach(function(dd,k){dd.g.classList.toggle('fol',k===ii);});gantt();});})(i);
+      g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',T.fol+' '+letter(i));
+      g.addEventListener('keydown',(function(ii){return function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();follow=ii;gantt();dots.forEach(function(dd,k){dd.g.classList.toggle('fol',k===ii);});}};})(i));
+      dots.push({g:g,x:x,y:y,r:r,lb:lb});}
+    lpN.textContent=n;}
+  function reset(){cancelAnimationFrame(raf);st.playing=false;bPlay.textContent=T.play;
+    var opt={}; var su=SIM_SETUP[st.setup];for(var k in su)opt[k]=su[k]; opt.judge=st.judge;
+    sim=new Sim(st.n,st.mode,7,simMerge(opt)); evI=0; packets.forEach(function(p){p.e.remove();}); packets=[]; hist=[]; lastErr={a:0,t:0,c:0};
+    follow=Math.min(follow,st.n-1); layout(st.n); draw(); gantt(); nar.textContent=T.idle;}
+  var lastErr={a:0,t:0,c:0}, narAt=0;
+  function q(list,l){for(var i=0;i<list.length;i++){if(list[i].l===l)return i+1;}return 0;}
+  function inTts(l){return sim.R.tts.run.some(function(j){return j.l===l;});}
+  function eff(l){return (l.st==='wait'&&l.where==='tts'&&inTts(l))?'work':l.st;}
+  function where(l){var R=sim.R,s=eff(l);if(s==='wait'){if(l.where==='asr')return T.wh.asr+' #'+q(R.asr.q,l);if(l.where==='tts')return T.wh.tts+' #'+q(R.tts.q,l);if(l.where==='llm')return T.wh.llm+' #'+q(R.llm.q,l);}
+    if(s==='work')return T.sh.inn+(l.where==='asr'?'STT':l.where==='rag'?'RAG':l.where==='llm'?'LLM':'TTS');return T.sh[s]||'';}
+  function cells(g,y,k,running,kinds){g.innerHTML='';for(var i=0;i<k;i++){S('rect',{x:554+i*20,y:y+62,width:16,height:16,rx:4,'class':'sx-w'+(i<running?' on':'')+(kinds&&kinds[i]?' k-'+kinds[i]:'')},g);}}
+  function qcells(g,x,y,n,cap){g.innerHTML='';var show=Math.min(n,cap);for(var i=0;i<cap;i++){S('rect',{x:x+i*14,y:y+66,width:11,height:11,rx:2.5,'class':'sx-q'+(i<show?' on':'')},g);}}
+  function draw(){
+    var R=sim.R, P=sim.P, cnt={speak:0,wait:0,work:0,hear:0,think:0,error:0}, infl=0;
+    sim.L.forEach(function(l,i){var d=dots[i]; if(!d)return; var s=eff(l); cnt[s]=(cnt[s]||0)+1; if(s==='wait'||s==='work'||(s==='hear'&&(l.ttsBusy||l.pending.length)))infl++;
+      d.g.setAttribute('class','sx-dot s-'+s+(i===follow?' fol':''));
+      if(d.lb){d.lb.textContent=where(l);}});
+    Object.keys(cnt).forEach(function(k){if(LG[k])LG[k].textContent=cnt[k];});
+    HC[0].textContent=sim.n; HC[1].textContent=sim.n; HC[2].textContent=infl;
+    // stations
+    var e=SE.asr; cells(e.wk,e.y,R.asr.k,R.asr.run.length); qcells(e.q,690,e.y-0,R.asr.q.length,15); e.more.textContent=R.asr.q.length>15?'+'+(R.asr.q.length-15):''; e.badge.textContent=sim.C.asr503?'503 × '+sim.C.asr503:''; e.wl.textContent=lang==='vi'?'worker':'workers'; e.ql.textContent=(lang==='vi'?'hàng chờ: ':'line: ')+R.asr.q.length;
+    e=SE.tts; cells(e.wk,e.y,R.tts.k,R.tts.run.length); qcells(e.q,690,e.y,R.tts.q.length,16); e.more.textContent=''; e.badge.textContent=(sim.C.tts503+sim.C.ttsTimeout)?(lang==='vi'?'không audio × ':'no audio × ')+(sim.C.tts503+sim.C.ttsTimeout):''; e.wl.textContent=lang==='vi'?'worker':'workers'; e.ql.textContent=(lang==='vi'?'hàng chờ: ':'line: ')+R.tts.q.length;
+    e=SE.llm; var kinds=R.llm.act.map(function(j){return j.kind;}); cells(e.wk,e.y,P.slots,R.llm.act.length,kinds); qcells(e.q,554+P.slots*20+12,e.y,R.llm.q.length,Math.min(16,Math.floor((926-(554+P.slots*20+12))/14)));
+    e.badge.textContent=sim.breakerOpen()?(lang==='vi'?'judge đang nghỉ':'judge paused'):''; e.wl.textContent=(lang==='vi'?'slot':'slots')+(R.llm.rate?' · '+R.llm.rate.toFixed(0)+' tok/s':''); e.ql.setAttribute('x',554+P.slots*20+12); e.ql.textContent=(lang==='vi'?'hàng chờ: ':'line: ')+R.llm.q.length; e.more.textContent='';
+    e=SE.bg; cells(e.wk,e.y,1,R.bg.run?1:0); qcells(e.q,690,e.y,R.bg.q.length,8); e.badge.textContent=sim.C.bgDrop?(lang==='vi'?'bỏ × ':'dropped × ')+sim.C.bgDrop:''; e.wl.textContent=lang==='vi'?'đang chạy':'running'; e.ql.textContent=(lang==='vi'?'hàng chờ: ':'line: ')+R.bg.q.length;
+    ['asr','tts','llm','bg'].forEach(function(k){var busy=k==='bg'?(R.bg.run?1:0):k==='llm'?R.llm.act.length:R[k].run.length, ql=k==='bg'?R.bg.q.length:R[k].q.length;SE[k].g.setAttribute('class','sx-st'+(busy?' busy':'')+(ql>3?' hot':''));});
+    // metrics
+    var lat=[];sim.L.forEach(function(l){lat=lat.concat(st.mode==='burst'?l.lat.slice(0,1):l.lat);});lat.sort(function(a,b){return a-b;});
+    function qq(p){return lat.length?lat[Math.min(lat.length-1,Math.ceil(p*lat.length)-1)]:null;}
+    var f=function(x){return x==null?'–':(lang==='vi'?x.toFixed(1).replace('.',','):x.toFixed(1))+' s';};
+    M.med.v.textContent=f(qq(0.5)); M.p90.v.textContent=f(qq(0.9)); M.p90.v.parentNode.classList.toggle('bad',qq(0.9)>3);
+    var mins=Math.max(sim.t,1)/60; M.ans.v.textContent=(sim.C.answered/sim.n/mins).toFixed(1).replace('.',lang==='vi'?',':'.');
+    M.ref.v.textContent=sim.C.asr503; M.mute.v.textContent=sim.C.tts503+sim.C.ttsTimeout; M.judge.v.textContent=sim.C.judgeTimeout+' · '+sim.C.judgeSkipped; M.bgd.v.textContent=sim.C.bgDrop+sim.C.bgFail;
+    ['ref','mute','bgd'].forEach(function(k){M[k].v.parentNode.classList.toggle('bad',+M[k].v.textContent>0);});
+    // busy window
+    hist.push({t:sim.t,a:R.asr.busy,b:R.tts.busy,c:R.llm.busy}); while(hist.length>2&&sim.t-hist[0].t>10)hist.shift();
+    var h0=hist[0], span=Math.max(0.001,sim.t-h0.t);
+    [['asr','a'],['tts','b'],['llm','c']].forEach(function(r){var v=hist.length>1?Math.min(1,(R[r[0]].busy-h0[r[1]])/span):0;BZ[r[0]].f.style.width=(v*100).toFixed(0)+'%';BZ[r[0]].v.textContent=(v*100).toFixed(0)+'%';BZ[r[0]].f.parentNode.classList.toggle('hot',v>0.85);});
+    clock.textContent=T.clock+': '+(lang==='vi'?sim.t.toFixed(1).replace('.',','):sim.t.toFixed(1))+' s';
+  }
+  function narrate(){
+    var R=sim.R,P=sim.P;
+    var lines=[[T.asr,R.asr.q.length,R.asr.q.length*P.sttS/R.asr.k],[T.tts,R.tts.q.length,R.tts.q.length*0.85/R.tts.k],[T.llm,R.llm.q.length,R.llm.q.length?R.llm.q.length*1.5/P.slots:0]];
+    var C=sim.C, msg='';
+    if(C.asr503>lastErr.a){msg=T.fail503(C.asr503-lastErr.a);}
+    else if(C.tts503+C.ttsTimeout>lastErr.t){msg=T.mute503(C.tts503+C.ttsTimeout-lastErr.t);}
+    else if(C.breaker>lastErr.c){msg=T.brk;}
+    else{lines.sort(function(a,b){return b[2]-a[2];}); var top=lines[0]; msg=top[1]?T.lineWait(top[0],top[1],(lang==='vi'?top[2].toFixed(1).replace('.',','):top[2].toFixed(1))):T.idle;}
+    lastErr={a:C.asr503,t:C.tts503+C.ttsTimeout,c:C.breaker}; nar.textContent=msg;
+  }
+  function packet(fromX,fromY,toX,toY,cls){if(reduce||packets.length>70)return;var e=S('circle',{r:4,'class':'sx-pk '+cls,cx:fromX,cy:fromY},gF);packets.push({e:e,x0:fromX,y0:fromY,x1:toX,y1:toY,t0:performance.now(),d:520});}
+  var stY={asr:106,tts:206,llm:306,bg:406};
+  function events(){var ev=sim.ev;for(;evI<ev.length;evI++){var v=ev[evI], d=dots[v.id];if(!d&&v.id>=0)continue;
+    if(v.k==='asr'||v.k==='tts'||v.k==='llm'||v.k==='bg'){packet(d.x,d.y,540,stY[v.k],'k-'+v.k);}
+    else if(v.k==='audio'){packet(540,206,d.x,d.y,'k-audio');}
+    else if(v.k==='fail'||v.k==='tts503'){if(d)packet(540,v.k==='fail'?106:206,d.x,d.y,'k-err');}
+  }}
+  function movePk(now){packets=packets.filter(function(p){var f=Math.min(1,(now-p.t0)/p.d), e=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2, mx=417, my=Hh/2;
+    var x,y; if(e<.5){var g=e*2;x=p.x0+(mx-p.x0)*g;y=p.y0+(my-p.y0)*g;}else{var g2=(e-.5)*2;x=mx+(p.x1-mx)*g2;y=my+(p.y1-my)*g2;}
+    p.e.setAttribute('cx',x);p.e.setAttribute('cy',y);if(f>=1){p.e.remove();return false;}return true;});}
+  function loop(now){
+    if(!st.playing)return; var dt=Math.min(0.1,(now-lastT)/1000)*st.speed; lastT=now;
+    var steps=Math.max(1,Math.round(dt/0.02)); for(var i=0;i<steps;i++)sim.step(0.02);
+    events(); movePk(now); draw(); if(++gTick%3===0)gantt(); if(now-narAt>900){narrate();narAt=now;}
+    if(sim.t>600){st.playing=false;bPlay.textContent=T.play;return;}
+    raf=requestAnimationFrame(loop);}
+  bPlay.addEventListener('click',function(){st.playing=!st.playing;bPlay.textContent=st.playing?T.pause:T.play;if(st.playing){lastT=performance.now();raf=requestAnimationFrame(loop);}});
+  bRe.addEventListener('click',function(){reset();st.playing=true;bPlay.textContent=T.pause;lastT=performance.now();raf=requestAnimationFrame(loop);});
+  reset();
+  if('IntersectionObserver' in window){new IntersectionObserver(function(en){en.forEach(function(x){if(!x.isIntersecting&&st.playing){st.playing=false;bPlay.textContent=T.play;}});},{threshold:0.1}).observe(host);}
+}
+document.querySelectorAll('.simx').forEach(function(h){SimUI(h,h.getAttribute('data-lang'));});
+
+})();
 </script>
 </body>
 </html>
