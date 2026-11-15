@@ -5307,7 +5307,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </g>
         <g data-graph-role="automatic-crossover" style="--step:13">
           <path data-graph-role="automatic-crossover-underlay" d="M 790 570 L 920 570" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="s5" data-edge-to="x5" data-edge-label="tool calls" data-edge-key="13" data-edge-id="s5-x5" data-composition-points="790,570;920,570" data-composition-crossover="halo" data-composition-independent="true" d="M 790 570 L 920 570" class="a-default" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="s5" data-edge-to="x5" data-edge-label="one call" data-edge-key="13" data-edge-id="s5-x5" data-composition-points="790,570;920,570" data-composition-crossover="halo" data-composition-independent="true" d="M 790 570 L 920 570" class="a-default" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:14">
           <path data-graph-role="automatic-crossover-underlay" d="M 790 670 L 920 670" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
@@ -5318,8 +5318,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <path data-edge-from="s7" data-edge-to="x7" data-edge-label="save state" data-edge-key="15" data-edge-id="s7-x7" data-composition-points="790,770;920,770" data-composition-crossover="halo" data-composition-independent="true" d="M 790 770 L 920 770" class="a-default" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:16">
-          <path data-graph-role="automatic-crossover-underlay" d="M 540 570 L 480 570" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="s5" data-edge-to="tr" data-edge-label="4 tools" data-edge-key="16" data-edge-id="s5-tools" data-composition-points="540,570;480,570" data-composition-crossover="halo" data-composition-independent="true" d="M 540 570 L 480 570" class="a-default" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 540 470 L 480 470" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="s4" data-edge-to="tr" data-edge-label="parallel" data-edge-key="16" data-edge-id="s4-tools" data-composition-points="540,470;480,470" data-composition-crossover="halo" data-composition-independent="true" d="M 540 470 L 480 470" class="a-default" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:17">
           <path data-graph-role="automatic-crossover-underlay" d="M 540 670 L 220 670" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
@@ -5346,62 +5346,65 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="665" y="184" class="t-muted" font-size="9" text-anchor="middle">turn lock</text>
         </g>
 
-        <g id="node-s2" data-node-id="s2" data-node-label="2 · SttStage" tabindex="0" role="button" aria-label="Focus 2 · SttStage, speech to text, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="speech to text" data-node-context="Service-Harness-Ts">
-          <title>2 · SttStage · speech to text · Service-Harness-Ts</title>
+        <g id="node-s2" data-node-id="s2" data-node-label="2 · SttStage" tabindex="0" role="button" aria-label="Focus 2 · SttStage, speaker gate + speech to text, Service-Harness-Ts" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="speaker gate + speech to text" data-node-context="Service-Harness-Ts">
+          <title>2 · SttStage · speaker gate + speech to text · Service-Harness-Ts</title>
           <rect x="540" y="240" width="250" height="60" rx="8" class="c-mask"/>
-          <rect x="540" y="240" width="250" height="60" rx="8" class="c-backend" data-animate="node" style="--step:5" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 246) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          <rect x="540" y="240" width="250" height="60" rx="8" class="c-messagebus" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(546 246) scale(0.6875)">
+            <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
+            <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
+            <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="665" y="268" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">2 · SttStage</text>
-        <text data-detail="context" x="665" y="284" class="t-muted" font-size="9" text-anchor="middle">speech to text</text>
+        <text data-detail="context" x="665" y="284" class="t-muted" font-size="9" text-anchor="middle">speaker gate + speech to text</text>
         </g>
 
-        <g id="node-s3" data-node-id="s3" data-node-label="3 · GroundingStage" tabindex="0" role="button" aria-label="Focus 3 · GroundingStage, prompt + profile + materials, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="prompt + profile + materials" data-node-context="Service-Harness-Ts">
-          <title>3 · GroundingStage · prompt + profile + materials · Service-Harness-Ts</title>
+        <g id="node-s3" data-node-id="s3" data-node-label="3 · GroundingStage" tabindex="0" role="button" aria-label="Focus 3 · GroundingStage, turn context from start, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="turn context from start" data-node-context="Service-Harness-Ts">
+          <title>3 · GroundingStage · turn context from start · Service-Harness-Ts</title>
           <rect x="540" y="340" width="250" height="60" rx="8" class="c-mask"/>
           <rect x="540" y="340" width="250" height="60" rx="8" class="c-backend" data-animate="node" style="--step:6" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 346) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="665" y="368" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">3 · GroundingStage</text>
-        <text data-detail="context" x="665" y="384" class="t-muted" font-size="9" text-anchor="middle">prompt + profile + materials</text>
+        <text data-detail="context" x="665" y="384" class="t-muted" font-size="9" text-anchor="middle">turn context from start</text>
         </g>
 
-        <g id="node-s4" data-node-id="s4" data-node-label="4 · DecisionStage" tabindex="0" role="button" aria-label="Focus 4 · DecisionStage, rule policy + Laya label, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="rule policy + Laya label" data-node-context="Service-Harness-Ts">
-          <title>4 · DecisionStage · rule policy + Laya label · Service-Harness-Ts</title>
+        <g id="node-s4" data-node-id="s4" data-node-label="4 · PrepareStage" tabindex="0" role="button" aria-label="Focus 4 · PrepareStage, judge, Laya, tools in parallel, Service-Harness-Ts" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="judge, Laya, tools in parallel" data-node-context="Service-Harness-Ts">
+          <title>4 · PrepareStage · judge, Laya, tools in parallel · Service-Harness-Ts</title>
           <rect x="540" y="440" width="250" height="60" rx="8" class="c-mask"/>
-          <rect x="540" y="440" width="250" height="60" rx="8" class="c-backend" data-animate="node" style="--step:7" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 446) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="665" y="468" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">4 · DecisionStage</text>
-        <text data-detail="context" x="665" y="484" class="t-muted" font-size="9" text-anchor="middle">rule policy + Laya label</text>
-        </g>
-
-        <g id="node-s5" data-node-id="s5" data-node-label="5 · TutorLoopStage" tabindex="0" role="button" aria-label="Focus 5 · TutorLoopStage, model ↔ tools, max 3 steps, Service-Harness-Ts" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="model ↔ tools, max 3 steps" data-node-context="Service-Harness-Ts">
-          <title>5 · TutorLoopStage · model ↔ tools, max 3 steps · Service-Harness-Ts</title>
-          <rect x="540" y="540" width="250" height="60" rx="8" class="c-mask"/>
-          <rect x="540" y="540" width="250" height="60" rx="8" class="c-frontend" data-animate="node" style="--step:8" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(546 546) scale(0.6875)">
+          <rect x="540" y="440" width="250" height="60" rx="8" class="c-frontend" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(546 446) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="665" y="568" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">5 · TutorLoopStage</text>
-        <text data-detail="context" x="665" y="584" class="t-muted" font-size="9" text-anchor="middle">model ↔ tools, max 3 steps</text>
+          <text data-node-label="" data-detail-anchor="" x="665" y="468" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">4 · PrepareStage</text>
+        <text data-detail="context" x="665" y="484" class="t-muted" font-size="9" text-anchor="middle">judge, Laya, tools in parallel</text>
         </g>
 
-        <g id="node-s6" data-node-id="s6" data-node-label="6 · TtsStage" tabindex="0" role="button" aria-label="Focus 6 · TtsStage, guard + sentence TTS, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="guard + sentence TTS" data-node-context="Service-Harness-Ts">
-          <title>6 · TtsStage · guard + sentence TTS · Service-Harness-Ts</title>
+        <g id="node-s5" data-node-id="s5" data-node-label="5 · ReplyStage" tabindex="0" role="button" aria-label="Focus 5 · ReplyStage, one streamed model call, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="one streamed model call" data-node-context="Service-Harness-Ts">
+          <title>5 · ReplyStage · one streamed model call · Service-Harness-Ts</title>
+          <rect x="540" y="540" width="250" height="60" rx="8" class="c-mask"/>
+          <rect x="540" y="540" width="250" height="60" rx="8" class="c-backend" data-animate="node" style="--step:8" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 546) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="665" y="568" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">5 · ReplyStage</text>
+        <text data-detail="context" x="665" y="584" class="t-muted" font-size="9" text-anchor="middle">one streamed model call</text>
+        </g>
+
+        <g id="node-s6" data-node-id="s6" data-node-label="6 · TtsStage" tabindex="0" role="button" aria-label="Focus 6 · TtsStage, lead-in + sentence TTS, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="lead-in + sentence TTS" data-node-context="Service-Harness-Ts">
+          <title>6 · TtsStage · lead-in + sentence TTS · Service-Harness-Ts</title>
           <rect x="540" y="640" width="250" height="60" rx="8" class="c-mask"/>
           <rect x="540" y="640" width="250" height="60" rx="8" class="c-backend" data-animate="node" style="--step:9" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 646) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="665" y="668" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">6 · TtsStage</text>
-        <text data-detail="context" x="665" y="684" class="t-muted" font-size="9" text-anchor="middle">guard + sentence TTS</text>
+        <text data-detail="context" x="665" y="684" class="t-muted" font-size="9" text-anchor="middle">lead-in + sentence TTS</text>
         </g>
 
         <g id="node-s7" data-node-id="s7" data-node-label="7 · DeliveryStage" tabindex="0" role="button" aria-label="Focus 7 · DeliveryStage, outbox + checkpoint, Service-Harness-Ts" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="outbox + checkpoint" data-node-context="Service-Harness-Ts">
@@ -5432,18 +5435,18 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="665" y="884" class="t-muted" font-size="9" text-anchor="middle">one run_id, a span per stage and tool</text>
         </g>
 
-        <g id="node-tr" data-node-id="tr" data-node-label="Tool registry" tabindex="0" role="button" aria-label="Focus Tool registry, 4 tools, zod, allowlist, Service-Harness-Ts" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="4 tools, zod, allowlist" data-node-context="Service-Harness-Ts">
-          <title>Tool registry · 4 tools, zod, allowlist · Service-Harness-Ts</title>
-          <rect x="290" y="540" width="190" height="60" rx="8" class="c-mask"/>
-          <rect x="290" y="540" width="190" height="60" rx="8" class="c-frontend" data-animate="node" style="--step:12" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(296 546) scale(0.6875)">
+        <g id="node-tr" data-node-id="tr" data-node-label="Turn tools" tabindex="0" role="button" aria-label="Focus Turn tools, LanguageTool · coursebook, run by code, Service-Harness-Ts" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="LanguageTool · coursebook, run by code" data-node-context="Service-Harness-Ts">
+          <title>Turn tools · LanguageTool · coursebook, run by code · Service-Harness-Ts</title>
+          <rect x="290" y="440" width="190" height="60" rx="8" class="c-mask"/>
+          <rect x="290" y="440" width="190" height="60" rx="8" class="c-frontend" data-animate="node" style="--step:12" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(296 446) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="385" y="568" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Tool registry</text>
-        <text data-detail="context" x="385" y="584" class="t-muted" font-size="9" text-anchor="middle">4 tools, zod, allowlist</text>
+          <text data-node-label="" data-detail-anchor="" x="385" y="468" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Turn tools</text>
+        <text data-detail="context" x="385" y="484" class="t-muted" font-size="7.9" text-anchor="middle">LanguageTool · coursebook, run by code</text>
         </g>
 
         <g id="node-lr" data-node-id="lr" data-node-label="Learner&#39;s browser" tabindex="0" role="button" aria-label="Focus Learner&#39;s browser, mic in · audio out, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="mic in · audio out" data-node-context="Architecture component">
@@ -5470,19 +5473,19 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="130" y="784" class="t-muted" font-size="9" text-anchor="middle">turns, scores, profile</text>
         </g>
 
-        <g id="node-s0" data-node-id="s0" data-node-label="0 · SessionStartStage" tabindex="0" role="button" aria-label="Focus 0 · SessionStartStage, profile + materials, once, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="profile + materials, once" data-node-context="Service-Harness-Ts">
-          <title>0 · SessionStartStage · profile + materials, once · Service-Harness-Ts</title>
+        <g id="node-s0" data-node-id="s0" data-node-label="0 · SessionStartStage" tabindex="0" role="button" aria-label="Focus 0 · SessionStartStage, profile, materials, voice, once, Service-Harness-Ts" aria-pressed="false" data-node-kind="backend" data-node-sublabel="profile, materials, voice, once" data-node-context="Service-Harness-Ts">
+          <title>0 · SessionStartStage · profile, materials, voice, once · Service-Harness-Ts</title>
           <rect x="540" y="40" width="250" height="60" rx="8" class="c-mask"/>
           <rect x="540" y="40" width="250" height="60" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 46) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="665" y="68" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">0 · SessionStartStage</text>
-        <text data-detail="context" x="665" y="84" class="t-muted" font-size="9" text-anchor="middle">profile + materials, once</text>
+        <text data-detail="context" x="665" y="84" class="t-muted" font-size="9" text-anchor="middle">profile, materials, voice, once</text>
         </g>
 
-        <g id="node-x0" data-node-id="x0" data-node-label="Session · Curriculum · RAG" tabindex="0" role="button" aria-label="Focus Session · Curriculum · RAG, profile, rubric, mentor materials, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="profile, rubric, mentor materials" data-node-context="Architecture component">
-          <title>Session · Curriculum · RAG · profile, rubric, mentor materials · Architecture component</title>
+        <g id="node-x0" data-node-id="x0" data-node-label="Session · Curriculum · RAG" tabindex="0" role="button" aria-label="Focus Session · Curriculum · RAG, profile, rubric, materials, voice, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="profile, rubric, materials, voice" data-node-context="Architecture component">
+          <title>Session · Curriculum · RAG · profile, rubric, materials, voice · Architecture component</title>
           <rect x="920" y="40" width="250" height="60" rx="8" class="c-mask"/>
           <rect x="920" y="40" width="250" height="60" rx="8" class="c-external" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(926 46) scale(0.6875)">
@@ -5490,11 +5493,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="1045" y="68" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Session · Curriculum · RAG</text>
-        <text data-detail="context" x="1045" y="84" class="t-muted" font-size="9" text-anchor="middle">profile, rubric, mentor materials</text>
+        <text data-detail="context" x="1045" y="84" class="t-muted" font-size="9" text-anchor="middle">profile, rubric, materials, voice</text>
         </g>
 
-        <g id="node-x2" data-node-id="x2" data-node-label="AI-Voice STT" tabindex="0" role="button" aria-label="Focus AI-Voice STT, Parakeet, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="Parakeet" data-node-context="Architecture component">
-          <title>AI-Voice STT · Parakeet · Architecture component</title>
+        <g id="node-x2" data-node-id="x2" data-node-label="AI-Voice STT" tabindex="0" role="button" aria-label="Focus AI-Voice STT, speaker gate, Parakeet, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="speaker gate, Parakeet" data-node-context="Architecture component">
+          <title>AI-Voice STT · speaker gate, Parakeet · Architecture component</title>
           <rect x="920" y="240" width="220" height="60" rx="8" class="c-mask"/>
           <rect x="920" y="240" width="220" height="60" rx="8" class="c-external" data-animate="node" style="--step:11" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(926 246) scale(0.6875)">
@@ -5502,11 +5505,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="1030" y="268" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AI-Voice STT</text>
-        <text data-detail="context" x="1030" y="284" class="t-muted" font-size="9" text-anchor="middle">Parakeet</text>
+        <text data-detail="context" x="1030" y="284" class="t-muted" font-size="9" text-anchor="middle">speaker gate, Parakeet</text>
         </g>
 
-        <g id="node-x3" data-node-id="x3" data-node-label="Service-RAG" tabindex="0" role="button" aria-label="Focus Service-RAG, grounding, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="grounding" data-node-context="Architecture component">
-          <title>Service-RAG · grounding · Architecture component</title>
+        <g id="node-x3" data-node-id="x3" data-node-label="Service-RAG" tabindex="0" role="button" aria-label="Focus Service-RAG, pinned materials, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="pinned materials" data-node-context="Architecture component">
+          <title>Service-RAG · pinned materials · Architecture component</title>
           <rect x="920" y="340" width="220" height="60" rx="8" class="c-mask"/>
           <rect x="920" y="340" width="220" height="60" rx="8" class="c-external" data-animate="node" style="--step:12" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(926 346) scale(0.6875)">
@@ -5514,7 +5517,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="1030" y="368" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Service-RAG</text>
-        <text data-detail="context" x="1030" y="384" class="t-muted" font-size="9" text-anchor="middle">grounding</text>
+        <text data-detail="context" x="1030" y="384" class="t-muted" font-size="9" text-anchor="middle">pinned materials</text>
         </g>
 
         <g id="node-x4" data-node-id="x4" data-node-label="Laya" tabindex="0" role="button" aria-label="Focus Laya, 300 ms deadline, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="300 ms deadline" data-node-context="Architecture component">
@@ -5529,8 +5532,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="1030" y="484" class="t-muted" font-size="9" text-anchor="middle">300 ms deadline</text>
         </g>
 
-        <g id="node-x5" data-node-id="x5" data-node-label="LLM server" tabindex="0" role="button" aria-label="Focus LLM server, tool calling, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="tool calling" data-node-context="Architecture component">
-          <title>LLM server · tool calling · Architecture component</title>
+        <g id="node-x5" data-node-id="x5" data-node-label="LLM server" tabindex="0" role="button" aria-label="Focus LLM server, 11 slots, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="11 slots" data-node-context="Architecture component">
+          <title>LLM server · 11 slots · Architecture component</title>
           <rect x="920" y="540" width="220" height="60" rx="8" class="c-mask"/>
           <rect x="920" y="540" width="220" height="60" rx="8" class="c-external" data-animate="node" style="--step:12" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(926 546) scale(0.6875)">
@@ -5538,11 +5541,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="1030" y="568" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">LLM server</text>
-        <text data-detail="context" x="1030" y="584" class="t-muted" font-size="9" text-anchor="middle">tool calling</text>
+        <text data-detail="context" x="1030" y="584" class="t-muted" font-size="9" text-anchor="middle">11 slots</text>
         </g>
 
-        <g id="node-x6" data-node-id="x6" data-node-label="AI-Voice TTS" tabindex="0" role="button" aria-label="Focus AI-Voice TTS, per sentence, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="per sentence" data-node-context="Architecture component">
-          <title>AI-Voice TTS · per sentence · Architecture component</title>
+        <g id="node-x6" data-node-id="x6" data-node-label="AI-Voice TTS" tabindex="0" role="button" aria-label="Focus AI-Voice TTS, 4 workers, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="4 workers" data-node-context="Architecture component">
+          <title>AI-Voice TTS · 4 workers · Architecture component</title>
           <rect x="920" y="640" width="220" height="60" rx="8" class="c-mask"/>
           <rect x="920" y="640" width="220" height="60" rx="8" class="c-external" data-animate="node" style="--step:12" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(926 646) scale(0.6875)">
@@ -5550,7 +5553,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="1030" y="668" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AI-Voice TTS</text>
-        <text data-detail="context" x="1030" y="684" class="t-muted" font-size="9" text-anchor="middle">per sentence</text>
+        <text data-detail="context" x="1030" y="684" class="t-muted" font-size="9" text-anchor="middle">4 workers</text>
         </g>
 
         <g id="node-x7" data-node-id="x7" data-node-label="harness.checkpoints" tabindex="0" role="button" aria-label="Focus harness.checkpoints, teaching state, Architecture component" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="teaching state" data-node-tag="harness schema table" data-node-context="Architecture component">
@@ -5600,9 +5603,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <rect x="838" y="450" width="34" height="14" rx="3" class="c-mask"/>
           <text x="855" y="460" class="t-edge-default" font-size="8" text-anchor="middle">label</text>
         </g>
-        <g data-detail="context" data-edge-from="s5" data-edge-to="x5" data-edge-label="tool calls" data-edge-key="13" data-edge-id="s5-x5">
-          <rect x="826" y="550" width="58" height="14" rx="3" class="c-mask"/>
-          <text x="855" y="560" class="t-edge-default" font-size="8" text-anchor="middle">tool calls</text>
+        <g data-detail="context" data-edge-from="s5" data-edge-to="x5" data-edge-label="one call" data-edge-key="13" data-edge-id="s5-x5">
+          <rect x="830.8" y="550" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="855" y="560" class="t-edge-default" font-size="8" text-anchor="middle">one call</text>
         </g>
         <g data-detail="context" data-edge-from="s6" data-edge-to="x6" data-edge-label="sentences" data-edge-key="14" data-edge-id="s6-x6">
           <rect x="828.4" y="650" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
@@ -5612,9 +5615,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <rect x="826" y="750" width="58" height="14" rx="3" class="c-mask"/>
           <text x="855" y="760" class="t-edge-default" font-size="8" text-anchor="middle">save state</text>
         </g>
-        <g data-detail="context" data-edge-from="s5" data-edge-to="tr" data-edge-label="4 tools" data-edge-key="16" data-edge-id="s5-tools">
-          <rect x="488.2" y="550" width="43.6" height="14" rx="3" class="c-mask"/>
-          <text x="510" y="560" class="t-edge-default" font-size="8" text-anchor="middle">4 tools</text>
+        <g data-detail="context" data-edge-from="s4" data-edge-to="tr" data-edge-label="parallel" data-edge-key="16" data-edge-id="s4-tools">
+          <rect x="485.8" y="450" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="510" y="460" class="t-edge-default" font-size="8" text-anchor="middle">parallel</text>
         </g>
         <g data-detail="context" data-edge-from="s6" data-edge-to="lr" data-edge-label="audio out" data-edge-key="17" data-edge-id="s6-out">
           <rect x="353.4" y="650" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
@@ -5838,14 +5841,14 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Session start, then one example turn</h3>
         </div>
         <ul>
-          <li>1. Session start: this already runs today in initializeSession, which loads the student profile, rubric, learner memory and the mentor materials (pinned) once, with a deadline. As a stage, each load also writes its own span, so a profile or material that failed to load shows up in the trace instead of only in a log warning.</li>
+          <li>1. Session start: initializeSession already loads the student profile, rubric, learner memory, the pinned mentor materials and the voice profile once, with a deadline. As a stage, each load also writes its own span, so a load that failed shows up in the trace.</li>
           <li>2. Example: the learner says &quot;Yesterday I go to the market with my mother.&quot; The gateway locks the turn and opens a trace span under the run ID of the session.</li>
-          <li>3. SttStage: Parakeet returns the text. Smart-turn end-of-turn detection exists in the code and can be switched on here.</li>
-          <li>4. GroundingStage: lesson objective (past simple), the pinned materials, the student profile, learner memory and approved packs go into the prompt. This holds for every class, tutoring loop included.</li>
-          <li>5. DecisionStage: runs today. The rule policy picks &quot;repair gently, then ask on&quot;, and Laya labels the same turn TARGET_REPAIR_NEEDED within 300 ms. The harness logs whether the two agree; the rules keep the final say.</li>
-          <li>6. TutorLoopStage: the model calls check_grammar and gets &quot;go → went&quot;, calls search_coursebook for a model sentence, then writes the reply. Three steps at most; over budget, the old single call answers.</li>
-          <li>7. TtsStage: &quot;Nice! Just one thing: yesterday I went to the market. What did you buy there?&quot; passes the guard and is spoken sentence by sentence.</li>
-          <li>8. DeliveryStage: the outbox delivers the turn, and the teaching state is saved to harness.checkpoints. The trace now holds seven stage spans and two tool spans.</li>
+          <li>3. SttStage: the speaker gate checks the voice against the learner&#39;s profile in about 20 ms; PS4 cleans the audio only when another voice overlaps. Parakeet returns the text.</li>
+          <li>4. GroundingStage: the turn context built at session start (lesson objective, pinned materials, student profile, learner memory) is ready for the prompt, for every class.</li>
+          <li>5. PrepareStage: at the same moment the code starts the answer judge, Laya&#39;s label, check_grammar (&quot;go → went&quot;) and a coursebook search for a model sentence, within about 300 ms. The rule policy picks &quot;repair gently, then ask on&quot;.</li>
+          <li>6. ReplyStage: one streamed model call gets the move, the turn context and the tool results already in the prompt. The model never stops to decide on a tool, so there is no extra round trip.</li>
+          <li>7. TtsStage: the lead-in played while the reply was being written; &quot;Nice! Just one thing: yesterday I went to the market. What did you buy there?&quot; passes the guard and is spoken sentence by sentence.</li>
+          <li>8. DeliveryStage: the outbox delivers the turn, and the teaching state is saved to harness.checkpoints. The trace holds one span per stage and per tool.</li>
         </ul>
       </div>
 
@@ -5855,9 +5858,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>What changes</h3>
         </div>
         <ul>
-          <li>The order of stages stays fixed in code; only stage 5 lets the model choose tools, inside a 3-step budget.</li>
-          <li>Tools come from a registry and an allowlist from Service-Agent; each call is written to harness.tool_calls.</li>
-          <li>v2.0 is the design the team builds next.</li>
+          <li>The order of stages is fixed in code. Tools run in PrepareStage by code, in parallel; the model is called once per turn.</li>
+          <li>Each tool call is written to harness.tool_calls; the allowlist comes from Service-Agent.</li>
+          <li>Model-chosen tool calls run only after the session, in the coaching agent.</li>
         </ul>
       </div>
     </div>
