@@ -502,6 +502,13 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 .sx-fmsg:empty{display:none}
 .sx-m small{font-family:var(--body)}
 @media (max-width:700px){.sx-seg{display:flex;width:100%}.sx-seg button{flex:1 1 auto;border-bottom:1px solid var(--line)}.sx-grp{width:100%}}
+.afig{margin:18px 0 22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.afig-bar{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line)}
+.afig-bar b{font-size:15px}
+.afig-bar a{font-size:13.5px;color:var(--accent);font-weight:600}
+.afig-box{position:relative;min-height:420px}
+.afig-box iframe{display:block;width:100%;height:760px;border:0;background:transparent}
+.afig-load{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
@@ -516,7 +523,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <p class="brand"><b>ESPP</b> <span class="i-en">Harness research</span><span class="i-vi" lang="vi">Nghiên cứu harness</span></p>
 <p class="brand-sub"><span class="i-en">Internal note · SEP490 · 14 Nov 2026</span><span class="i-vi" lang="vi">Ghi chú nội bộ · SEP490 · 14/11/2026</span></p>
 </div>
-<nav aria-label="Chapters"><ol class="rail-list"><li><a href="#answer" data-i="0"><span class="dot" aria-hidden="true"></span><span class="rl-n">00</span><span class="i-en">Overview</span><span class="i-vi" lang="vi">Tổng quan</span></a></li><li><a href="#definitions" data-i="1"><span class="dot" aria-hidden="true"></span><span class="rl-n">01</span><span class="i-en">Definitions</span><span class="i-vi" lang="vi">Định nghĩa</span></a></li><li><a href="#references" data-i="2"><span class="dot" aria-hidden="true"></span><span class="rl-n">02</span><span class="i-en">Reference designs</span><span class="i-vi" lang="vi">Kiến trúc tham chiếu</span></a></li><li><a href="#today" data-i="3"><span class="dot" aria-hidden="true"></span><span class="rl-n">03</span><span class="i-en">ESPP today</span><span class="i-vi" lang="vi">ESPP hiện tại</span></a></li><li><a href="#orchestration" data-i="4"><span class="dot" aria-hidden="true"></span><span class="rl-n">04</span><span class="i-en">Orchestration</span><span class="i-vi" lang="vi">Điều phối</span></a></li><li><a href="#learners" data-i="5"><span class="dot" aria-hidden="true"></span><span class="rl-n">05</span><span class="i-en">Many learners</span><span class="i-vi" lang="vi">Nhiều học viên</span></a></li><li><a href="#evidence" data-i="6"><span class="dot" aria-hidden="true"></span><span class="rl-n">06</span><span class="i-en">Evidence</span><span class="i-vi" lang="vi">Bằng chứng</span></a></li><li><a href="#advice" data-i="7"><span class="dot" aria-hidden="true"></span><span class="rl-n">07</span><span class="i-en">Advice</span><span class="i-vi" lang="vi">Lời khuyên</span></a></li><li><a href="#committee" data-i="8"><span class="dot" aria-hidden="true"></span><span class="rl-n">08</span><span class="i-en">Committee Q&A</span><span class="i-vi" lang="vi">Hỏi đáp hội đồng</span></a></li><li><a href="#sources" data-i="9"><span class="dot" aria-hidden="true"></span><span class="rl-n">09</span><span class="i-en">Sources</span><span class="i-vi" lang="vi">Nguồn</span></a></li></ol></nav>
+<nav aria-label="Chapters"><ol class="rail-list"><li><a href="#answer" data-i="0"><span class="dot" aria-hidden="true"></span><span class="rl-n">00</span><span class="i-en">Overview</span><span class="i-vi" lang="vi">Tổng quan</span></a></li><li><a href="#definitions" data-i="1"><span class="dot" aria-hidden="true"></span><span class="rl-n">01</span><span class="i-en">Definitions</span><span class="i-vi" lang="vi">Định nghĩa</span></a></li><li><a href="#references" data-i="2"><span class="dot" aria-hidden="true"></span><span class="rl-n">02</span><span class="i-en">Reference designs</span><span class="i-vi" lang="vi">Kiến trúc tham chiếu</span></a></li><li><a href="#today" data-i="3"><span class="dot" aria-hidden="true"></span><span class="rl-n">03</span><span class="i-en">ESPP today</span><span class="i-vi" lang="vi">ESPP hiện tại</span></a></li><li><a href="#orchestration" data-i="4"><span class="dot" aria-hidden="true"></span><span class="rl-n">04</span><span class="i-en">Orchestration</span><span class="i-vi" lang="vi">Điều phối</span></a></li><li><a href="#learners" data-i="5"><span class="dot" aria-hidden="true"></span><span class="rl-n">05</span><span class="i-en">Many learners</span><span class="i-vi" lang="vi">Nhiều học viên</span></a></li><li><a href="#evidence" data-i="6"><span class="dot" aria-hidden="true"></span><span class="rl-n">06</span><span class="i-en">Evidence</span><span class="i-vi" lang="vi">Bằng chứng</span></a></li><li><a href="#advice" data-i="7"><span class="dot" aria-hidden="true"></span><span class="rl-n">07</span><span class="i-en">Advice</span><span class="i-vi" lang="vi">Lời khuyên</span></a></li><li><a href="#sources" data-i="8"><span class="dot" aria-hidden="true"></span><span class="rl-n">08</span><span class="i-en">Sources</span><span class="i-vi" lang="vi">Nguồn</span></a></li></ol></nav>
 <div class="progress" aria-hidden="true"><span class="bar-fill"></span></div>
 <div class="langsw" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="vi" aria-pressed="false">Tiếng Việt</button></div>
 </aside>
@@ -530,7 +537,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <div class="tile"><b>0</b><span>tool calls chosen by the model today; the <code>tool_calls</code> table is never written</span><small>the main gap</small></div>
 </div>
 <p class="note">The percentages are our own scoring against published component lists. Section 6 shows every row, the source it comes from and the file that proves it.</p>
-<h3 class="route-h">The route through this note</h3><ol class="route"><li><a href="#definitions"><span class="rn">1</span><span class="rt"><b>Definitions</b><span>What does "harness" mean, and why did the committee read it differently?</span></span></a></li><li><a href="#references"><span class="rn">2</span><span class="rt"><b>Reference designs</b><span>How are the public harnesses designed?</span></span></a></li><li><a href="#today"><span class="rn">3</span><span class="rt"><b>ESPP today</b><span>What does our harness do during a speaking session?</span></span></a></li><li><a href="#orchestration"><span class="rn">4</span><span class="rt"><b>Orchestration</b><span>How does the harness coordinate the models and AI services?</span></span></a></li><li><a href="#learners"><span class="rn">5</span><span class="rt"><b>Many learners</b><span>What happens when several learners speak at once?</span></span></a></li><li><a href="#evidence"><span class="rn">6</span><span class="rt"><b>Evidence</b><span>How closely does ESPP match the references, and where?</span></span></a></li><li><a href="#advice"><span class="rn">7</span><span class="rt"><b>Advice</b><span>What should we build so it is a full harness?</span></span></a></li><li><a href="#committee"><span class="rn">8</span><span class="rt"><b>Committee Q&A</b><span>What will the committee ask, and how do we answer honestly?</span></span></a></li><li><a href="#sources"><span class="rn">9</span><span class="rt"><b>Sources</b><span>What does this note rely on, and where are its limits?</span></span></a></li></ol></div><nav class="ch-foot" aria-label="Chapter navigation"><span></span><a class="cf next" href="#definitions"><span>Start reading · 01</span><b>Definitions</b><em>What does "harness" mean, and why did the committee read it differently?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">00</span>Tổng quan</p><p class="ch-q"><span>Chương này trả lời</span>Câu trả lời ngắn là gì, và bản ghi chú này đi theo lộ trình nào?</p><h2 id="h-answer-vi" class="ch-title">Đúng là harness. Nhưng chưa phải agent harness.</h2></header><div class="ch-body"><div class="hero"><h1>Harness của nhóm có thật sự là harness không?</h1><p class="lede">Hermes Agent, Claude Code và OpenClaw công bố gì về thiết kế harness của họ, <code>Service-Harness-Ts</code> của ESPP khớp ở đâu, và cần xây gì để cái tên này đứng vững.</p><p class="eyebrow">Ghi chú nghiên cứu nội bộ · Capstone ESPP (SEP490) · 14/11/2026</p></div><p class="verdict">Đúng là harness. Nhưng chưa phải agent harness.</p>
+<h3 class="route-h">The route through this note</h3><ol class="route"><li><a href="#definitions"><span class="rn">1</span><span class="rt"><b>Definitions</b><span>What does "harness" mean, and why did the committee read it differently?</span></span></a></li><li><a href="#references"><span class="rn">2</span><span class="rt"><b>Reference designs</b><span>How are the public harnesses designed?</span></span></a></li><li><a href="#today"><span class="rn">3</span><span class="rt"><b>ESPP today</b><span>What does our harness do during a speaking session?</span></span></a></li><li><a href="#orchestration"><span class="rn">4</span><span class="rt"><b>Orchestration</b><span>How does the harness coordinate the models and AI services?</span></span></a></li><li><a href="#learners"><span class="rn">5</span><span class="rt"><b>Many learners</b><span>What happens when a class of up to 35 learners speaks at once?</span></span></a></li><li><a href="#evidence"><span class="rn">6</span><span class="rt"><b>Evidence</b><span>How closely does ESPP match the references, and where?</span></span></a></li><li><a href="#advice"><span class="rn">7</span><span class="rt"><b>Advice</b><span>What should we build so it is a full harness?</span></span></a></li><li><a href="#sources"><span class="rn">8</span><span class="rt"><b>Sources</b><span>What does this note rely on, and where are its limits?</span></span></a></li></ol></div><nav class="ch-foot" aria-label="Chapter navigation"><span></span><a class="cf next" href="#definitions"><span>Start reading · 01</span><b>Definitions</b><em>What does "harness" mean, and why did the committee read it differently?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">00</span>Tổng quan</p><p class="ch-q"><span>Chương này trả lời</span>Câu trả lời ngắn là gì, và bản ghi chú này đi theo lộ trình nào?</p><h2 id="h-answer-vi" class="ch-title">Đúng là harness. Nhưng chưa phải agent harness.</h2></header><div class="ch-body"><div class="hero"><h1>Harness của nhóm có thật sự là harness không?</h1><p class="lede">Hermes Agent, Claude Code và OpenClaw công bố gì về thiết kế harness của họ, <code>Service-Harness-Ts</code> của ESPP khớp ở đâu, và cần xây gì để cái tên này đứng vững.</p><p class="eyebrow">Ghi chú nghiên cứu nội bộ · Capstone ESPP (SEP490) · 14/11/2026</p></div><p class="verdict">Đúng là harness. Nhưng chưa phải agent harness.</p>
 <p>Harness là lớp bao quanh model: nó đưa context cho model, gọi tool và dịch vụ thay model, giữ trạng thái, và quyết định bước tiếp theo. <code>Service-Harness-Ts</code> làm đủ các việc đó cho một AI tutor bằng giọng nói. Thứ nó chưa làm là cho model tự chọn một hành động rồi xem kết quả trong một vòng lặp. Theo cách gọi của Anthropic, ESPP hiện là workflow, còn ba hệ thống tham chiếu là agent.</p>
 <div class="tiles">
 <div class="tile"><b>61%</b><span>số pattern harness mà Hermes, Claude Code và OpenClaw cùng có</span><small>8,5 trên 14 · sau khi xây: 86%</small></div>
@@ -538,7 +545,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <div class="tile"><b>100%</b><span>pipeline voice realtime theo tài liệu Pipecat</span><small>8 trên 8</small></div>
 <div class="tile"><b>0</b><span>tool call do model tự chọn; bảng <code>tool_calls</code> chưa từng được ghi</span><small>khoảng trống chính</small></div>
 </div>
-<p class="note">Các tỉ lệ phần trăm là do nhóm tự chấm theo danh sách thành phần đã công bố. Mục 6 liệt kê từng dòng, nguồn của dòng đó và file làm bằng chứng.</p><h3 class="route-h">Lộ trình đọc</h3><ol class="route"><li><a href="#definitions"><span class="rn">1</span><span class="rt"><b>Định nghĩa</b><span>Từ "harness" nghĩa là gì, và vì sao hội đồng hiểu khác?</span></span></a></li><li><a href="#references"><span class="rn">2</span><span class="rt"><b>Kiến trúc tham chiếu</b><span>Các harness công khai được thiết kế ra sao?</span></span></a></li><li><a href="#today"><span class="rn">3</span><span class="rt"><b>ESPP hiện tại</b><span>Harness của ESPP đang làm gì trong một buổi nói?</span></span></a></li><li><a href="#orchestration"><span class="rn">4</span><span class="rt"><b>Điều phối</b><span>Harness điều phối các model và dịch vụ AI thế nào?</span></span></a></li><li><a href="#learners"><span class="rn">5</span><span class="rt"><b>Nhiều học viên</b><span>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</span></span></a></li><li><a href="#evidence"><span class="rn">6</span><span class="rt"><b>Bằng chứng</b><span>ESPP khớp với các tham chiếu tới đâu, ở những điểm nào?</span></span></a></li><li><a href="#advice"><span class="rn">7</span><span class="rt"><b>Lời khuyên</b><span>Nên xây gì để thành một harness trọn vẹn?</span></span></a></li><li><a href="#committee"><span class="rn">8</span><span class="rt"><b>Hỏi đáp hội đồng</b><span>Hội đồng có thể hỏi gì, và trả lời trung thực ra sao?</span></span></a></li><li><a href="#sources"><span class="rn">9</span><span class="rt"><b>Nguồn</b><span>Bản ghi chú dựa vào đâu, và giới hạn ở chỗ nào?</span></span></a></li></ol></div><nav class="ch-foot" aria-label="Chapter navigation"><span></span><a class="cf next" href="#definitions"><span>Bắt đầu đọc · 01</span><b>Định nghĩa</b><em>Từ "harness" nghĩa là gì, và vì sao hội đồng hiểu khác?</em></a></nav></div></section><section class="chapter" id="definitions" data-i="1" aria-labelledby="h-definitions" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">01</span>Definitions</p><p class="ch-q"><span>This chapter answers</span>What does "harness" mean, and why did the committee read it differently?</p><h2 id="h-definitions" class="ch-title">What the word means in the sources</h2></header><div class="ch-body">
+<p class="note">Các tỉ lệ phần trăm là do nhóm tự chấm theo danh sách thành phần đã công bố. Mục 6 liệt kê từng dòng, nguồn của dòng đó và file làm bằng chứng.</p><h3 class="route-h">Lộ trình đọc</h3><ol class="route"><li><a href="#definitions"><span class="rn">1</span><span class="rt"><b>Định nghĩa</b><span>Từ "harness" nghĩa là gì, và vì sao hội đồng hiểu khác?</span></span></a></li><li><a href="#references"><span class="rn">2</span><span class="rt"><b>Kiến trúc tham chiếu</b><span>Các harness công khai được thiết kế ra sao?</span></span></a></li><li><a href="#today"><span class="rn">3</span><span class="rt"><b>ESPP hiện tại</b><span>Harness của ESPP đang làm gì trong một buổi nói?</span></span></a></li><li><a href="#orchestration"><span class="rn">4</span><span class="rt"><b>Điều phối</b><span>Harness điều phối các model và dịch vụ AI thế nào?</span></span></a></li><li><a href="#learners"><span class="rn">5</span><span class="rt"><b>Nhiều học viên</b><span>Chuyện gì xảy ra khi cả lớp, tới 35 học viên, cùng nói?</span></span></a></li><li><a href="#evidence"><span class="rn">6</span><span class="rt"><b>Bằng chứng</b><span>ESPP khớp với các tham chiếu tới đâu, ở những điểm nào?</span></span></a></li><li><a href="#advice"><span class="rn">7</span><span class="rt"><b>Lời khuyên</b><span>Nên xây gì để thành một harness trọn vẹn?</span></span></a></li><li><a href="#sources"><span class="rn">8</span><span class="rt"><b>Nguồn</b><span>Bản ghi chú dựa vào đâu, và giới hạn ở chỗ nào?</span></span></a></li></ol></div><nav class="ch-foot" aria-label="Chapter navigation"><span></span><a class="cf next" href="#definitions"><span>Bắt đầu đọc · 01</span><b>Định nghĩa</b><em>Từ "harness" nghĩa là gì, và vì sao hội đồng hiểu khác?</em></a></nav></div></section><section class="chapter" id="definitions" data-i="1" aria-labelledby="h-definitions" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">01</span>Definitions</p><p class="ch-q"><span>This chapter answers</span>What does "harness" mean, and why did the committee read it differently?</p><h2 id="h-definitions" class="ch-title">What the word means in the sources</h2></header><div class="ch-body">
 
 <p>The committee read "harness" as a wrapper around coding agents such as Claude Code or Codex. That is one family of harness, not the meaning of the word. The sources below define a harness by its role.</p>
 <div class="tw"><table>
@@ -584,7 +591,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 
 <p>The team consulted these three designs. Each figure follows the official documentation, linked in its header; press Play or step through. Under each figure: what the docs say, and which idea shows up in ESPP code.</p>
 
-<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-references-en-0" aria-controls="p-references-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Hermes Agent</button><button type="button" role="tab" id="t-references-en-1" aria-controls="p-references-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Claude Code · Agent SDK</button><button type="button" role="tab" id="t-references-en-2" aria-controls="p-references-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>OpenClaw</button></div><div class="tabpanel" role="tabpanel" id="p-references-en-0" aria-labelledby="t-references-en-0"><div class="fig" data-fig="hermes" data-lang="en"></div>
+<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-references-en-0" aria-controls="p-references-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Hermes Agent</button><button type="button" role="tab" id="t-references-en-1" aria-controls="p-references-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Claude Code · Agent SDK</button><button type="button" role="tab" id="t-references-en-2" aria-controls="p-references-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>OpenClaw</button></div><div class="tabpanel" role="tabpanel" id="p-references-en-0" aria-labelledby="t-references-en-0"><div class="afig" data-src="diagrams/hermes.en.html" data-title="Hermes Agent: one AIAgent loop behind every entry point"></div>
 <div class="cols">
 <div><h5>What the official docs say</h5><ul>
 <li>Every entry point (CLI, gateway, cron, ACP, API server) hands the message to one <code>AIAgent</code>.</li>
@@ -598,7 +605,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li>Context compression in the background, and LLM failover with health tracking.</li>
 <li>Persistent sessions and per-learner memory, in Postgres instead of SQLite.</li>
 </ul></div>
-</div></div><div class="tabpanel" role="tabpanel" id="p-references-en-1" aria-labelledby="t-references-en-1" hidden><div class="fig" data-fig="claude" data-lang="en"></div>
+</div></div><div class="tabpanel" role="tabpanel" id="p-references-en-1" aria-labelledby="t-references-en-1" hidden><div class="afig" data-src="diagrams/claude.en.html" data-title="Claude Code and the Agent SDK: the agent loop"></div>
 <div class="cols">
 <div><h5>What the official docs say</h5><ul>
 <li>The loop has five steps: receive prompt, evaluate and respond, execute tools, repeat, return result. One round trip of tool calls is one turn.</li>
@@ -612,7 +619,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li>A stream of typed events to the client (<code>state</code>, <code>turn.complete</code>, <code>audio.done</code>).</li>
 <li>Not taken yet: the tool loop itself, hooks, and permission rules.</li>
 </ul></div>
-</div></div><div class="tabpanel" role="tabpanel" id="p-references-en-2" aria-labelledby="t-references-en-2" hidden><div class="fig" data-fig="openclaw" data-lang="en"></div>
+</div></div><div class="tabpanel" role="tabpanel" id="p-references-en-2" aria-labelledby="t-references-en-2" hidden><div class="afig" data-src="diagrams/openclaw.en.html" data-title="OpenClaw: a Gateway in front of a serialized per-session agent loop"></div>
 <div class="cols">
 <div><h5>What the official docs say</h5><ul>
 <li>One long-lived Gateway per host owns all messaging surfaces and exposes a typed WebSocket API (default <code>127.0.0.1:18789</code>).</li>
@@ -628,7 +635,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <p class="note">The two OpenClaw pages are long. Only the first part of each was read for this note: the overview, the components, and run-sequence steps 1 to 5.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#definitions"><span>Previous</span><b>Definitions</b></a><a class="cf next" href="#today"><span>Next · 03</span><b>ESPP today</b><em>What does our harness do during a speaking session?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">02</span>Kiến trúc tham chiếu</p><p class="ch-q"><span>Chương này trả lời</span>Các harness công khai được thiết kế ra sao?</p><h2 id="h-references-vi" class="ch-title">Ba harness công khai hoạt động thế nào</h2></header><div class="ch-body">
 <p>Nhóm đã tham khảo ba thiết kế này. Mỗi hình vẽ đi theo tài liệu chính thức, có link ở góc hình; bấm Chạy hoặc xem từng bước. Dưới mỗi hình là hai cột: tài liệu nói gì, và ý nào xuất hiện trong code ESPP.</p>
 
-<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-references-vi-0" aria-controls="p-references-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Hermes Agent</button><button type="button" role="tab" id="t-references-vi-1" aria-controls="p-references-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Claude Code · Agent SDK</button><button type="button" role="tab" id="t-references-vi-2" aria-controls="p-references-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>OpenClaw</button></div><div class="tabpanel" role="tabpanel" id="p-references-vi-0" aria-labelledby="t-references-vi-0"><div class="fig" data-fig="hermes" data-lang="vi"></div>
+<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-references-vi-0" aria-controls="p-references-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Hermes Agent</button><button type="button" role="tab" id="t-references-vi-1" aria-controls="p-references-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Claude Code · Agent SDK</button><button type="button" role="tab" id="t-references-vi-2" aria-controls="p-references-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>OpenClaw</button></div><div class="tabpanel" role="tabpanel" id="p-references-vi-0" aria-labelledby="t-references-vi-0"><div class="afig" data-src="diagrams/hermes.vi.html" data-title="Hermes Agent: một vòng lặp AIAgent phía sau mọi cổng vào"></div>
 <div class="cols">
 <div><h5>Tài liệu chính thức nói gì</h5><ul>
 <li>Mọi cổng vào (CLI, gateway, cron, ACP, API server) đều chuyển tin nhắn tới một <code>AIAgent</code>.</li>
@@ -642,7 +649,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li>Nén context ở nền, và LLM failover có theo dõi tình trạng endpoint.</li>
 <li>Phiên được lưu bền và có memory theo từng học viên, dùng Postgres thay cho SQLite.</li>
 </ul></div>
-</div></div><div class="tabpanel" role="tabpanel" id="p-references-vi-1" aria-labelledby="t-references-vi-1" hidden><div class="fig" data-fig="claude" data-lang="vi"></div>
+</div></div><div class="tabpanel" role="tabpanel" id="p-references-vi-1" aria-labelledby="t-references-vi-1" hidden><div class="afig" data-src="diagrams/claude.vi.html" data-title="Claude Code và Agent SDK: vòng lặp agent"></div>
 <div class="cols">
 <div><h5>Tài liệu chính thức nói gì</h5><ul>
 <li>Vòng lặp có năm bước: nhận prompt, đánh giá và trả lời, chạy tool, lặp lại, trả kết quả. Một vòng gọi tool là một turn.</li>
@@ -656,7 +663,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li>Một dòng sự kiện có kiểu gửi về client (<code>state</code>, <code>turn.complete</code>, <code>audio.done</code>).</li>
 <li>Chưa lấy: chính vòng lặp tool, hook, và luật quyền.</li>
 </ul></div>
-</div></div><div class="tabpanel" role="tabpanel" id="p-references-vi-2" aria-labelledby="t-references-vi-2" hidden><div class="fig" data-fig="openclaw" data-lang="vi"></div>
+</div></div><div class="tabpanel" role="tabpanel" id="p-references-vi-2" aria-labelledby="t-references-vi-2" hidden><div class="afig" data-src="diagrams/openclaw.vi.html" data-title="OpenClaw: Gateway đứng trước vòng lặp agent chạy tuần tự theo session"></div>
 <div class="cols">
 <div><h5>Tài liệu chính thức nói gì</h5><ul>
 <li>Mỗi máy có một Gateway chạy lâu dài, nắm mọi kênh nhắn tin và mở một WebSocket API có kiểu (mặc định <code>127.0.0.1:18789</code>).</li>
@@ -670,8 +677,8 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 </ul></div>
 </div>
 <p class="note">Hai trang tài liệu OpenClaw rất dài. Bản ghi chú này chỉ đọc phần đầu của mỗi trang: phần tổng quan, các thành phần, và bước 1 đến 5 của trình tự chạy.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#definitions"><span>Chương trước</span><b>Định nghĩa</b></a><a class="cf next" href="#today"><span>Chương sau · 03</span><b>ESPP hiện tại</b><em>Harness của ESPP đang làm gì trong một buổi nói?</em></a></nav></div></section><section class="chapter" id="today" data-i="3" aria-labelledby="h-today" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">03</span>ESPP today</p><p class="ch-q"><span>This chapter answers</span>What does our harness do during a speaking session?</p><h2 id="h-today" class="ch-title">What the harness does in the speaking flow</h2></header><div class="ch-body"><div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-today-en-0" aria-controls="p-today-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>One speaking turn</button><button type="button" role="tab" id="t-today-en-1" aria-controls="p-today-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Grading after the session</button><button type="button" role="tab" id="t-today-en-2" aria-controls="p-today-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>What the harness stores</button></div><div class="tabpanel" role="tabpanel" id="p-today-en-0" aria-labelledby="t-today-en-0"><p><code>Service-Harness-Ts</code> is a NestJS 11 service on Fastify with a hexagonal layout. Three classes do most of the work: <code>SpeakingSessionService</code> (session life cycle, about 4,400 lines), <code>ExecuteWorkflowService</code> (each turn and the grading, about 7,000 lines) and <code>TutoringLoopService</code> (what the tutor says, about 1,160 lines). The figure shows one speaking turn as the code runs it today, with the switches set as in the team <code>.env</code>. Press Play, or step through it.</p>
-<div class="fig" data-seq="turn" data-lang="en"></div>
-<p>The order never changes. In tutoring-loop classes, code picks the tutor's move (ask, rephrase, hint, give a choice, model the answer) and the LLM writes the words for that move; in other classes the tutor model answers from the prompt the harness built. Either way the harness, not the model, decides what runs next. This is why the system is a workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-en-1" aria-labelledby="t-today-en-1" hidden><div class="fig" data-fig="espp-grade" data-lang="en"></div></div><div class="tabpanel" role="tabpanel" id="p-today-en-2" aria-labelledby="t-today-en-2" hidden><p>The committee asked this directly. The harness owns the schema <code>harness</code> in Postgres (16 tables), a few Redis keys, and nothing else. Turns and scores are stored by Service-Session; recordings go to Cloudflare R2.</p>
+<div class="afig" data-src="diagrams/turn.en.html" data-title="ESPP today: one speaking turn, message by message"></div>
+<p>The order never changes. In tutoring-loop classes, code picks the tutor's move (ask, rephrase, hint, give a choice, model the answer) and the LLM writes the words for that move; in other classes the tutor model answers from the prompt the harness built. Either way the harness, not the model, decides what runs next. This is why the system is a workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-en-1" aria-labelledby="t-today-en-1" hidden><div class="afig" data-src="diagrams/grade.en.html" data-title="ESPP today: grading runs off the live path"></div></div><div class="tabpanel" role="tabpanel" id="p-today-en-2" aria-labelledby="t-today-en-2" hidden><p>The committee asked this directly. The harness owns the schema <code>harness</code> in Postgres (16 tables), a few Redis keys, and nothing else. Turns and scores are stored by Service-Session; recordings go to Cloudflare R2.</p>
 <div class="tw"><table>
 <thead><tr><th>Stored by the harness</th><th>Tables or keys</th><th>Written by code today?</th></tr></thead>
 <tbody>
@@ -683,8 +690,8 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <tr><td>Tool calls, checkpoints, escalations</td><td><code>tool_calls</code>, <code>checkpoints</code>, <code>escalation_cases</code></td><td><span class="pill p-part">Unused</span> table exists, no write found</td></tr>
 <tr><td>Live session state</td><td>Redis: seat per student, pause state, audio buffer, grounding cache</td><td><span class="pill p-have">Yes</span></td></tr>
 </tbody></table></div></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#references"><span>Previous</span><b>Reference designs</b></a><a class="cf next" href="#orchestration"><span>Next · 04</span><b>Orchestration</b><em>How does the harness coordinate the models and AI services?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">03</span>ESPP hiện tại</p><p class="ch-q"><span>Chương này trả lời</span>Harness của ESPP đang làm gì trong một buổi nói?</p><h2 id="h-today-vi" class="ch-title">Harness làm gì trong luồng speaking</h2></header><div class="ch-body"><div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-today-vi-0" aria-controls="p-today-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Một lượt nói</button><button type="button" role="tab" id="t-today-vi-1" aria-controls="p-today-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Chấm điểm sau buổi học</button><button type="button" role="tab" id="t-today-vi-2" aria-controls="p-today-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Harness lưu những gì</button></div><div class="tabpanel" role="tabpanel" id="p-today-vi-0" aria-labelledby="t-today-vi-0"><p><code>Service-Harness-Ts</code> là một service NestJS 11 chạy trên Fastify, tổ chức theo kiểu hexagonal. Ba class làm phần lớn công việc: <code>SpeakingSessionService</code> (vòng đời buổi nói, khoảng 4.400 dòng), <code>ExecuteWorkflowService</code> (từng lượt nói và việc chấm điểm, khoảng 7.000 dòng) và <code>TutoringLoopService</code> (tutor nói gì, khoảng 1.160 dòng). Hình dưới là một lượt nói đúng như code đang chạy, với các công tắc đặt như trong <code>.env</code> của nhóm. Bấm Chạy, hoặc xem từng bước.</p>
-<div class="fig" data-seq="turn" data-lang="vi"></div>
-<p>Thứ tự này không bao giờ đổi. Ở lớp bật tutoring loop, code chọn nước đi của tutor (hỏi, diễn đạt lại, gợi ý, cho lựa chọn, làm mẫu) và LLM viết lời cho nước đi đó; ở các lớp khác, model tutor trả lời dựa trên prompt mà harness đã ghép. Dù theo cách nào, harness chứ không phải model quyết định bước tiếp theo. Vì vậy hệ thống là workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-vi-1" aria-labelledby="t-today-vi-1" hidden><div class="fig" data-fig="espp-grade" data-lang="vi"></div></div><div class="tabpanel" role="tabpanel" id="p-today-vi-2" aria-labelledby="t-today-vi-2" hidden><p>Hội đồng đã hỏi thẳng câu này. Harness sở hữu schema <code>harness</code> trong Postgres (16 bảng), vài key trong Redis, và không gì khác. Lượt nói và điểm do Service-Session lưu; file ghi âm nằm ở Cloudflare R2.</p>
+<div class="afig" data-src="diagrams/turn.vi.html" data-title="ESPP hiện tại: một lượt nói, từng message một"></div>
+<p>Thứ tự này không bao giờ đổi. Ở lớp bật tutoring loop, code chọn nước đi của tutor (hỏi, diễn đạt lại, gợi ý, cho lựa chọn, làm mẫu) và LLM viết lời cho nước đi đó; ở các lớp khác, model tutor trả lời dựa trên prompt mà harness đã ghép. Dù theo cách nào, harness chứ không phải model quyết định bước tiếp theo. Vì vậy hệ thống là workflow.</p></div><div class="tabpanel" role="tabpanel" id="p-today-vi-1" aria-labelledby="t-today-vi-1" hidden><div class="afig" data-src="diagrams/grade.vi.html" data-title="ESPP hiện tại: chấm điểm chạy ngoài luồng trực tiếp"></div></div><div class="tabpanel" role="tabpanel" id="p-today-vi-2" aria-labelledby="t-today-vi-2" hidden><p>Hội đồng đã hỏi thẳng câu này. Harness sở hữu schema <code>harness</code> trong Postgres (16 bảng), vài key trong Redis, và không gì khác. Lượt nói và điểm do Service-Session lưu; file ghi âm nằm ở Cloudflare R2.</p>
 <div class="tw"><table>
 <thead><tr><th>Harness lưu</th><th>Bảng hoặc key</th><th>Code hiện có ghi không?</th></tr></thead>
 <tbody>
@@ -711,7 +718,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <tr><td>Laya decision model</td><td>Local classifier served by <code>laya-serve</code></td><td>After the tutor has spoken (shadow); <code>LAYA_SHADOW_ENABLED</code> is not set in the team <code>.env</code>, so it is off</td><td>300 ms deadline, 2 at a time, confidence floor 0.8; never changes the reply</td></tr>
 </tbody></table></div>
 <p class="note">Model names are the defaults in <code>src/config/llm.config.ts</code>. The deployed stack overrides them by environment; the team's October notes show the router serving <code>qwen2.5:3b-instruct-q4_K_M</code>. In the team's <code>Service-Harness-Ts/.env</code>, the tutor and the evaluator both point at the same local router (port 11436) and <code>EVALUATOR_MODEL</code> is <code>qwen2.5:3b-instruct-q4_K_M</code>.</p>
-</div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Previous</span><b>ESPP today</b></a><a class="cf next" href="#learners"><span>Next · 05</span><b>Many learners</b><em>What happens when several learners speak at once?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">04</span>Điều phối</p><p class="ch-q"><span>Chương này trả lời</span>Harness điều phối các model và dịch vụ AI thế nào?</p><h2 id="h-orchestration-vi" class="ch-title">Harness điều phối model và dịch vụ thế nào</h2></header><div class="ch-body">
+</div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Previous</span><b>ESPP today</b></a><a class="cf next" href="#learners"><span>Next · 05</span><b>Many learners</b><em>What happens when a class of up to 35 learners speaks at once?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">04</span>Điều phối</p><p class="ch-q"><span>Chương này trả lời</span>Harness điều phối các model và dịch vụ AI thế nào?</p><h2 id="h-orchestration-vi" class="ch-title">Harness điều phối model và dịch vụ thế nào</h2></header><div class="ch-body">
 <p>Harness gọi từng AI role ở một điểm cố định, mỗi role có model, ngân sách thời gian và cách dự phòng riêng. Không role nào gọi role khác; harness luôn đứng giữa.</p>
 <div class="tw"><table>
 <thead><tr><th>AI role</th><th>Công nghệ</th><th>Harness gọi khi nào</th><th>Ngân sách và dự phòng trong code</th></tr></thead>
@@ -725,7 +732,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <tr><td>Memory extractor, context compactor</td><td>LLM, chạy nền</td><td>Ngoài luồng trực tiếp</td><td>Admission cho việc nền: 1 đang chạy, hàng đợi 8; extractor có ngân sách 25.000 ms</td></tr>
 <tr><td>Decision model Laya</td><td>Bộ phân loại local do <code>laya-serve</code> phục vụ</td><td>Sau khi tutor đã nói (shadow); <code>.env</code> của nhóm không đặt <code>LAYA_SHADOW_ENABLED</code> nên đang tắt</td><td>Hạn 300 ms, 2 lệnh cùng lúc, ngưỡng confidence 0,8; không bao giờ thay đổi câu trả lời</td></tr>
 </tbody></table></div>
-<p class="note">Tên model là giá trị mặc định trong <code>src/config/llm.config.ts</code>. Máy chạy thật ghi đè bằng biến môi trường; ghi chú tháng 10 của nhóm cho thấy router đang phục vụ <code>qwen2.5:3b-instruct-q4_K_M</code>. Trong <code>Service-Harness-Ts/.env</code> của nhóm, tutor và evaluator cùng trỏ tới một router local (cổng 11436) và <code>EVALUATOR_MODEL</code> là <code>qwen2.5:3b-instruct-q4_K_M</code>.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Chương trước</span><b>ESPP hiện tại</b></a><a class="cf next" href="#learners"><span>Chương sau · 05</span><b>Nhiều học viên</b><em>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</em></a></nav></div></section><section class="chapter" id="learners" data-i="5" aria-labelledby="h-learners" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Many learners</p><p class="ch-q"><span>This chapter answers</span>What happens when several learners speak at once?</p><h2 id="h-learners" class="ch-title">What happens with 3, 5, 10, 35 or 100 learners at once</h2></header><div class="ch-body">
+<p class="note">Tên model là giá trị mặc định trong <code>src/config/llm.config.ts</code>. Máy chạy thật ghi đè bằng biến môi trường; ghi chú tháng 10 của nhóm cho thấy router đang phục vụ <code>qwen2.5:3b-instruct-q4_K_M</code>. Trong <code>Service-Harness-Ts/.env</code> của nhóm, tutor và evaluator cùng trỏ tới một router local (cổng 11436) và <code>EVALUATOR_MODEL</code> là <code>qwen2.5:3b-instruct-q4_K_M</code>.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#today"><span>Chương trước</span><b>ESPP hiện tại</b></a><a class="cf next" href="#learners"><span>Chương sau · 05</span><b>Nhiều học viên</b><em>Chuyện gì xảy ra khi cả lớp, tới 35 học viên, cùng nói?</em></a></nav></div></section><section class="chapter" id="learners" data-i="5" aria-labelledby="h-learners" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Many learners</p><p class="ch-q"><span>This chapter answers</span>What happens when a class of up to 35 learners speaks at once?</p><h2 id="h-learners" class="ch-title">What happens with 3, 5, 10, 35 or 100 learners at once</h2></header><div class="ch-body">
 
 <p>Inside the harness every learner has their own session, so learners never wait for each other there. They meet at the shared AI services on one Mac: speech to text and text to speech have one worker each, and the LLM router has 7 slots. Choose a class size, press Play, and watch where the lines form.</p>
 <div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-learners-en-0" aria-controls="p-learners-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Simulator</button><button type="button" role="tab" id="t-learners-en-1" aria-controls="p-learners-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>All sizes side by side</button><button type="button" role="tab" id="t-learners-en-2" aria-controls="p-learners-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>How the harness coordinates them</button><button type="button" role="tab" id="t-learners-en-3" aria-controls="p-learners-en-3" aria-selected="false" tabindex="-1"><span class="tn">4</span>What has been measured</button></div><div class="tabpanel" role="tabpanel" id="p-learners-en-0" aria-labelledby="t-learners-en-0"><div class="simx" data-lang="en"></div>
@@ -737,6 +744,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <p><b>What would help.</b> p90 wait in the 3-minute class. These setups are not in the code; they test proposals from the team's capacity report.</p>
 <div class="tw"><table class="cmp"><thead><tr><th class="n">Learners</th><th class="n">Today</th><th class="n">2 voice workers</th><th class="n">4 voice workers + 11 LLM slots</th></tr></thead><tbody><tr><td class="n">1</td><td class="n warn">4.2 s</td><td class="n warn">4.2 s</td><td class="n warn">4.2 s</td></tr><tr><td class="n">3</td><td class="n warn">4.8 s</td><td class="n warn">4.2 s</td><td class="n warn">4.2 s</td></tr><tr><td class="n">5</td><td class="n warn">6.0 s</td><td class="n warn">4.4 s</td><td class="n warn">4.2 s</td></tr><tr><td class="n">10</td><td class="n warn">9.8 s</td><td class="n warn">7.1 s</td><td class="n warn">4.3 s</td></tr><tr><td class="n">35</td><td class="n warn">40.3 s</td><td class="n warn">18.0 s</td><td class="n warn">8.0 s</td></tr><tr><td class="n">100</td><td class="n warn">45.5 s</td><td class="n warn">26.2 s</td><td class="n warn">33.4 s</td></tr></tbody></table></div>
 <p>In the model, more voice workers help more than more LLM slots. With 11 slots alone, 10 learners get a p90 of 8.3 s and 35 learners stay at 40.3 s. With 2 workers the 10-learner p90 drops from 9.8 s to 7.1 s. With 4 workers and 11 slots, 10 learners reach 4.3 s and 35 learners 8.0 s; at 100 learners the LLM router becomes the busiest part (98%).</p></div><div class="tabpanel" role="tabpanel" id="p-learners-en-2" aria-labelledby="t-learners-en-2" hidden><p>What the code does today, from the moment a learner connects until the session is graded.</p>
+<div class="afig" data-src="diagrams/class35.en.html" data-title="A class of 35 learners: how the harness coordinates them today"></div>
 <ol class="coord">
 <li><span class="cn">1</span><b>One seat per student</b><p>Opening the WebSocket takes the student's seat in Redis with a 120 s lease that keeps being renewed. A second tab for the same student cannot take it. (<code>redis-session-seat.service.ts</code>)</p></li>
 <li><span class="cn">2</span><b>Each session keeps its own state</b><p>Context window, audio buffer and timers live in the harness process, keyed by session id. Nothing is shared between learners, so 100 sessions do not slow each other inside the harness. The README notes that more than one harness replica needs sticky connections.</p></li>
@@ -764,7 +772,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <tr><td>Seat lease per student</td><td class="n">120 s, renewed</td><td><code>redis-session-seat.service.ts</code></td></tr>
 <tr><td>Background LLM line</td><td class="n">1 running, 8 waiting</td><td><code>background-llm-admission.ts</code></td></tr>
 </tbody></table></div>
-<p>What is not proven yet: plan <code>261029-1434-multi-learner-concurrency</code> sets the target (p90 first audio within 3,000 ms of the learner's last voiced frame, a visible waiting position past capacity) and is still pending. The live test with four browsers in plan <code>261025-1920</code> is also pending. The simulator above is a model; do not state a learner capacity to the committee until one of these tests has run.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#orchestration"><span>Previous</span><b>Orchestration</b></a><a class="cf next" href="#evidence"><span>Next · 06</span><b>Evidence</b><em>How closely does ESPP match the references, and where?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Nhiều học viên</p><p class="ch-q"><span>Chương này trả lời</span>Chuyện gì xảy ra khi nhiều học viên nói cùng lúc?</p><h2 id="h-learners-vi" class="ch-title">Chuyện gì xảy ra khi 3, 5, 10, 35 hay 100 học viên cùng nói</h2></header><div class="ch-body">
+<p>What is not proven yet: plan <code>261029-1434-multi-learner-concurrency</code> sets the target (p90 first audio within 3,000 ms of the learner's last voiced frame, a visible waiting position past capacity) and is still pending. The live test with four browsers in plan <code>261025-1920</code> is also pending. The simulator above is a model; do not state a learner capacity to the committee until one of these tests has run.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#orchestration"><span>Previous</span><b>Orchestration</b></a><a class="cf next" href="#evidence"><span>Next · 06</span><b>Evidence</b><em>How closely does ESPP match the references, and where?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">05</span>Nhiều học viên</p><p class="ch-q"><span>Chương này trả lời</span>Chuyện gì xảy ra khi cả lớp, tới 35 học viên, cùng nói?</p><h2 id="h-learners-vi" class="ch-title">Chuyện gì xảy ra khi 3, 5, 10, 35 hay 100 học viên cùng nói</h2></header><div class="ch-body">
 <p>Trong harness, mỗi học viên có session riêng, nên học viên không phải chờ nhau ở đó. Họ gặp nhau ở các dịch vụ AI dùng chung trên một máy Mac: STT và TTS mỗi loại chỉ có một worker, còn LLM router có 7 slot. Hãy chọn sĩ số, bấm Chạy và xem hàng chờ hình thành ở đâu.</p>
 <div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-learners-vi-0" aria-controls="p-learners-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Mô phỏng</button><button type="button" role="tab" id="t-learners-vi-1" aria-controls="p-learners-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>So sánh các sĩ số</button><button type="button" role="tab" id="t-learners-vi-2" aria-controls="p-learners-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Harness điều phối họ thế nào</button><button type="button" role="tab" id="t-learners-vi-3" aria-controls="p-learners-vi-3" aria-selected="false" tabindex="-1"><span class="tn">4</span>Những gì đã đo</button></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-0" aria-labelledby="t-learners-vi-0"><div class="simx" data-lang="vi"></div>
 <details class="sx-ass"><summary>Các giá trị bộ mô phỏng dùng, và mỗi giá trị lấy từ đâu</summary><div class="tw"><table><thead><tr><th>Giá trị</th><th>Mô hình dùng</th><th>Loại</th><th>Lấy từ đâu</th></tr></thead><tbody><tr><td>Thời gian STT</td><td class="n">1,22 s</td><td><span class="pill p-have">Đo được</span></td><td>stt.total p50, telemetry của harness 2–25/10/2026, n = 2.805 (plan 261025-1920, báo cáo phase-05-c1-gpu-spike.md)</td></tr><tr><td>Hàng STT</td><td class="n">1 worker, 16 trong hàng</td><td><span class="pill p-have">Code / cấu hình</span></td><td>asr_parakeet_adapter.py max_workers=1; VOICE_INFERENCE_QUEUE_CAPACITY mặc định 16, quá thì 503 (README Service-AI-Voice, rest_api.py)</td></tr><tr><td>Thời gian TTS</td><td class="n">0,85 s mỗi câu</td><td><span class="pill p-have">Đo được</span></td><td>tts.synth p50, telemetry của harness 2–25/10/2026, n = 2.282 (cùng báo cáo)</td></tr><tr><td>Hàng TTS</td><td class="n">1 worker, 16 chờ, 28 s</td><td><span class="pill p-have">Code / cấu hình</span></td><td>InferenceWorker cho từng loại; _TTS_REQUEST_TIMEOUT_S = 28 (rest_api.py); 6 request song song chạy nối tiếp (tts-bench-261015-0415.md)</td></tr><tr><td>Câu đệm</td><td class="n">0,4 s</td><td><span class="pill p-part">Giả định</span></td><td>TTS câu đệm 2–4 từ; chưa đo riêng</td></tr><tr><td>Grounding</td><td class="n">0,28 s</td><td><span class="pill p-have">Đo được</span></td><td>prellm.grounding p50, lần chạy một học viên 8/10/2026 (latency-model-matrix.md)</td></tr><tr><td>Answer judge</td><td class="n">0,11 s, ngân sách 1,2 s, breaker 3 lần → 30 s</td><td><span class="pill p-have">Code / cấu hình</span></td><td>tutoring.judge p50 (latency-model-matrix.md); TUTOR_ANSWER_JUDGE_TIMEOUT_MS; BREAKER_FAILURES, BREAKER_PAUSE_MS</td></tr><tr><td>Slot LLM</td><td class="n">7 slot</td><td><span class="pill p-have">Code / cấu hình</span></td><td>models.conf: qwen2.5-3b, ctx 28672, parallel 7</td></tr><tr><td>Thời gian tới token đầu</td><td class="n">0,13 s khi warm · 1,62 s khi cold</td><td><span class="pill p-have">Đo được</span></td><td>Bench 6 + 1 ngày 15/10: TTFT warm p50 133,6 ms; prompt_ms cold p50 1.621 ms (mac-capacity-config.md). Mô hình dùng cold khi số session nhiều hơn số slot</td></tr><tr><td>Tốc độ LLM</td><td class="n">28 tok/s khi chạy một mình · 107 tok/s chia chung</td><td><span class="pill p-have">Đo được</span></td><td>Cùng bench: 28,2 tok/s cho request cuối chạy một mình; tổng 105,7–107 tok/s khi chạy 7 cùng lúc</td></tr><tr><td>Câu trả lời tutor</td><td class="n">2 câu, 60 token</td><td><span class="pill p-part">Giả định</span></td><td>Giới hạn 100 token trong tutoring-response-generator.ts; việc chia 2 câu là giả định</td></tr><tr><td>Timeout chờ LLM</td><td class="n">30 s</td><td><span class="pill p-have">Code / cấu hình</span></td><td>TUTOR_STREAM_IDLE_TIMEOUT_MS=30000 (.env)</td></tr><tr><td>Chấm cuốn chiếu</td><td class="n">mỗi 6 lượt · 300 token · 1 + 8</td><td><span class="pill p-have">Code / cấu hình</span></td><td>CHUNK_MIN_TURNS=6, CHUNK_EVAL_TIMEOUT_MS=25000 (.env); BackgroundLlmAdmission(8, 1); độ dài đầu ra là giả định</td></tr><tr><td>Học viên</td><td class="n">nói 4–8 s, nghĩ 1,5 s, audio 4 s mỗi câu, nói lại sau 2 s</td><td><span class="pill p-part">Giả định</span></td><td>Hành vi học viên; giả định</td></tr><tr><td>Cấu hình giả sử</td><td class="n">2 hoặc 4 worker giọng nói; 11 slot</td><td><span class="pill p-build">Giả sử, chưa xây</span></td><td>Chưa có trong code. Tăng worker giọng nói là đề xuất trong mac-capacity-config.md §5.3; 11 slot là preset 10 học viên chưa áp dụng ở §7</td></tr></tbody></table></div></details></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-1" aria-labelledby="t-learners-vi-1" hidden><p>Cùng một mô hình, chạy 3 phút mô phỏng cho mỗi sĩ số, học viên bắt đầu ở các thời điểm khác nhau. "Thời gian chờ sau khi nói" tính từ lúc harness nhận <code>audio.end</code> tới lúc câu trả lời đầu tiên có audio. Mục tiêu trong plan <code>261029-1434</code> là p90 ≤ 3 s.</p>
@@ -775,6 +783,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <p><b>Điều gì sẽ giúp.</b> p90 thời gian chờ trong lớp 3 phút. Các cấu hình này chưa có trong code; chúng thử các đề xuất trong báo cáo capacity của nhóm.</p>
 <div class="tw"><table class="cmp"><thead><tr><th class="n">Học viên</th><th class="n">Hiện tại</th><th class="n">2 worker giọng nói</th><th class="n">4 worker giọng nói + 11 slot LLM</th></tr></thead><tbody><tr><td class="n">1</td><td class="n warn">4,2 s</td><td class="n warn">4,2 s</td><td class="n warn">4,2 s</td></tr><tr><td class="n">3</td><td class="n warn">4,8 s</td><td class="n warn">4,2 s</td><td class="n warn">4,2 s</td></tr><tr><td class="n">5</td><td class="n warn">6,0 s</td><td class="n warn">4,4 s</td><td class="n warn">4,2 s</td></tr><tr><td class="n">10</td><td class="n warn">9,8 s</td><td class="n warn">7,1 s</td><td class="n warn">4,3 s</td></tr><tr><td class="n">35</td><td class="n warn">40,3 s</td><td class="n warn">18,0 s</td><td class="n warn">8,0 s</td></tr><tr><td class="n">100</td><td class="n warn">45,5 s</td><td class="n warn">26,2 s</td><td class="n warn">33,4 s</td></tr></tbody></table></div>
 <p>Trong mô hình, thêm worker giọng nói giúp nhiều hơn thêm slot LLM. Chỉ tăng lên 11 slot thì lớp 10 học viên có p90 8,3 s, còn lớp 35 học viên vẫn 40,3 s. Với 2 worker, p90 của lớp 10 học viên giảm từ 9,8 s xuống 7,1 s. Với 4 worker và 11 slot, lớp 10 học viên còn 4,3 s và lớp 35 học viên còn 8,0 s; tới 100 học viên thì LLM router trở thành phần bận nhất (98%).</p></div><div class="tabpanel" role="tabpanel" id="p-learners-vi-2" aria-labelledby="t-learners-vi-2" hidden><p>Những gì code đang làm, từ lúc học viên kết nối tới lúc buổi học được chấm điểm.</p>
+<div class="afig" data-src="diagrams/class35.vi.html" data-title="Một lớp 35 học viên: harness điều phối họ thế nào hiện nay"></div>
 <ol class="coord">
 <li><span class="cn">1</span><b>Mỗi học viên một chỗ</b><p>Mở WebSocket là giữ chỗ của học viên trong Redis, thời hạn 120 s và liên tục được gia hạn. Tab thứ hai của cùng học viên không lấy được chỗ này. (<code>redis-session-seat.service.ts</code>)</p></li>
 <li><span class="cn">2</span><b>Mỗi session giữ trạng thái riêng</b><p>Context window, audio buffer và timer nằm trong process của harness, theo session id. Học viên không dùng chung gì, nên 100 session không làm chậm nhau trong harness. README ghi rằng chạy nhiều replica harness thì cần sticky connection.</p></li>
@@ -864,7 +873,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 </tbody></table></div></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#learners"><span>Chương trước</span><b>Nhiều học viên</b></a><a class="cf next" href="#advice"><span>Chương sau · 07</span><b>Lời khuyên</b><em>Nên xây gì để thành một harness trọn vẹn?</em></a></nav></div></section><section class="chapter" id="advice" data-i="7" aria-labelledby="h-advice" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">07</span>Advice</p><p class="ch-q"><span>This chapter answers</span>What should we build so it is a full harness?</p><h2 id="h-advice" class="ch-title">What to build so it is a full harness</h2></header><div class="ch-body">
 
 <p>This section is a recommendation, not a description of the code. Keep everything that runs today. Add a bounded tool loop inside the tutor step, and wire in three things that already exist as tables or models. The figure shows the same speaking turn after the build.</p>
-<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-advice-en-0" aria-controls="p-advice-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>The turn after the build</button><button type="button" role="tab" id="t-advice-en-1" aria-controls="p-advice-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Each piece, the technology, and the reference</button><button type="button" role="tab" id="t-advice-en-2" aria-controls="p-advice-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Order of work and what to measure</button></div><div class="tabpanel" role="tabpanel" id="p-advice-en-0" aria-labelledby="t-advice-en-0"><div class="fig" data-fig="target" data-lang="en"></div></div><div class="tabpanel" role="tabpanel" id="p-advice-en-1" aria-labelledby="t-advice-en-1" hidden><div class="tw"><table>
+<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-advice-en-0" aria-controls="p-advice-en-0" aria-selected="true" tabindex="0"><span class="tn">1</span>The turn after the build</button><button type="button" role="tab" id="t-advice-en-1" aria-controls="p-advice-en-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Each piece, the technology, and the reference</button><button type="button" role="tab" id="t-advice-en-2" aria-controls="p-advice-en-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Order of work and what to measure</button></div><div class="tabpanel" role="tabpanel" id="p-advice-en-0" aria-labelledby="t-advice-en-0"><div class="afig" data-src="diagrams/target.en.html" data-title="Recommended: the same turn with a bounded tutor agent loop"></div></div><div class="tabpanel" role="tabpanel" id="p-advice-en-1" aria-labelledby="t-advice-en-1" hidden><div class="tw"><table>
 <thead><tr><th>Piece</th><th>Status</th><th>Technology</th><th>How it works</th><th>Reference</th></tr></thead>
 <tbody>
 <tr><td>Stage pipeline</td><td><span class="pill p-none">Build</span></td><td>NestJS providers that implement one <code>TurnStage</code> interface; no new library</td><td>Split <code>executeTurnStream</code> into six stages that pass one turn context. Behaviour stays the same</td><td><a href="https://docs.pipecat.ai/pipecat/learn/pipeline">Pipecat pipeline</a> (ordered processors)</td></tr>
@@ -882,9 +891,9 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li><b>Unified trace.</b> Gives the numbers for the report.</li>
 <li><b>Checkpoint, Laya advice, workflow graph, eval gate.</b> Any order.</li>
 </ol>
-<p>Leave out subagents, MCP, plugins and self-written skills. They serve open-ended coding agents, and a speaking lesson needs low delay and predictable behaviour. Say this to the committee as a deliberate choice.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#evidence"><span>Previous</span><b>Evidence</b></a><a class="cf next" href="#committee"><span>Next · 08</span><b>Committee Q&A</b><em>What will the committee ask, and how do we answer honestly?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">07</span>Lời khuyên</p><p class="ch-q"><span>Chương này trả lời</span>Nên xây gì để thành một harness trọn vẹn?</p><h2 id="h-advice-vi" class="ch-title">Nên xây gì để thành harness trọn vẹn</h2></header><div class="ch-body">
+<p>Leave out subagents, MCP, plugins and self-written skills. They serve open-ended coding agents, and a speaking lesson needs low delay and predictable behaviour. Say this to the committee as a deliberate choice.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#evidence"><span>Previous</span><b>Evidence</b></a><a class="cf next" href="#sources"><span>Next · 08</span><b>Sources</b><em>What does this note rely on, and where are its limits?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">07</span>Lời khuyên</p><p class="ch-q"><span>Chương này trả lời</span>Nên xây gì để thành một harness trọn vẹn?</p><h2 id="h-advice-vi" class="ch-title">Nên xây gì để thành harness trọn vẹn</h2></header><div class="ch-body">
 <p>Mục này là khuyến nghị, không phải mô tả code. Giữ nguyên mọi thứ đang chạy. Thêm một vòng lặp tool có giới hạn bên trong bước tutor, và nối vào ba thứ đã có sẵn dưới dạng bảng hoặc model. Hình dưới là cùng lượt nói đó sau khi xây.</p>
-<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-advice-vi-0" aria-controls="p-advice-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Lượt nói sau khi xây</button><button type="button" role="tab" id="t-advice-vi-1" aria-controls="p-advice-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Từng phần, công nghệ, và tài liệu tham chiếu</button><button type="button" role="tab" id="t-advice-vi-2" aria-controls="p-advice-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Thứ tự làm và cần đo gì</button></div><div class="tabpanel" role="tabpanel" id="p-advice-vi-0" aria-labelledby="t-advice-vi-0"><div class="fig" data-fig="target" data-lang="vi"></div></div><div class="tabpanel" role="tabpanel" id="p-advice-vi-1" aria-labelledby="t-advice-vi-1" hidden><div class="tw"><table>
+<div class="tabs" data-tabs><div class="tablist" role="tablist"><button type="button" role="tab" id="t-advice-vi-0" aria-controls="p-advice-vi-0" aria-selected="true" tabindex="0"><span class="tn">1</span>Lượt nói sau khi xây</button><button type="button" role="tab" id="t-advice-vi-1" aria-controls="p-advice-vi-1" aria-selected="false" tabindex="-1"><span class="tn">2</span>Từng phần, công nghệ, và tài liệu tham chiếu</button><button type="button" role="tab" id="t-advice-vi-2" aria-controls="p-advice-vi-2" aria-selected="false" tabindex="-1"><span class="tn">3</span>Thứ tự làm và cần đo gì</button></div><div class="tabpanel" role="tabpanel" id="p-advice-vi-0" aria-labelledby="t-advice-vi-0"><div class="afig" data-src="diagrams/target.vi.html" data-title="Đề xuất: cùng lượt nói đó, có tutor agent loop giới hạn"></div></div><div class="tabpanel" role="tabpanel" id="p-advice-vi-1" aria-labelledby="t-advice-vi-1" hidden><div class="tw"><table>
 <thead><tr><th>Phần</th><th>Tình trạng</th><th>Công nghệ</th><th>Cách hoạt động</th><th>Tham chiếu</th></tr></thead>
 <tbody>
 <tr><td>Stage pipeline</td><td><span class="pill p-none">Xây mới</span></td><td>Các provider NestJS cùng implement một interface <code>TurnStage</code>; không thêm thư viện</td><td>Tách <code>executeTurnStream</code> thành sáu stage truyền cho nhau một context của lượt. Hành vi giữ nguyên</td><td><a href="https://docs.pipecat.ai/pipecat/learn/pipeline">Pipeline của Pipecat</a> (các processor theo thứ tự)</td></tr>
@@ -902,19 +911,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li><b>Unified trace.</b> Cho ra số liệu để đưa vào báo cáo.</li>
 <li><b>Checkpoint, Laya tư vấn, đồ thị workflow, eval gate.</b> Thứ tự nào cũng được.</li>
 </ol>
-<p>Không làm subagent, MCP, plugin và skill tự viết. Các thứ đó phục vụ coding agent làm việc mở; một buổi dạy nói cần độ trễ thấp và hành vi dễ đoán. Hãy nói với hội đồng rằng đây là lựa chọn có chủ đích.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#evidence"><span>Chương trước</span><b>Bằng chứng</b></a><a class="cf next" href="#committee"><span>Chương sau · 08</span><b>Hỏi đáp hội đồng</b><em>Hội đồng có thể hỏi gì, và trả lời trung thực ra sao?</em></a></nav></div></section><section class="chapter" id="committee" data-i="8" aria-labelledby="h-committee" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">08</span>Committee Q&A</p><p class="ch-q"><span>This chapter answers</span>What will the committee ask, and how do we answer honestly?</p><h2 id="h-committee" class="ch-title">Questions we should expect, and honest answers</h2></header><div class="ch-body">
-
-
-
-
-
-
-<div class="qas"><details class="qa" open><summary><span class="qn">1</span><span class="qt">What does your harness store?</span></summary><div class="qb"><p>Run records and traces, every model call, evaluation records, and learner memory, in its own Postgres schema of 16 tables; live seat and pause state in Redis. Turns and scores are stored by Service-Session.</p></div></details><details class="qa"><summary><span class="qn">2</span><span class="qt">Is it a wrapper around Claude Code or Codex?</span></summary><div class="qb"><p>No. It does not use them. Claude Code is a harness for coding; ours is a harness for a voice tutor, written in NestJS around local models. The Claude Code docs define a harness as the layer around the model that provides tools and manages context, and that is the layer we built.</p></div></details><details class="qa"><summary><span class="qn">3</span><span class="qt">Where is the agent?</span></summary><div class="qb"><p>Today there are agent versions (configuration) and AI roles (fixed model calls). There is no autonomous agent yet. The tutor agent loop in section 7 is the planned step.</p></div></details><details class="qa"><summary><span class="qn">4</span><span class="qt">Why not let the LLM decide everything?</span></summary><div class="qb"><p>A lesson needs a reply within a few seconds, from a small local model, and the teaching move must be safe for the learner's level. Anthropic's guidance is to prefer a workflow when the task is well defined. We keep rules for the move and plan a small, bounded loop for the wording.</p></div></details><details class="qa"><summary><span class="qn">5</span><span class="qt">How is this more than an API gateway?</span></summary><div class="qb"><p>A gateway forwards requests. The harness owns the conversation: it assembles the prompt, keeps and compacts context, remembers the learner, enforces time budgets, fails over between models, checks the output and grades the session.</p></div></details></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#advice"><span>Previous</span><b>Advice</b></a><a class="cf next" href="#sources"><span>Next · 09</span><b>Sources</b><em>What does this note rely on, and where are its limits?</em></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">08</span>Hỏi đáp hội đồng</p><p class="ch-q"><span>Chương này trả lời</span>Hội đồng có thể hỏi gì, và trả lời trung thực ra sao?</p><h2 id="h-committee-vi" class="ch-title">Các câu hỏi nên chờ sẵn, và câu trả lời trung thực</h2></header><div class="ch-body">
-
-
-
-
-<div class="qas"><details class="qa" open><summary><span class="qn">1</span><span class="qt">Harness của các em lưu cái gì?</span></summary><div class="qb"><p>Bản ghi run và trace, từng lệnh gọi model, bản ghi chấm điểm và learner memory, trong một schema Postgres riêng gồm 16 bảng; trạng thái chỗ ngồi và tạm dừng của buổi đang chạy nằm ở Redis. Lượt nói và điểm do Service-Session lưu.</p></div></details><details class="qa"><summary><span class="qn">2</span><span class="qt">Nó có phải lớp bọc quanh Claude Code hay Codex không?</span></summary><div class="qb"><p>Không. Harness của nhóm không dùng hai công cụ đó. Claude Code là harness cho việc lập trình; của nhóm là harness cho một AI tutor bằng giọng nói, viết bằng NestJS quanh các model local. Tài liệu Claude Code định nghĩa harness là lớp bao quanh model, cấp tool và quản lý context, và đó chính là lớp mà nhóm đã xây.</p></div></details><details class="qa"><summary><span class="qn">3</span><span class="qt">Agent nằm ở đâu?</span></summary><div class="qb"><p>Hiện có agent version (cấu hình) và AI role (lệnh gọi model cố định). Chưa có agent tự chủ. Tutor agent loop ở mục 7 là bước đã lên kế hoạch.</p></div></details><details class="qa"><summary><span class="qn">4</span><span class="qt">Sao không để LLM quyết định hết?</span></summary><div class="qb"><p>Một buổi học cần câu trả lời trong vài giây, từ một model local nhỏ, và nước đi sư phạm phải an toàn với trình độ học viên. Anthropic khuyên ưu tiên workflow khi bài toán đã được định nghĩa rõ. Nhóm giữ luật cho nước đi và dự định thêm một vòng lặp nhỏ, có giới hạn, cho phần lời.</p></div></details><details class="qa"><summary><span class="qn">5</span><span class="qt">Nó hơn một API gateway ở chỗ nào?</span></summary><div class="qb"><p>Gateway chỉ chuyển tiếp request. Harness nắm cả cuộc hội thoại: nó ghép prompt, giữ và nén context, nhớ học viên, giữ ngân sách thời gian, failover giữa các model, kiểm tra đầu ra và chấm điểm buổi học.</p></div></details></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#advice"><span>Chương trước</span><b>Lời khuyên</b></a><a class="cf next" href="#sources"><span>Chương sau · 09</span><b>Nguồn</b><em>Bản ghi chú dựa vào đâu, và giới hạn ở chỗ nào?</em></a></nav></div></section><section class="chapter" id="sources" data-i="9" aria-labelledby="h-sources" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">09</span>Sources</p><p class="ch-q"><span>This chapter answers</span>What does this note rely on, and where are its limits?</p><h2 id="h-sources" class="ch-title">Everything this note relies on</h2></header><div class="ch-body">
+<p>Không làm subagent, MCP, plugin và skill tự viết. Các thứ đó phục vụ coding agent làm việc mở; một buổi dạy nói cần độ trễ thấp và hành vi dễ đoán. Hãy nói với hội đồng rằng đây là lựa chọn có chủ đích.</p></div></div></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#evidence"><span>Chương trước</span><b>Bằng chứng</b></a><a class="cf next" href="#sources"><span>Chương sau · 08</span><b>Nguồn</b><em>Bản ghi chú dựa vào đâu, và giới hạn ở chỗ nào?</em></a></nav></div></section><section class="chapter" id="sources" data-i="8" aria-labelledby="h-sources" hidden><div class="i-en"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">08</span>Sources</p><p class="ch-q"><span>This chapter answers</span>What does this note rely on, and where are its limits?</p><h2 id="h-sources" class="ch-title">Everything this note relies on</h2></header><div class="ch-body">
 
 <h3>Official pages opened</h3>
 <ol class="src">
@@ -942,7 +939,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li>The percentages depend on the scoring rule in section 6. Another reader may move a half point either way.</li>
 <li>Hermes documentation changes often; the figures here (500-turn budget, 50% compression threshold) are as read on 14 Nov 2026.</li>
 </ul>
-<p class="note foot">ESPP Harness Research · prepared for the capstone team · figures follow the linked official documentation and the repository as read on 14 Nov 2026.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#committee"><span>Previous</span><b>Committee Q&A</b></a><a class="cf next" href="#answer"><span>You have reached the end of the note.</span><b>Back to overview</b></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">09</span>Nguồn</p><p class="ch-q"><span>Chương này trả lời</span>Bản ghi chú dựa vào đâu, và giới hạn ở chỗ nào?</p><h2 id="h-sources-vi" class="ch-title">Mọi thứ bản ghi chú này dựa vào</h2></header><div class="ch-body">
+<p class="note foot">ESPP Harness Research · prepared for the capstone team · figures follow the linked official documentation and the repository as read on 14 Nov 2026.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#advice"><span>Previous</span><b>Advice</b></a><a class="cf next" href="#answer"><span>You have reached the end of the note.</span><b>Back to overview</b></a></nav></div><div class="i-vi" lang="vi"><header class="ch-head"><p class="ch-kicker"><span class="ch-no">08</span>Nguồn</p><p class="ch-q"><span>Chương này trả lời</span>Bản ghi chú dựa vào đâu, và giới hạn ở chỗ nào?</p><h2 id="h-sources-vi" class="ch-title">Mọi thứ bản ghi chú này dựa vào</h2></header><div class="ch-body">
 <h3>Các trang chính thức đã mở</h3>
 <ol class="src">
 <li><a href="https://hermes-agent.nousresearch.com/docs/developer-guide/architecture">Hermes Agent, Architecture</a> và <a href="https://hermes-agent.nousresearch.com/docs/developer-guide/agent-loop">Agent Loop Internals</a> (Nous Research)</li>
@@ -968,7 +965,7 @@ svg.seq .spkg{fill:var(--accent);opacity:0;filter:blur(4px)}
 <li>"Không tìm thấy lệnh ghi" nghĩa là tìm các lệnh ghi của repository trong code không ra kết quả; đó không phải là trace lúc chạy.</li>
 <li>Các tỉ lệ phần trăm phụ thuộc vào luật chấm ở mục 6. Người đọc khác có thể cộng hoặc trừ nửa điểm.</li>
 <li>Tài liệu Hermes thay đổi thường xuyên; các con số ở đây (ngân sách 500 lượt, ngưỡng nén 50%) là theo bản đọc ngày 14/11/2026.</li>
-</ul><p class="note foot">ESPP Harness Research · soạn cho nhóm capstone · các hình vẽ theo tài liệu chính thức đã dẫn link và theo repository đọc ngày 14/11/2026.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#committee"><span>Chương trước</span><b>Hỏi đáp hội đồng</b></a><a class="cf next" href="#answer"><span>Bạn đã đọc hết bản ghi chú.</span><b>Về tổng quan</b></a></nav></div></section></main>
+</ul><p class="note foot">ESPP Harness Research · soạn cho nhóm capstone · các hình vẽ theo tài liệu chính thức đã dẫn link và theo repository đọc ngày 14/11/2026.</p></div><nav class="ch-foot" aria-label="Chapter navigation"><a class="cf prev" href="#advice"><span>Chương trước</span><b>Lời khuyên</b></a><a class="cf next" href="#answer"><span>Bạn đã đọc hết bản ghi chú.</span><b>Về tổng quan</b></a></nav></div></section></main>
 </div>
 <script>
 (function(){
@@ -1102,84 +1099,13 @@ function render(host,spec,lang,key){
 }
 
 /* 1. Hermes */
-Flow('fig-hermes',{title:'Hermes Agent: one AIAgent loop behind every entry point',h:364,
- link:{href:'https://hermes-agent.nousresearch.com/docs/developer-guide/agent-loop',text:'Source: Hermes developer guide'},
- nodes:[
-  {id:'cli',x:20,y:14,w:190,h:46,t:'CLI / TUI',s:'cli.py'},
-  {id:'gw',x:230,y:14,w:190,h:46,t:'Gateway',s:'gateway/run.py'},
-  {id:'cron',x:440,y:14,w:190,h:46,t:'Cron',s:'cron/scheduler.py'},
-  {id:'acp',x:650,y:14,w:210,h:46,t:'ACP / API / batch',s:'acp_adapter/'},
-  {id:'ag',x:20,y:86,w:840,h:170,t:'AIAgent · run_agent.py → agent/conversation_loop.py',k:'group'},
-  {id:'pb',x:36,y:124,w:148,h:56,t:'Prompt builder',s:'3 prompt tiers'},
-  {id:'cx',x:200,y:124,w:148,h:56,t:'Compressor',s:'preflight at 50%'},
-  {id:'pr',x:364,y:124,w:148,h:56,t:'Provider',s:'3 API modes, fallback'},
-  {id:'mc',x:528,y:124,w:148,h:56,t:'Model call',s:'interruptible'},
-  {id:'td',x:692,y:124,w:152,h:56,t:'Tool dispatch',s:'registry, approval'},
-  {id:'sdb',x:20,y:284,w:266,h:56,t:'SessionDB',s:'SQLite + FTS5 (hermes_state.py)'},
-  {id:'mem',x:307,y:284,w:266,h:56,t:'Memory + skills',s:'MEMORY.md, USER.md, skills/'},
-  {id:'tb',x:594,y:284,w:266,h:56,t:'Tool backends',s:'terminal, browser, web, MCP'}],
- edges:[
-  {id:'i1',a:'cli',b:'ag'},{id:'i2',a:'gw',b:'ag'},{id:'i3',a:'cron',b:'ag'},{id:'i4',a:'acp',b:'ag'},
-  {id:'a1',a:'pb',b:'cx'},{id:'a2',a:'cx',b:'pr'},{id:'a3',a:'pr',b:'mc'},{id:'a4',a:'mc',b:'td'},
-  {id:'lp',d:'M768 180V222H602V183'},
-  {id:'o1',a:'ag',b:'sdb'},{id:'o2',a:'ag',b:'mem'},{id:'o3',d:'M810 180V281'}],
- labels:[{x:685,y:238,t:'tool results go back to the model'}],
- steps:[
-  {on:['cli','gw','cron','acp','ag'],e:['i1','i2','i3','i4'],en:'A message arrives from any entry point. All of them hand it to the same AIAgent.',vi:'Tin nhắn vào từ cổng nào cũng được chuyển tới cùng một AIAgent.'},
-  {on:['pb','mem'],e:['o2'],en:'The agent appends the user message, then builds or reuses the cached system prompt in three tiers: stable, context, volatile.',vi:'Agent thêm tin nhắn vào lịch sử, rồi ghép (hoặc dùng lại) system prompt theo ba tầng: stable, context, volatile.'},
-  {on:['cx'],e:['a1'],en:'If the context is over 50% of the window, it is compressed before the model is called.',vi:'Nếu context vượt 50% cửa sổ, agent nén lại trước khi gọi model.'},
-  {on:['pr','mc'],e:['a2','a3'],en:'The provider and API mode are resolved, then the agent makes a model call that can be interrupted.',vi:'Agent chọn provider và API mode, rồi gọi model; lệnh gọi này có thể bị ngắt giữa chừng.'},
-  {on:['mc','td','tb'],e:['a4','o3','lp'],en:'If the model asked for tools, the registry runs them after a dangerous-command check. Results return to the model and the loop repeats.',vi:'Nếu model yêu cầu tool, registry chạy tool sau khi kiểm tra lệnh nguy hiểm. Kết quả quay lại model và vòng lặp tiếp tục.'},
-  {on:['sdb','mem'],e:['o1','o2'],en:'When the model answers in plain text, the session is saved to SQLite, memory is flushed, and the reply is returned.',vi:'Khi model trả lời bằng văn bản, phiên được lưu vào SQLite, memory được ghi ra, và câu trả lời được trả về.'}]});
+
 
 /* 2. Claude Code / Agent SDK */
-Flow('fig-claude',{title:'Claude Code and the Agent SDK: the agent loop',h:352,
- link:{href:'https://code.claude.com/docs/en/agent-sdk/agent-loop',text:'Source: Claude Agent SDK docs'},
- nodes:[
-  {id:'p',x:20,y:66,w:150,h:60,t:'Your prompt',s:'SystemMessage: init'},
-  {id:'ev',x:220,y:66,w:190,h:60,t:'Claude evaluates',s:'text, tool calls, or both'},
-  {id:'tl',x:460,y:66,w:190,h:60,t:'SDK executes tools',s:'hooks, permissions'},
-  {id:'rs',x:700,y:66,w:160,h:60,t:'Final result',s:'ResultMessage'},
-  {id:'ctx',x:20,y:196,w:200,h:56,t:'Context window',s:'auto-compacts near limit'},
-  {id:'ses',x:233,y:196,w:200,h:56,t:'Sessions',s:'JSONL, resume, fork'},
-  {id:'lim',x:447,y:196,w:200,h:56,t:'Limits',s:'max_turns, max_budget_usd'},
-  {id:'sub',x:660,y:196,w:200,h:56,t:'Subagents',s:'own context, return summary'},
-  {id:'tools',x:20,y:274,w:840,h:56,t:'Built-in tools',s:'Read, Edit, Write · Glob, Grep · Bash · WebSearch, WebFetch · Agent, Skill'}],
- edges:[
-  {id:'e1',a:'p',b:'ev'},{id:'e2',a:'ev',b:'tl'},
-  {id:'lp',d:'M555 66V34H315V63'},
-  {id:'e3',d:'M350 126V158H780V129'}],
- labels:[{x:435,y:26,t:'tool results feed back: one round trip is one turn'},{x:565,y:174,t:'no tool calls: the loop ends'}],
- steps:[
-  {on:['p'],e:[],en:'Receive prompt. Claude gets the prompt together with the system prompt, tool definitions and conversation history.',vi:'Nhận prompt. Claude nhận prompt cùng system prompt, định nghĩa tool và lịch sử hội thoại.'},
-  {on:['ev','ctx'],e:['e1'],en:'Evaluate and respond. Claude answers with text, one or more tool calls, or both.',vi:'Đánh giá và trả lời. Claude trả về văn bản, một hay nhiều tool call, hoặc cả hai.'},
-  {on:['tl','tools'],e:['e2'],en:'Execute tools. The SDK runs each requested tool. Hooks can block a call, and permission rules decide what may run.',vi:'Chạy tool. SDK chạy từng tool được yêu cầu. Hook có thể chặn một lệnh gọi, và luật quyền quyết định tool nào được chạy.'},
-  {on:['ev','tl','lim'],e:['lp'],en:'Repeat. Tool results feed back to Claude for the next decision. max_turns and max_budget_usd can cap the loop.',vi:'Lặp lại. Kết quả tool quay về cho Claude quyết định tiếp. Có thể giới hạn vòng lặp bằng max_turns và max_budget_usd.'},
-  {on:['rs','ses'],e:['e3'],en:'Return result. A reply with no tool calls ends the loop. The session is saved and can be resumed or forked later.',vi:'Trả kết quả. Câu trả lời không còn tool call thì vòng lặp kết thúc. Phiên được lưu, sau này có thể resume hoặc fork.'}]});
+
 
 /* 3. OpenClaw */
-Flow('fig-openclaw',{title:'OpenClaw: a Gateway in front of a serialized per-session agent loop',h:322,
- link:{href:'https://docs.openclaw.ai/concepts/agent-loop',text:'Source: OpenClaw docs'},
- nodes:[
-  {id:'ch',x:20,y:14,w:250,h:56,t:'Channels',s:'WhatsApp, Telegram, Slack, Discord…'},
-  {id:'cl',x:315,y:14,w:250,h:56,t:'Control clients',s:'CLI, macOS app, web UI'},
-  {id:'nd',x:610,y:14,w:250,h:56,t:'Nodes',s:'macOS, iOS, Android, headless'},
-  {id:'gw',x:20,y:104,w:840,h:56,t:'Gateway daemon, one per host',s:'typed WebSocket API on 127.0.0.1:18789 · owns all messaging surfaces · validates frames'},
-  {id:'rpc',x:20,y:198,w:198,h:60,t:'agent RPC',s:'resolve session, return runId'},
-  {id:'cmd',x:234,y:198,w:198,h:60,t:'agentCommand',s:'model, skills snapshot'},
-  {id:'run',x:448,y:198,w:198,h:60,t:'runEmbeddedAgent',s:'reserve session turn, stream'},
-  {id:'evs',x:662,y:198,w:198,h:60,t:'Event streams',s:'assistant · tool · lifecycle'}],
- edges:[
-  {id:'c1',a:'ch',b:'gw'},{id:'c2',a:'cl',b:'gw'},{id:'c3',a:'nd',b:'gw'},
-  {id:'g1',a:'gw',b:'rpc'},{id:'r1',a:'rpc',b:'cmd'},{id:'r2',a:'cmd',b:'run'},{id:'r3',a:'run',b:'evs'},
-  {id:'bk',a:'evs',b:'gw'}],
- labels:[{x:440,y:296,t:'Agent loop: intake → context assembly → model inference → tool execution → streaming → persistence'}],
- steps:[
-  {on:['ch','cl','nd','gw'],e:['c1','c2','c3'],en:'A message reaches the Gateway, the single long-lived process that owns every channel and client connection.',vi:'Tin nhắn tới Gateway, tiến trình chạy lâu dài duy nhất nắm mọi kênh và mọi kết nối client.'},
-  {on:['gw','rpc'],e:['g1'],en:'The agent RPC validates the request, resolves the session and returns a runId immediately.',vi:'RPC agent kiểm tra yêu cầu, xác định session và trả về runId ngay.'},
-  {on:['cmd'],e:['r1'],en:'agentCommand resolves the model and its defaults and loads the skills snapshot.',vi:'agentCommand chọn model cùng các giá trị mặc định và nạp bản chụp skills.'},
-  {on:['run'],e:['r2'],en:'runEmbeddedAgent reserves the session turn first, so runs for one session never overlap, then runs the model and tools.',vi:'runEmbeddedAgent giữ lượt của session trước, nên các lượt của một session không chồng nhau, rồi mới chạy model và tool.'},
-  {on:['evs','gw','ch','cl'],e:['r3','bk'],en:'Assistant, tool and lifecycle events stream back through the Gateway to the client or channel.',vi:'Sự kiện assistant, tool và lifecycle được stream qua Gateway về client hoặc kênh nhắn tin.'}]});
+
 
 /* 4. ESPP speaking turn today */
 var stageX=240, stageW=380;
@@ -1187,59 +1113,13 @@ function stages(labels,kinds){return labels.map(function(t,i){return {id:'s'+(i+
 
 
 /* 5. ESPP grading */
-Flow('fig-espp-grade',{title:'ESPP today: grading runs off the live path',h:214,
- link:{href:'#sources',text:'Source: Service-Harness-Ts code'},
- nodes:[
-  {id:'g1',x:20,y:20,w:152,h:60,t:'End request',s:'floor: minutes, turns',k:'have'},
-  {id:'g2',x:192,y:20,w:152,h:60,t:'Publish',s:'RabbitMQ eval queue',k:'have'},
-  {id:'g3',x:364,y:20,w:152,h:60,t:'Eval consumer',s:'time-bounded attempt',k:'have'},
-  {id:'g4',x:536,y:20,w:152,h:60,t:'Grade',s:'rubric, detector, LLM',k:'have'},
-  {id:'g5',x:708,y:20,w:152,h:60,t:'Commit',s:'scores to Session',k:'have'},
-  {id:'dl',x:192,y:132,w:324,h:56,t:'On failure',s:'DLQ → retry buckets → parking queue',k:'have'},
-  {id:'inp',x:536,y:132,w:324,h:56,t:'Inputs',s:'Curriculum rubric · LanguageTool · evaluator model'}],
- edges:[{id:'a',a:'g1',b:'g2'},{id:'b',a:'g2',b:'g3'},{id:'c',a:'g3',b:'g4'},{id:'d',a:'g4',b:'g5'},{id:'f',a:'g3',b:'dl'},{id:'i',a:'inp',b:'g4'}],
- steps:[
-  {on:['g1'],e:[],en:'The learner ends the session. The harness checks the floor: minimum active time and accepted turns. Below the floor, the end is refused.',vi:'Học viên kết thúc buổi. Harness kiểm tra sàn: thời gian tối thiểu và số lượt được nhận. Dưới sàn thì từ chối kết thúc.'},
-  {on:['g2','g3'],e:['a','b'],en:'The harness publishes one message to session.evaluation.queue. If RabbitMQ is down it grades in process instead. A consumer picks it up; it takes 2 messages at a time.',vi:'Harness đẩy một message vào session.evaluation.queue. Nếu RabbitMQ lỗi thì chấm ngay tại chỗ. Một consumer nhận message; mỗi lần nó nhận 2 message.'},
-  {on:['g4','inp'],e:['c','i'],en:'Grading reads the rubric from Curriculum, runs the LanguageTool detector and the evaluator model. Summary and narrative run in parallel. Every evaluator call waits in the background LLM line (1 running, 8 waiting).',vi:'Phần chấm đọc rubric từ Curriculum, chạy LanguageTool detector và model evaluator. Phần tóm tắt và nhận xét chạy song song. Mỗi lệnh gọi evaluator phải qua hàng LLM nền (1 chạy, 8 chờ).'},
-  {on:['g5'],e:['d'],en:'Scores per criterion and the completed status are written to Service-Session. The evaluator call gets up to two tries; if both fail, the state is FAILED and no score is invented.',vi:'Điểm theo tiêu chí và trạng thái hoàn tất được ghi sang Service-Session. Lệnh gọi evaluator được thử tối đa hai lần; nếu cả hai đều lỗi, trạng thái là FAILED và không bịa điểm.'},
-  {on:['g3','dl'],e:['f'],en:'A failed job is redelivered up to 3 times, then goes to the dead-letter queue, then retry buckets with growing delays, then a parking queue after repeated permanent errors.',vi:'Job lỗi được giao lại tối đa 3 lần, rồi vào dead-letter queue, rồi các retry bucket với độ trễ tăng dần, rồi parking queue nếu lỗi vĩnh viễn lặp lại.'}]});
+
 
 /* 6. Concurrency */
 
 
 /* 7. Target */
-Flow('fig-target',{title:'Recommended: the same turn with a bounded tutor agent loop',h:500,
- link:{href:'#sources',text:'Design proposal'},
- nodes:[
-  {id:'lr',x:20,y:110,w:180,h:56,t:"Learner's browser",s:'mic in · audio out'},
-  {id:'tr',x:20,y:268,w:180,h:56,t:'Tool registry',s:'4 tools, zod, allowlist',k:'build'},
-  {id:'ss',x:20,y:380,w:180,h:56,t:'Service-Session',s:'turns, scores, profile'},
-  {id:'hg',x:220,y:16,w:420,h:472,t:'Service-Harness-Ts',k:'group'}
- ].concat(stages(['1 · WebSocket gateway + turn lock','2 · SttStage','3 · GroundingStage + 4-layer prompt','4 · DecisionStage · policy + Laya advice','5 · TutorLoopStage · model ↔ tools, max 3 steps','6 · TtsStage · guard + sentence TTS','7 · DeliveryStage · outbox + checkpoint'],['have','have','have','wire','build','have','wire']),[
-  {id:'tc',x:240,y:444,w:380,h:32,t:'Trace · one run_id, a span per stage and tool',k:'build'},
-  {id:'x2',x:660,y:106,w:200,h:44,t:'AI-Voice STT · Parakeet'},
-  {id:'x3',x:660,y:162,w:200,h:44,t:'Service-RAG · grounding'},
-  {id:'x4',x:660,y:218,w:200,h:44,t:'Laya · 300 ms deadline',k:'wire'},
-  {id:'x5',x:660,y:274,w:200,h:44,t:'LLM server · tool calling'},
-  {id:'x6',x:660,y:330,w:200,h:44,t:'AI-Voice TTS'},
-  {id:'x7',x:660,y:386,w:200,h:44,t:'harness.checkpoints',k:'wire'}]),
- edges:[
-  {id:'in',d:'M200 128H222V72H237'},
-  {id:'c1',a:'s1',b:'s2'},{id:'c2',a:'s2',b:'s3'},{id:'c3',a:'s3',b:'s4'},{id:'c4',a:'s4',b:'s5'},{id:'c5',a:'s5',b:'s6'},{id:'c6',a:'s6',b:'s7'},
-  {id:'e2',a:'s2',b:'x2'},{id:'e3',a:'s3',b:'x3'},{id:'e4',a:'s4',b:'x4'},{id:'e5',a:'s5',b:'x5'},{id:'e6',a:'s6',b:'x6'},{id:'e7',a:'s7',b:'x7'},
-  {id:'tl',a:'s5',b:'tr'},
-  {id:'out',d:'M240 352H212V150H203'},
-  {id:'sv',d:'M240 408H203'}],
- legend:[['have','Runs today'],['wire','Exists, to be wired in'],['build','To build'],['ext','Outside the harness']],
- steps:[
-  {on:['lr','s1','tc'],e:['in'],en:'Example: the learner says "Yesterday I go to the market with my mother." The gateway locks the turn and opens a trace span under the run ID of the session.',vi:'Ví dụ: học viên nói "Yesterday I go to the market with my mother." Gateway khóa lượt và mở một span trace dưới run ID của buổi.'},
-  {on:['s2','x2'],e:['c1','e2'],en:'SttStage: smart-turn confirms the end of speech and Parakeet returns the text.',vi:'SttStage: smart-turn xác nhận đã nói xong và Parakeet trả về văn bản.'},
-  {on:['s3','x3'],e:['c2','e3'],en:'GroundingStage: lesson objective (past simple), grounding, learner memory and approved packs go into the four-layer prompt.',vi:'GroundingStage: mục tiêu bài (quá khứ đơn), grounding, learner memory và các pack đã duyệt được đưa vào prompt bốn lớp.'},
-  {on:['s4','x4'],e:['c3','e4'],en:'DecisionStage: Laya answers within 300 ms with TARGET_REPAIR_NEEDED. The rule policy stays in charge and picks "repair gently, then ask on".',vi:'DecisionStage: Laya trả lời trong 300 ms với nhãn TARGET_REPAIR_NEEDED. Policy luật vẫn giữ quyền và chọn "sửa nhẹ rồi hỏi tiếp".'},
-  {on:['s5','x5','tr'],e:['c4','e5','tl'],en:'TutorLoopStage: the model calls check_grammar and gets "go → went", calls search_coursebook for a model sentence, then writes the reply. Three steps at most; over budget, the old single call answers.',vi:'TutorLoopStage: model gọi check_grammar và nhận "go → went", gọi search_coursebook lấy một câu mẫu, rồi viết câu trả lời. Tối đa ba bước; vượt ngân sách thì luồng cũ trả lời.'},
-  {on:['s6','x6','lr'],e:['c5','e6','out'],en:'TtsStage: "Nice! Just one thing: yesterday I went to the market. What did you buy there?" passes the guard and is spoken sentence by sentence.',vi:'TtsStage: câu "Nice! Just one thing: yesterday I went to the market. What did you buy there?" qua sanitizer và được đọc từng câu.'},
-  {on:['s7','x7','ss','tc'],e:['c6','e7','sv'],en:'DeliveryStage: the outbox delivers the turn, and the teaching state is saved to harness.checkpoints. The trace now holds seven stage spans and two tool spans.',vi:'DeliveryStage: outbox gửi lượt nói, và trạng thái dạy được lưu vào harness.checkpoints. Trace lúc này có bảy span stage và hai span tool.'}]});
+
 
 /* bars for the academic checklist: [label, now, after, applicable] */
 var rows=[['S1 Agent loop',2,3,4],['S2 LLM integration',4,4,5],['S3 Tools and actions',0,2,3],['S4 Memory and context',3,3,3],['S5 Safety and permissions',1,1.5,3],['S6 Orchestration',1,1,4],['S7 Extensibility',1,1.5,5],['Interface layer',1,1,1],['Session substrate',2.5,3,3]];
@@ -1403,135 +1283,33 @@ function simRun(n,mode,secs,opt,seed){
 }
 
 
-/* ---- sequence figure: one speaking turn, lane by lane ---- */
-var SEQ_TURN={
- title:{en:'ESPP today: one speaking turn, message by message',vi:'ESPP hiện tại: một lượt nói, từng message một'},
- link:{en:'Source: Service-Harness-Ts code, commit a406242',vi:'Nguồn: code Service-Harness-Ts, commit a406242'},
- lanes:[
-  {id:'lr',t:{en:"Learner's browser",vi:'Trình duyệt học viên'},s:{en:'mic · speaker',vi:'micro · loa'},k:'ext'},
-  {id:'hr',t:{en:'Service-Harness-Ts',vi:'Service-Harness-Ts'},s:{en:'the harness',vi:'harness'},k:'have'},
-  {id:'vo',t:{en:'Service-AI-Voice',vi:'Service-AI-Voice'},s:{en:'STT · TTS, 1 worker each',vi:'STT · TTS, mỗi loại 1 worker'},k:'ext'},
-  {id:'rg',t:{en:'Service-RAG',vi:'Service-RAG'},s:{en:'lesson grounding',vi:'grounding bài học'},k:'ext'},
-  {id:'lm',t:{en:'LLM router',vi:'LLM router'},s:{en:'llama-server · 7 slots',vi:'llama-server · 7 slot'},k:'ext'},
-  {id:'ss',t:{en:'Service-Session',vi:'Service-Session'},s:{en:'turns · scores',vi:'lượt nói · điểm'},k:'ext'}],
- steps:[
-  {m:[['lr','hr','audio frames (PCM, 16 kHz)','khung audio (PCM, 16 kHz)'],['hr','hr','buffer, max 5 MB','buffer, tối đa 5 MB']],
-   en:'The learner speaks. The browser streams raw audio over the WebSocket and the harness keeps it in a buffer (5 MB cap, about 160 s).',
-   vi:'Học viên nói. Trình duyệt gửi audio thô qua WebSocket và harness giữ trong buffer (tối đa 5 MB, khoảng 160 giây).'},
-  {m:[['lr','hr','audio.end','audio.end'],['hr','hr','take the turn lock','giữ khóa lượt'],['hr','lr','state: processing','state: processing','r']],
-   en:'The browser sends audio.end. The harness takes this session\'s turn lock. If a turn is still running, one new audio.end may wait for it; any more get session.busy. Smart-turn exists in code but SMART_TURN_ENABLED=false in the team .env.',
-   vi:'Trình duyệt gửi audio.end. Harness giữ khóa lượt của session này. Nếu một lượt vẫn đang chạy, một audio.end mới được chờ; các audio.end sau đó nhận session.busy. Smart-turn có trong code nhưng .env của nhóm đặt SMART_TURN_ENABLED=false.'},
-  {m:[['hr','vo','POST /api/v1/stt','POST /api/v1/stt'],['hr','rg','authority check (in parallel)','kiểm tra quyền (song song)'],['vo','vo','Parakeet, one at a time','Parakeet, từng cái một'],['vo','hr','transcript','transcript','r'],['hr','lr','transcript.final','transcript.final','r']],
-   d:{en:'STT p50 1.22 s',vi:'STT p50 1,22 s'},
-   en:'The harness sends the audio to Service-AI-Voice. Parakeet runs one request at a time; up to 16 can wait, the next gets 503. A pinned-grounding authority check runs alongside. The transcript goes back to the browser.',
-   vi:'Harness gửi audio sang Service-AI-Voice. Parakeet chạy từng request một; tối đa 16 request được chờ, request kế tiếp nhận 503. Phép kiểm tra quyền của grounding đã ghim chạy song song. Transcript được gửi về trình duyệt.'},
-  {m:[['hr','vo','POST /api/v1/tts "Got it,"','POST /api/v1/tts "Got it,"'],['vo','hr','wav','wav','r'],['hr','lr','audio: short lead-in','audio: câu đệm ngắn','r']],
-   en:'Before calling the LLM, the harness speaks a short lead-in such as "Got it," and waits for its audio. This is a second TTS request in every turn. If it fails, the turn goes on without it.',
-   vi:'Trước khi gọi LLM, harness cho phát một câu đệm ngắn như "Got it," và chờ audio của nó. Đây là request TTS thứ hai trong mỗi lượt. Nếu lỗi, lượt nói vẫn tiếp tục mà không có câu đệm.'},
-  {m:[['hr','rg','refresh scoped grounding','làm mới grounding'],['rg','hr','lesson excerpts','đoạn trích bài học','r'],['hr','hr','prompt: 4 layers + memory','prompt: 4 lớp + memory']],
-   d:{en:'p50 0.28 s',vi:'p50 0,28 s'},
-   en:'The harness refreshes grounding for this lesson and builds the prompt from four layers (guardrails, session type, archetype, CEFR tier), plus learner memory and the grounding excerpts.',
-   vi:'Harness làm mới grounding của bài học và ghép prompt từ bốn lớp (guardrail, loại buổi, archetype, mức CEFR), thêm learner memory và các đoạn grounding.'},
-  {m:[['hr','lm','answer judge, 1.2 s budget','answer judge, ngân sách 1,2 s'],['lm','hr','relevance','mức liên quan','r'],['hr','hr','policy picks the move','policy chọn nước đi']],
-   d:{en:'tutoring-loop classes only',vi:'chỉ lớp bật tutoring loop'},
-   en:'Only in classes with the tutoring loop on (TUTORING_LOOP_CLASS_IDS): a small LLM call judges the answer within 1.2 s, then code picks the move. Three failures in a row pause the judge for 30 s; the turn continues without it.',
-   vi:'Chỉ ở lớp bật tutoring loop (TUTORING_LOOP_CLASS_IDS): một lệnh gọi LLM nhỏ đánh giá câu trả lời trong 1,2 s, rồi code chọn nước đi. Lỗi ba lần liên tiếp thì judge nghỉ 30 s; lượt nói vẫn tiếp tục mà không có judge.'},
-  {m:[['hr','lm','tutor reply, streamed','câu trả lời tutor, dạng stream'],['lm','hr','tokens …','token …','r']],
-   en:'The tutor model writes the reply as a stream (at most 100 tokens in the tutoring loop). The router has 7 slots; more requests wait inside llama-server. No token for 30 s fails the turn.',
-   vi:'Model tutor viết câu trả lời dạng stream (tối đa 100 token trong tutoring loop). Router có 7 slot; request dư phải chờ trong llama-server. Không có token nào trong 30 s thì lượt nói lỗi.'},
-  {m:[['hr','hr','sentence 1 → sanitizer','câu 1 → sanitizer'],['hr','vo','POST /api/v1/tts','POST /api/v1/tts'],['vo','hr','wav','wav','r'],['hr','lr','text + audio of sentence 1','chữ + audio câu 1','r'],['hr','vo','sentence 2: same path','câu 2: đi y như vậy']],
-   d:{en:'TTS p50 0.85 s / sentence',vi:'TTS p50 0,85 s / câu'},
-   en:'Each finished sentence is cleaned by sanitizeTutorSpeech, then sent to TTS. Sentences of one turn go to TTS one after another. If a sentence fails in TTS, that sentence plays no audio.',
-   vi:'Mỗi câu hoàn chỉnh được sanitizeTutorSpeech làm sạch rồi gửi sang TTS. Các câu của một lượt đi TTS lần lượt. Nếu một câu lỗi ở TTS, câu đó không có audio.'},
-  {m:[['hr','ss','turn + evidence (outbox)','lượt nói + evidence (outbox)'],['hr','lr','audio.done · turn.complete · listening','audio.done · turn.complete · listening','r'],['hr','hr','every 6 turns: rolling grading','mỗi 6 lượt: chấm cuốn chiếu']],
-   en:'The outbox delivers the turn and its evidence to Service-Session, then the learner can speak again. Every 6 turns a rolling grading job joins the background line (1 running, 8 waiting).',
-   vi:'Outbox gửi lượt nói và evidence sang Service-Session, rồi học viên được nói tiếp. Cứ 6 lượt, một job chấm cuốn chiếu vào hàng chờ nền (1 đang chạy, 8 chờ).'}
- ]};
-function SeqFig(host,spec,lang){
-  var vi=lang==='vi', T=vi?{play:'Chạy',pause:'Dừng',back:'Bước trước',next:'Bước sau',step:'Bước',of:'/'}:{play:'Play',pause:'Pause',back:'Previous step',next:'Next step',step:'Step',of:'of'};
-  var W=960, X0=118, GAP=(W-X0-62)/(spec.lanes.length-1), RH=27, TOP=86, lx={};
-  spec.lanes.forEach(function(l,i){lx[l.id]=X0+i*GAP;});
-  var rows=0; spec.steps.forEach(function(s){rows+=s.m.length;}); var Hh=TOP+rows*RH+spec.steps.length*14+16;
-  var head=H('div',{'class':'fig-head'},host); H('h4',{},head,spec.title[lang]); H('a',{href:'#sources'},head,spec.link[lang]);
-  /* player + caption on top so the text stays in view */
-  var pl=H('div',{'class':'player'},host), bar=H('div',{'class':'pl-btns'},pl);
-  var ico={play:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.5v11l9-5.5z"/></svg>',pause:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 4.5h3v11h-3zM11.5 4.5h3v11h-3z"/></svg>',prev:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',next:'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'};
-  var bPrev=H('button',{type:'button','class':'ib','aria-label':T.back},bar);bPrev.innerHTML=ico.prev;
-  var bPlay=H('button',{type:'button','class':'ib main','aria-label':T.play},bar);bPlay.innerHTML=ico.play;
-  var bNext=H('button',{type:'button','class':'ib','aria-label':T.next},bar);bNext.innerHTML=ico.next;
-  var cnt=H('span',{'class':'pl-count','aria-hidden':'true'},bar);
-  var track=H('div',{'class':'pl-track'},pl), segs=[];
-  var cap=H('div',{'class':'cap seq-cap','aria-live':'polite'},host), ck=H('p',{'class':'cap-k'},cap), pe=H('p',{'class':'cap-t'},cap);
-  var sc=H('div',{'class':'fig-scroll'},host);
-  var svg=S('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':spec.title[lang],'class':'seq'},sc);
-  var gb=S('g',{},svg), gl=S('g',{},svg), gm=S('g',{},svg), gp=S('g',{},svg);
-  var laneEls={};
-  spec.lanes.forEach(function(l){var x=lx[l.id], g=S('g',{'class':'lane k-'+l.k},gl);
-    S('line',{x1:x,y1:TOP-10,x2:x,y2:Hh-6,'class':'life'},g);
-    S('rect',{x:x-66,y:10,width:132,height:50,rx:10,'class':'lh'},g);
-    S('rect',{x:x-66,y:18,width:3,height:34,rx:1.5,'class':'stripe'},g);
-    var t=S('text',{x:x,y:32,'text-anchor':'middle','class':'lt'},g);t.textContent=l.t[lang];
-    var s=S('text',{x:x,y:48,'text-anchor':'middle','class':'ls'},g);s.textContent=l.s[lang];
-    laneEls[l.id]=g;});
-  var y=TOP, stepEls=[];
-  spec.steps.forEach(function(st,si){
-    var top=y; y+=20; var y0=y, g=S('g',{'class':'sstep'},gm), msgs=[];
-    st.m.forEach(function(m){
-      var a=lx[m[0]], b=lx[m[1]], label=vi?m[3]:m[2], ret=m[4]==='r', mg=S('g',{'class':'msg'+(ret?' ret':'')},g), d;
-      if(m[0]===m[1]){d='M'+(a+2)+' '+(y-6)+'h30v12h-30'; var tt=S('text',{x:a+38,y:y+4,'class':'ml self'},mg);tt.textContent=label;}
-      else{var dir=b>a?1:-1; d='M'+(a+dir*4)+' '+y+'H'+(b-dir*6);
-        var tx=S('text',{x:(a+b)/2,y:y-6,'text-anchor':'middle','class':'ml'},mg);tx.textContent=label;}
-      S('path',{d:d,'class':'mb'},mg); var live=S('path',{d:d,'class':'mlv',pathLength:'1'},mg);
-      msgs.push({g:mg,d:d,live:live,self:m[0]===m[1]}); y+=RH;});
-    var bottom=y-RH+14;
-    var band=S('rect',{x:6,y:top,width:W-12,height:bottom-top,rx:8,'class':'band'},gb);
-    var nb=S('g',{'class':'snum',transform:'translate(26 '+((top+bottom)/2)+')'},gb); S('circle',{r:12},nb); var nt=S('text',{y:4.5,'text-anchor':'middle'},nb); nt.textContent=String(si+1);
-    if(st.d){var dl=S('text',{x:W-14,y:top+16,'text-anchor':'end','class':'dur'},gb);dl.textContent=st.d[lang];}
-    stepEls.push({g:g,band:band,nb:nb,msgs:msgs,lanes:st.m.reduce(function(o,m){o[m[0]]=1;o[m[1]]=1;return o;},{})});
-    y=bottom+6;
-    var b=H('button',{type:'button','class':'seg','aria-label':T.step+' '+(si+1)},track);H('span',{},b);b.addEventListener('click',function(){stop();show(si);});segs.push(b);
-  });
-  svg.setAttribute('viewBox','0 0 '+W+' '+(y+8)); spec.lanes.forEach(function(l){laneEls[l.id].querySelector('.life').setAttribute('y2',y+2);});
-  var pk=S('circle',{r:5,'class':'spk'},gp), pkg=S('circle',{r:12,'class':'spkg'},gp);
-  var N=spec.steps.length, cur=0, playing=false, held=false, timer=null, raf=null;
-  function show(i){
-    cur=Math.max(0,Math.min(N-1,i)); var st=spec.steps[cur];
-    stepEls.forEach(function(e,j){e.g.setAttribute('class','sstep '+(j<cur?'done':j===cur?'now':'next'));e.band.setAttribute('class','band'+(j===cur?' now':''));e.nb.setAttribute('class','snum'+(j<cur?' done':j===cur?' now':''));});
-    Object.keys(laneEls).forEach(function(k){laneEls[k].classList.toggle('on',!!stepEls[cur].lanes[k]);});
-    segs.forEach(function(b,j){b.classList.toggle('done',j<cur);b.classList.toggle('now',j===cur);b.setAttribute('aria-current',j===cur?'step':'false');});
-    cnt.textContent=(cur+1)+' / '+N; ck.textContent=T.step+' '+(cur+1)+' '+T.of+' '+N; pe.textContent=vi?st.vi:st.en;
-    cap.classList.remove('in');void cap.offsetWidth;cap.classList.add('in');
-    animate(stepEls[cur]);
+/* ---- Archify diagrams, embedded on demand ---- */
+(function(){
+  var TX={en:{open:'Open full screen',load:'Loading the diagram…'},vi:{open:'Mở toàn màn hình',load:'Đang tải sơ đồ…'}};
+  var CSS='nav.node-outline,.node-outline,#node-outline{display:none!important}.header h1,.header .pulse-dot{visibility:hidden}html,body{overflow-y:hidden!important}';
+  function mount(h){
+    if(h.getAttribute('data-on'))return; h.setAttribute('data-on','1');
+    var L=TX[h.closest('[lang="vi"]')?'vi':'en'];
+    var bar=H('div',{'class':'afig-bar'},h); H('b',{},bar,h.getAttribute('data-title'));
+    H('a',{href:h.getAttribute('data-src'),target:'_blank',rel:'noopener'},bar,L.open);
+    var box=H('div',{'class':'afig-box'},h), ld=H('p',{'class':'afig-load'},box,L.load);
+    var f=H('iframe',{src:h.getAttribute('data-src'),title:h.getAttribute('data-title'),scrolling:'no'},box);
+    f.addEventListener('load',function(){
+      ld.remove();
+      try{
+        var d=f.contentDocument, st=d.createElement('style'); st.textContent=CSS; d.head.appendChild(st);
+        var fit=function(){var hh=Math.max(d.body.scrollHeight,d.documentElement.scrollHeight); if(hh>200)f.style.height=hh+'px';};
+        fit(); setTimeout(fit,400); setTimeout(fit,1500);
+        if('ResizeObserver' in window){new ResizeObserver(fit).observe(d.body);}
+      }catch(e){f.style.height='900px';}
+    });
   }
-  function animate(e){
-    cancelAnimationFrame(raf); e.msgs.forEach(function(m){m.live.style.strokeDashoffset=reduce?'0':'1';m.g.classList.remove('lit');});
-    if(reduce){e.msgs.forEach(function(m){m.g.classList.add('lit');});pk.style.opacity=0;pkg.style.opacity=0;return;}
-    var per=650, start=performance.now();
-    function frame(now){
-      var el=Math.max(0,now-start), k=Math.floor(el/per), f=(el%per)/per;
-      e.msgs.forEach(function(m,j){ if(j<k){m.live.style.strokeDashoffset='0';m.g.classList.add('lit');} });
-      if(k>=e.msgs.length){pk.style.opacity=0;pkg.style.opacity=0;return;}
-      var m=e.msgs[k], len=m.live.getTotalLength(), ease=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2, p=m.live.getPointAtLength(len*ease);
-      m.live.style.strokeDashoffset=String(1-ease); m.g.classList.add('lit');
-      pk.setAttribute('cx',p.x);pk.setAttribute('cy',p.y);pkg.setAttribute('cx',p.x);pkg.setAttribute('cy',p.y);pk.style.opacity=1;pkg.style.opacity=.35;
-      raf=requestAnimationFrame(frame);
-    }
-    raf=requestAnimationFrame(frame);
-  }
-  function dur(){return Math.max(4200,stepEls[cur].msgs.length*650+2600);}
-  function arm(){clearTimeout(timer);if(!playing||held)return; segs.forEach(function(b){b.style.removeProperty('--dur');});var sg=segs[cur];sg.style.setProperty('--dur',dur()+'ms');sg.classList.remove('now');void sg.offsetWidth;sg.classList.add('now');
-    timer=setTimeout(function(){show(cur<N-1?cur+1:0);arm();},dur());}
-  function play(){playing=true;bPlay.innerHTML=ico.pause;bPlay.setAttribute('aria-label',T.pause);host.classList.add('running');arm();}
-  function stop(){playing=false;clearTimeout(timer);bPlay.innerHTML=ico.play;bPlay.setAttribute('aria-label',T.play);host.classList.remove('running');}
-  bPlay.addEventListener('click',function(){if(playing)stop();else{play();}});
-  bPrev.addEventListener('click',function(){stop();show(cur-1);});
-  bNext.addEventListener('click',function(){stop();show(cur+1);});
-  host.addEventListener('mouseenter',function(){if(playing){held=true;clearTimeout(timer);host.classList.remove('running');}});
-  host.addEventListener('mouseleave',function(){if(playing){held=false;host.classList.add('running');arm();}});
-  show(0);
-  if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!playing)play();else if(!x.isIntersecting&&playing)stop();});},{threshold:0.25}).observe(host);}
-}
-document.querySelectorAll('.fig[data-seq="turn"]').forEach(function(h){SeqFig(h,SEQ_TURN,h.getAttribute('data-lang'));});
+  var hosts=[].slice.call(document.querySelectorAll('.afig'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){mount(x.target);io.unobserve(x.target);}});},{rootMargin:'400px 0px'});
+    hosts.forEach(function(h){io.observe(h);});
+  }else hosts.forEach(mount);
+})();
 
 /* ---- many-learner simulator UI ---- */
 var SIMT={
@@ -1571,7 +1349,7 @@ var SIMT={
   rows:['Giọng nói (STT · TTS)','RAG','LLM'],wait:'chờ',first:'audio câu trả lời đầu tiên',lab:{stt:'STT',lead:'câu đệm',s1:'câu 1',s2:'câu 2',rag:'RAG',judge:'judge',tutor:'tutor trả lời',f503:'503'}}};
 var SIM_SETUP={today:{},w2:{asrK:2,ttsK:2},w4:{asrK:4,ttsK:4,slots:11}};
 function SimUI(host,lang){
-  var T=SIMT[lang], NS_=[1,3,5,10,35,100], st={n:10,mode:'spread',setup:'today',judge:true,speed:2,playing:false}, sim=null, lastT=0, raf=null, evI=0, packets=[], hist=[];
+  var T=SIMT[lang], NS_=[1,3,5,10,35,100], st={n:35,mode:'spread',setup:'today',judge:true,speed:2,playing:false}, sim=null, lastT=0, raf=null, evI=0, packets=[], hist=[];
   host.innerHTML='';
   var ctl=H('div',{'class':'sx-ctl'},host);
   function group(label,items,key,cls){var g=H('div',{'class':'sx-grp '+(cls||'')},ctl);H('span',{'class':'sx-lab'},g,label);var r=H('div',{'class':'sx-seg',role:'group','aria-label':label},g);
