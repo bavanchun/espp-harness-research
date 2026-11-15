@@ -5703,7 +5703,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <ul>
           <li>1. The learner opens the practice room. Admission gives a seat (one per student, 120 s lease in Redis). One AI box serves 10 learners speaking at once; past that, the learner sees a waiting position that updates until a seat frees. Each extra AI box adds 10 more.</li>
-          <li>2. SessionStartStage loads authority, rubric, the student profile, the pinned mentor materials and learner memory, once per session. Each load writes its own trace span.</li>
+          <li>2. SessionStartStage loads authority, rubric, the student profile, the pinned mentor materials, learner memory and the voice profile, once per session. Each load writes its own trace span.</li>
           <li>3. Every turn runs the same fixed stages: the speaker gate and speech to text; the judge, Laya and the tools in parallel; one tutor call; then text to speech sentence by sentence. The model never stops to choose a tool, and the teaching state is checkpointed after each turn.</li>
           <li>4. The learner ends the session. The harness checks the floor (active time and accepted turns), saves the last checkpoint and publishes one message to the evaluation queue.</li>
           <li>5. Grading scores each rubric criterion with the LanguageTool detector and the evaluator. Then, with nobody waiting, the coaching agent calls tools in a few bounded steps and writes a session summary, up to 3 diagnosed issues with 2 to 3 drills each, and a plan for the next session.</li>

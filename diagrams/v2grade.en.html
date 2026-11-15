@@ -5713,7 +5713,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <li>2. The consumer takes 2 messages at a time. A failed job is delivered up to 3 times, then moves through retry buckets with growing delays.</li>
           <li>3. Grading reads the rubric from Curriculum, runs the LanguageTool detector and the evaluator (two attempts, in the background line), and writes the score of each criterion to Service-Session.</li>
           <li>4. With nobody waiting, the coaching agent calls tools in a few bounded steps: the learner&#39;s issue history, the coursebook and mentor-approved feedback. It writes a short session summary, up to 3 diagnosed issues with severity and quotes, 2 to 3 drills for each, and a plan for the next session.</li>
-          <li>5. A match goes straight to the learner. Otherwise a mentor approves or edits the draft first. The learner reads the scores, the issues and the drills; the tutor directive goes into the next session&#39;s profile.</li>
+          <li>5. A match goes straight to the learner. Otherwise a mentor approves or edits the draft first. The learner reads the scores, the issues and the drills; the coaching agent&#39;s plan goes into the next session&#39;s profile.</li>
           <li>6. Every night the eval:tutor suite runs on the machine that has the model. If the fallback rate or the judge score drops past a threshold against the saved baseline, the merge is blocked.</li>
         </ul>
       </div>

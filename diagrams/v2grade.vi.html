@@ -5713,7 +5713,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <li>2. Consumer nhận 2 message một lúc. Job lỗi được giao lại tối đa 3 lần, rồi đi qua các retry bucket với độ trễ tăng dần.</li>
           <li>3. Phần chấm đọc rubric từ Curriculum, chạy LanguageTool detector và evaluator (hai lần thử, trong hàng nền), rồi ghi điểm từng tiêu chí sang Service-Session.</li>
           <li>4. Khi không ai phải chờ, coaching agent gọi tool trong vài bước có giới hạn: lịch sử lỗi của học viên, giáo trình và feedback mentor đã duyệt. Nó viết tóm tắt phiên ngắn, tối đa 3 lỗi được chẩn đoán kèm mức độ và câu trích, 2 tới 3 bài luyện cho mỗi lỗi, và kế hoạch cho phiên sau.</li>
-          <li>5. Nếu khớp thì gửi thẳng cho học viên. Nếu không, mentor duyệt hoặc sửa bản nháp trước. Học viên xem điểm, các lỗi và bài luyện; chỉ thị cho tutor được đưa vào hồ sơ của phiên sau.</li>
+          <li>5. Nếu khớp thì gửi thẳng cho học viên. Nếu không, mentor duyệt hoặc sửa bản nháp trước. Học viên xem điểm, các lỗi và bài luyện; kế hoạch của coaching agent được đưa vào hồ sơ của phiên sau.</li>
           <li>6. Mỗi đêm bộ eval:tutor chạy trên máy có model. Nếu tỉ lệ fallback hoặc điểm judge giảm quá ngưỡng so với baseline đã lưu, merge bị chặn.</li>
         </ul>
       </div>

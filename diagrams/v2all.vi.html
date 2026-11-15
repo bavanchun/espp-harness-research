@@ -5703,7 +5703,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <ul>
           <li>1. Học viên mở phòng luyện nói. Bước kiểm soát vào lớp cấp một chỗ (mỗi học viên một chỗ, giữ 120 s trên Redis). Một máy AI phục vụ 10 học viên nói cùng lúc; quá mức đó, học viên thấy vị trí chờ, cập nhật tới khi có chỗ. Mỗi máy AI thêm vào phục vụ thêm 10 người.</li>
-          <li>2. SessionStartStage tải quyền làm bài, rubric, hồ sơ học viên, tài liệu mentor đã ghim và learner memory, một lần cho mỗi phiên. Mỗi lần tải ghi một span trace riêng.</li>
+          <li>2. SessionStartStage tải quyền làm bài, rubric, hồ sơ học viên, tài liệu mentor đã ghim, learner memory và voice profile, một lần cho mỗi phiên. Mỗi lần tải ghi một span trace riêng.</li>
           <li>3. Mỗi lượt chạy cùng các stage cố định: cổng lọc giọng và chuyển giọng nói thành chữ; judge, Laya và tool chạy song song; một lệnh gọi tutor; rồi đọc từng câu thành giọng nói. Model không bao giờ dừng lại để chọn tool, và trạng thái dạy được checkpoint sau mỗi lượt.</li>
           <li>4. Học viên kết thúc phiên. Harness kiểm tra sàn (thời gian hoạt động và số lượt được nhận), lưu checkpoint cuối và đẩy một message vào hàng đợi chấm.</li>
           <li>5. Phần chấm cho điểm từng tiêu chí rubric bằng LanguageTool detector và evaluator. Sau đó, khi không ai phải chờ, coaching agent gọi tool trong vài bước có giới hạn và viết tóm tắt phiên, tối đa 3 lỗi được chẩn đoán kèm 2 tới 3 bài luyện cho mỗi lỗi, và kế hoạch cho phiên sau.</li>
