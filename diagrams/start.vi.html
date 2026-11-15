@@ -5326,7 +5326,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <rect x="295.4333333333333" y="600" width="229.79999999999998" height="18" rx="3" class="c-mask"/>
           <text x="410.33333333333326" y="610" class="t-edge-emphasis" font-size="11" text-anchor="middle">tín hiệu hồ sơ + 2 phiên gần nhất</text>
         </g>
-        <text data-detail="context" x="247.33333333333331" y="638" class="t-muted" font-size="7"><tspan x="247.33333333333331" dy="0">tiêu chí yếu nhất,</tspan><tspan x="247.33333333333331" dy="11">tối đa 6 lỗi cũ; chỉ</tspan><tspan x="247.33333333333331" dy="11">ở lớp không bật</tspan><tspan x="247.33333333333331" dy="11">tutoring loop</tspan></text>
+        <text data-detail="context" x="247.33333333333331" y="638" class="t-muted" font-size="7"><tspan x="247.33333333333331" dy="0">tiêu chí yếu nhất,</tspan><tspan x="247.33333333333331" dy="11">tối đa 6 lỗi cũ; mọi</tspan><tspan x="247.33333333333331" dy="11">lớp, kể cả lớp bật</tspan><tspan x="247.33333333333331" dy="11">tutoring loop</tspan></text>
         </g>
 
         <g data-edge-from="ss" data-edge-to="hr" data-edge-label="tín hiệu" data-edge-key="8" data-edge-id="m3-1">
@@ -5402,7 +5402,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <rect x="348.23333333333323" y="1184" width="124.19999999999999" height="18" rx="3" class="c-mask"/>
           <text x="410.33333333333326" y="1194" class="t-muted" font-size="11" text-anchor="middle">tín hiệu tutoring</text>
         </g>
-        <text data-detail="context" x="247.33333333333331" y="1222" class="t-muted" font-size="7"><tspan x="247.33333333333331" dy="0">chỉ thị của mentor,</tspan><tspan x="247.33333333333331" dy="11">tiến độ; sau đó loop</tspan><tspan x="247.33333333333331" dy="11">xóa personalization</tspan><tspan x="247.33333333333331" dy="11">block và hồ sơ</tspan></text>
+        <text data-detail="context" x="247.33333333333331" y="1222" class="t-muted" font-size="7"><tspan x="247.33333333333331" dy="0">chỉ thị của mentor,</tspan><tspan x="247.33333333333331" dy="11">tiến độ; tiêu chí yếu</tspan><tspan x="247.33333333333331" dy="11">nhất quyết định</tspan><tspan x="247.33333333333331" dy="11">grammar target nào đi</tspan><tspan x="247.33333333333331" dy="11">trước</tspan></text>
         </g>
 
         <g data-edge-from="ss" data-edge-to="hr" data-edge-label="chỉ thị" data-edge-key="17" data-edge-id="m6-1">
@@ -5765,7 +5765,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <ul>
           <li>Lớp không bật tutoring loop: hồ sơ, memory và tối đa 500 ký tự grounding được đưa vào prompt của tutor.</li>
-          <li>Lớp bật tutoring loop: prompt sinh câu trả lời chỉ có sở thích đã xác minh của lớp, câu học viên nói và nước đi đã chọn. Tài liệu chỉ tới qua từ khóa topic và grammar target.</li>
+          <li>Lớp bật tutoring loop: hồ sơ quyết định target nào đi trước và mức gợi ý ban đầu, nhưng prompt sinh câu trả lời chỉ có sở thích đã xác minh của lớp, câu học viên nói và nước đi đã chọn. Tài liệu chỉ tới qua từ khóa topic và grammar target.</li>
           <li>Trong phiên không tải lại gì; mentor sửa gì thì áp dụng từ phiên sau.</li>
         </ul>
       </div>
@@ -5790,6 +5790,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Nguồn</h3>
         </div>
         <ul>
+          <li>Service-Harness-Ts, branch dev (commit 014d0b6)</li>
           <li>speaking-session.gateway.ts (session.start.v2)</li>
           <li>execute-workflow.service.ts initializeSession</li>
           <li>student-profile-assembler.service.ts · memory-retriever.service.ts · tutoring-loop.service.ts</li>
