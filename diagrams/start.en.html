@@ -5784,7 +5784,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <ul>
           <li>Classes without the tutoring loop: profile, memory and up to 500 characters of grounding go into the tutor prompt.</li>
           <li>Tutoring-loop classes: the profile steers which targets come first and the starting help level, and the reply prompt carries the verified class preferences, the learner&#39;s words and the chosen move. Materials shape it through the topic words and grammar targets.</li>
-          <li>Nothing is reloaded during the session; a change made by a mentor applies to the next session.</li>
+          <li>Most of this is loaded once per session, but the scoped grounding from RAG is fetched again before every turn (refreshScopedGroundingBeforePrompt).</li>
         </ul>
       </div>
 

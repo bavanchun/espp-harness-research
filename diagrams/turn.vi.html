@@ -5794,9 +5794,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <ul>
           <li>SPEAKING_SESSION_V2_ENABLED=true: session.start.v2 và vòng đời v2</li>
           <li>audio.end từ trình duyệt kết thúc lượt</li>
-          <li>BACKGROUND_LLM_ISOLATION_ENABLED=true: việc nền có hàng riêng</li>
+          <li>BACKGROUND_LLM_ISOLATION_ENABLED=true (mặc định tắt trong code): việc nền có hàng riêng</li>
           <li>TUTORING_LOOP_CLASS_IDS: lớp nào có answer judge</li>
-          <li>LAYA_SHADOW_ENABLED=true: Laya gắn nhãn mọi lượt tutoring (container capstone-laya, cổng 8092)</li>
+          <li>LAYA_SHADOW_ENABLED=true (mặc định tắt trong code): Laya gắn nhãn mọi lượt tutoring (container capstone-laya, cổng 8092)</li>
+          <li>TUTOR_STABLE_PROMPT_ENABLED=false: prompt dùng bốn lớp; mặc định cờ này bật nên bốn lớp bị bỏ qua</li>
+          <li>Câu trả lời dạng stream và TTS từng câu trong hình là nhánh companion và legacy; ở tutoring loop, câu trả lời là một lệnh gọi không stream và được gửi TTS một lần</li>
         </ul>
       </div>
 

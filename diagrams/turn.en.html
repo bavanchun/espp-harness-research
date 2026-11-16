@@ -5794,9 +5794,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <ul>
           <li>SPEAKING_SESSION_V2_ENABLED=true: session.start.v2 and the v2 lifecycle</li>
           <li>The browser&#39;s audio.end ends the turn</li>
-          <li>BACKGROUND_LLM_ISOLATION_ENABLED=true: background work has its own line</li>
+          <li>BACKGROUND_LLM_ISOLATION_ENABLED=true (off by default in code): background work has its own line</li>
           <li>TUTORING_LOOP_CLASS_IDS: which classes get the answer judge</li>
-          <li>LAYA_SHADOW_ENABLED=true: Laya labels every tutoring turn (capstone-laya container, port 8092)</li>
+          <li>LAYA_SHADOW_ENABLED=true (off by default in code): Laya labels every tutoring turn (capstone-laya container, port 8092)</li>
+          <li>TUTOR_STABLE_PROMPT_ENABLED=false: the prompt uses the four layers; by default the flag is on and the layers are bypassed</li>
+          <li>The streamed reply and sentence-by-sentence TTS drawn here are the companion and legacy paths; in the tutoring loop the reply is one non-streamed call and goes to TTS once</li>
         </ul>
       </div>
 

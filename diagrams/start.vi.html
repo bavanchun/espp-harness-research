@@ -5784,7 +5784,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <ul>
           <li>Lớp không bật tutoring loop: hồ sơ, memory và tối đa 500 ký tự grounding được đưa vào prompt của tutor.</li>
           <li>Lớp bật tutoring loop: hồ sơ quyết định target nào đi trước và mức gợi ý ban đầu, và prompt sinh câu trả lời mang sở thích đã xác minh của lớp, câu học viên nói và nước đi đã chọn. Tài liệu đi vào qua từ khóa topic và grammar target.</li>
-          <li>Trong phiên không tải lại gì; mentor sửa gì thì áp dụng từ phiên sau.</li>
+          <li>Phần lớn chỉ tải một lần mỗi phiên, nhưng grounding theo phạm vi từ RAG được lấy lại trước mỗi lượt (refreshScopedGroundingBeforePrompt).</li>
         </ul>
       </div>
 
